@@ -4,17 +4,17 @@ from pyramid.config import Configurator
 def index_routes(config):
 	config.add_route('index', '/')
 	config.add_view(
-		'mode.views.index',
+		'modeapp.views.index',
 		route_name = 'index',
-		renderer = 'mode:static/index.mako'
+		renderer = 'modeapp:static/index.mako'
 	)
 
 def collections_routes(config):
 	config.add_route('collections', '/collections')
 	config.add_view(
-		'mode.views.collections',
+		'modeapp.views.collections',
 		route_name = 'collections',
-		renderer = 'mode:static/collections.mako'
+		renderer = 'modeapp:static/collections.mako'
 	)
 
 
