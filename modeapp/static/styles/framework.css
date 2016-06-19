@@ -401,6 +401,13 @@ a{
 	margin-bottom:20px;
 }
 
+.responsive-book-image{
+	width:100%;
+	margin-top: -5px;
+	margin-bottom:-5px;
+	outline : none;
+}
+
 .round-image{
 	border-radius:500px;
 }
@@ -3069,8 +3076,8 @@ table tr:hover td{
     position:absolute;
     width:100%;
     height:100%;
-    margin-bottom:-60px;
-    margin-top:-60px;
+    /*margin-bottom:-60px;
+    margin-top:-60px;*/
 }
 
 .login-page-overlay{
@@ -3120,7 +3127,8 @@ table tr:hover td{
 }
 
 .login-logo{
-    background-image:url(../images/logo.png);
+    /*background-image:url(../images/logo.png);*/
+    background-image:url(../images/modeflip_logo_white.png);
     width:150px;
     height:25px;
     background-size:150px 25px;
