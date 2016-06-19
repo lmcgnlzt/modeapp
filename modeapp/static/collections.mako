@@ -67,8 +67,8 @@
     <div class="snap-drawers">
         <!-- Left Sidebar -->
         <div class="snap-drawer snap-drawer-left">
-            <a href="index.html"><i class="fa fa-home"></i>主页</a>
-            <a href="#"><i class="fa fa-cog"></i>产品</a>
+            <a href="/homepage"><i class="fa fa-home"></i>主页</a>
+            <a href="/collections"><i class="fa fa-cog"></i>产品</a>
             <a href="#" class="selected-item"><i class="fa fa-picture-o"></i>设计师</a>
             <a href="#"><i class="fa fa-pencil"></i>Flip Book</a>
             <a href="#"><i class="fa fa-envelope-o"></i>3D 音乐</a>

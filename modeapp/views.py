@@ -29,10 +29,12 @@ def handshake(params):
 
 def index(request):
 	# echostr = handshake(request.params)
-	print 'INDEX!!!'
+	return {'success' : True}
+
+
+def homepage(request): # remove
 	return {'success' : True}
 
 
 def collections(request):
-	print 'Collections!!!'
 	return {'success' : True}
