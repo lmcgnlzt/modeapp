@@ -54,7 +54,8 @@ body{
 
 .bg1{
     /*background-image:url(../images/pictures/1.jpg);*/
-    background-image:url(../images/background.jpg);
+    /*background-image:url(../images/pictures/background.jpg);*/
+    background-image:url(http://assets.modeflip.com/auth/background.jpg);
     background-position:center center;
 }
 
