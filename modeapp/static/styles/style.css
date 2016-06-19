@@ -1,8 +1,8 @@
 /*---------------------------
 [Template Structure]
 
-Project:	 SlideOut
-Version:	 1.0
+Project:     SlideOut
+Version:     1.0
 Primary Use: Site Template
 Layout:      Responsive
 Platforms:   Mobile & Tablet
@@ -14,20 +14,20 @@ Platforms:   Mobile & Tablet
 /* 1. General */
 
 .hide-content{
-	display:none;
-	position:fixed;
-	background-color:rgba(255,255,255,0);
-	width:100%;
-	height:100%;
-	top:0px;
-	bottom:0px;
-	right:0px;
-	left:80px;
-	z-index:999999;
+    display:none;
+    position:fixed;
+    background-color:rgba(255,255,255,0);
+    width:100%;
+    height:100%;
+    top:0px;
+    bottom:0px;
+    right:0px;
+    left:80px;
+    z-index:999999;
 }
 
 body{
-	height:100%;
+    height:100%;
 }
 
 .disabled{
@@ -39,12 +39,12 @@ body{
 }
 
 .all-elements{
-	position:absolute;
+    position:absolute;
     /*overflow-x:hidden!important;*/
-	width:100%;
-	height:100%;
-	min-height:100%;
-	max-height:100%;
+    width:100%;
+    height:100%;
+    min-height:100%;
+    max-height:100%;
 }
 
 .large-title h2{text-align:center;}
@@ -53,7 +53,8 @@ body{
 /*Backgrounds */
 
 .bg1{
-    background-image:url(../images/pictures/1.jpg);
+    /*background-image:url(../images/pictures/1.jpg);*/
+    background-image:url(../images/background.jpg);
     background-position:center center;
 }
 
@@ -523,23 +524,23 @@ body{
 /*Thumbnails Columns*/
 
 .thumb-clear{
-	height:10px;
-	display:block;
-	width:100%;
+    height:10px;
+    display:block;
+    width:100%;
 }
 
 .thumb-left{
-	line-height:24px;
-	display:block;
-	padding-bottom:10px;
+    line-height:24px;
+    display:block;
+    padding-bottom:10px;
 }
 
 .thumb-left img{
-	width:115px;
-	height:115px;
-	border-radius:115px;
-	float:left;
-	margin-right:20px;
+    width:115px;
+    height:115px;
+    border-radius:115px;
+    float:left;
+    margin-right:20px;
     transition:all 500ms ease;
 }
 
@@ -549,29 +550,29 @@ body{
 }
 
 .thumb-left strong{
-	color:#1a1a1a;
-	display:inline-block;
-	padding-bottom:5px;
-	font-size:16px;
+    color:#1a1a1a;
+    display:inline-block;
+    padding-bottom:5px;
+    font-size:16px;
 }
 
 .thumb-left em{
-	font-style:normal;
+    font-style:normal;
     text-align:justify;
 }
 
 .thumb-right{
-	line-height:24px;
-	display:block;
-	padding-bottom:10px;
+    line-height:24px;
+    display:block;
+    padding-bottom:10px;
 }
 
 .thumb-right img{
-	width:115px;
-	height:115px;
-	border-radius:115px;
-	float:right;
-	margin-left:20px;
+    width:115px;
+    height:115px;
+    border-radius:115px;
+    float:right;
+    margin-left:20px;
     transition:all 500ms ease;
 }
 
@@ -581,47 +582,47 @@ body{
 }
 
 .thumb-right strong{
-	color:#1a1a1a;
-	display:inline-block;
-	padding-top:5px;
-	padding-bottom:5px;
-	font-size:16px;
+    color:#1a1a1a;
+    display:inline-block;
+    padding-top:5px;
+    padding-bottom:5px;
+    font-size:16px;
 }
 
 .thumb-right em{
-	font-style:normal;
+    font-style:normal;
     text-align:justify;
 }
 
 
 @media (min-width:600px){
-	.thumb-left img{
-		width:140px;
-		height:140px;
-		border-radius:150px;
-	}
+    .thumb-left img{
+        width:140px;
+        height:140px;
+        border-radius:150px;
+    }
 
-	.thumb-left em{
-		line-height:28px;
-	}
+    .thumb-left em{
+        line-height:28px;
+    }
 
-	.thumb-left strong{
-		padding-top:10px;
-	}
+    .thumb-left strong{
+        padding-top:10px;
+    }
 
-	.thumb-right img{
-		width:140px;
-		height:140px;
-		border-radius:150px;
-	}
+    .thumb-right img{
+        width:140px;
+        height:140px;
+        border-radius:150px;
+    }
 
-	.thumb-right em{
-		line-height:28px;
-	}
+    .thumb-right em{
+        line-height:28px;
+    }
 
-	.thumb-right strong{
-		padding-top:10px;
-	}
+    .thumb-right strong{
+        padding-top:10px;
+    }
 }
 
 
@@ -630,11 +631,11 @@ body{
 /*////////////////////*/
 
 .staff-item img{
-	/*border-radius:300px;*/
+    /*border-radius:300px;*/
     border-radius:0px!important;
-	max-width:150px;
-	margin-left:auto;
-	margin-right:auto;
+    max-width:150px;
+    margin-left:auto;
+    margin-right:auto;
     transition:all 500ms ease;
     margin-top:10px;
 }
@@ -651,9 +652,9 @@ body{
 }
 
 .staff-item h4{
-	text-align:center;
-	margin-top:22px;
-	font-size:20px;
+    text-align:center;
+    margin-top:22px;
+    font-size:20px;
 }
 
 .staff-item h5{
@@ -670,22 +671,22 @@ body{
 }
 
 .staff-item em{
-	text-align:center;
-	font-size:12px;
-	color:#e34e47;
-	display:block;
-	margin-top:-10px;
-	margin-bottom:10px;
-	font-style:normal;
+    text-align:center;
+    font-size:12px;
+    color:#e34e47;
+    display:block;
+    margin-top:-10px;
+    margin-bottom:10px;
+    font-style:normal;
 }
 
 .staff-item strong{
-	display:block;
-	font-weight:400;
-	text-align:center;
-	padding-left:20px;
-	padding-right:20px;
-	line-height:28px;
+    display:block;
+    font-weight:400;
+    text-align:center;
+    padding-left:20px;
+    padding-right:20px;
+    line-height:28px;
 }
 
 .product-item img{
@@ -732,19 +733,19 @@ body{
 /* Quote Slider */
 
 .quote-slider h4{
-	font-family:'Source Sans Pro', sans-serif;
-	font-size:18px;
-	font-weight:300;
-	width:87%;
-	text-align:center;
-	margin-left:auto;
-	margin-right:auto;
-	line-height:36px;
+    font-family:'Source Sans Pro', sans-serif;
+    font-size:18px;
+    font-weight:300;
+    width:87%;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    line-height:36px;
 }
 
 .quote-slider a{
-	text-align:center;
-	margin-top:20px;
+    text-align:center;
+    margin-top:20px;
 }
 
 
@@ -1272,4 +1273,15 @@ span.old-price {
 
 .morecontent span {
     display: none;
+}
+
+
+
+
+#magazine{
+    width: 800px;
+    height: 400px;
+}
+#magazine .turn-page{
+    background-color:#ccc;
 }

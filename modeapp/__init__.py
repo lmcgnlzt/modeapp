@@ -8,7 +8,7 @@ from pyramid.view import view_config # remove
 
 
 
-@view_config(route_name='auth', renderer='main.mako')
+@view_config(route_name='auth', renderer='auth.mako')
 def login_view(request): # remove
     # login = request.params.get('login')
     password = request.params.get('password')
