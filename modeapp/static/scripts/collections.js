@@ -103,7 +103,9 @@ function activate(data) {
 	  owlStaffControls.trigger('owl.prev');
 	  return false;
 	});
-	$("#staff-slider-"+did+" .experience-gallery").swipebox();
+	$("#staff-slider-"+did+" .experience-gallery").swipebox({
+		hideBarsDelay : 0 // 0 to always show caption and action bar
+	});
 
 	// signature picture
 	$("#sig_pic_"+did).slick({
@@ -249,7 +251,9 @@ function enable_widgets(did) {
 	  owlStaffControls.trigger('owl.prev');
 	  return false;
 	});
-	$("#staff-slider-"+did+" .experience-gallery").swipebox();
+	$("#staff-slider-"+did+" .experience-gallery").swipebox({
+		hideBarsDelay : 0 // 0 to always show caption and action bar
+	});
 
 	// signature picture
 	$("#sig_pic_"+did).slick({
