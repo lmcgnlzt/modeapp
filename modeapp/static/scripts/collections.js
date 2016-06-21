@@ -9,7 +9,7 @@ $(window).load(function() {
 
 
 var CONFIG = (function() {
-    var BASE_URL = 'http://0.0.0.0:6543'; //shared variable available only inside module
+    var BASE_URL = '/api'; //shared variable available only inside module
     var DID = 0;
     // var DIDS = [];
     var DIDS = [1, 2, 3, 4];
@@ -188,7 +188,7 @@ function activate(data) {
 
 function load() {
 	var did = CONFIG.get_next_did();
-	$.getJSON(CONFIG.get_base_url().concat("/designers/", did), function(data) {
+	$.getJSON(CONFIG.get_base_url().concat("/designers"), {did : did}, function(data) {
 	    var html = Mustache.to_html($('#col_temp').html(), data);
 
 	    $('#designer'+did).hide().html(html).fadeIn('slow').promise().done(function(){
@@ -203,11 +203,6 @@ function load() {
 	    }
 	});
 }
-
-
-
-
-
 
 
 
@@ -281,7 +276,6 @@ function enable_widgets(did) {
 
 	// adaptive controls
 	$('.portfolio-adaptive-'+did).each(function(i, obj) {
-		// console.log(i);
 		var cid = i;
 		$('#adaptive-one-activate-'+did+'-'+cid).click(function() {
 			$('#portfolio-adaptive-'+did+'-'+cid).removeClass('adaptive-three');
@@ -291,7 +285,6 @@ function enable_widgets(did) {
 			$('#adaptive-two-activate-'+did+'-'+cid+', #adaptive-three-activate-'+did+'-'+cid).removeClass('active-adaptive-style');
 			return false;
 		});
-		// console.log('#adaptive-one-activate-'+did+'-'+cid);
 
 		$('#adaptive-two-activate-'+did+'-'+cid).click(function() {
 			$('#portfolio-adaptive-'+did+'-'+cid).removeClass('adaptive-three');
@@ -301,7 +294,6 @@ function enable_widgets(did) {
 			$('#adaptive-three-activate-'+did+'-'+cid+', #adaptive-one-activate-'+did+'-'+cid).removeClass('active-adaptive-style');
 			return false;
 		});
-		// console.log('#adaptive-two-activate-'+did+'-'+cid);
 
 		$('#adaptive-three-activate-'+did+'-'+cid).click(function() {
 			$('#portfolio-adaptive-'+did+'-'+cid).addClass('adaptive-three');
@@ -311,89 +303,17 @@ function enable_widgets(did) {
 			$('#adaptive-two-activate-'+did+'-'+cid+', #adaptive-one-activate-'+did+'-'+cid).removeClass('active-adaptive-style');
 			return false;
 		});
-		// console.log('#adaptive-three-activate-'+did+'-'+cid);
 
 		var prefix = 'garment_'.concat(did, '_', cid, '_');
-		// console.log(prefix);
 		$("div[id^='" + prefix + "']").each(function(j, gar) {
 			var gid = j;
 			$('#garment_'.concat(did, '_', cid, '_', gid) + ' .garment_swiper').swipebox({
 				useCSS : true, // false will force the use of jQuery for animations
 				hideBarsDelay : 0 // 0 to always show caption and action bar
 			});
-			// console.log('#garment_'.concat(did, '_', cid, '_', gid));
 		});
 	});
 
-
-	// // garment swipebox
- //    $.each(data.collections, function(i, collection) {
- //    	var cid = collection.cid;
- //    	$.each(collection.garments, function(j, garment) {
- //    		var gid = garment.gid;
- //    		$('#garment_'.concat(did, '_', cid, '_', gid) + ' .garment_swiper').swipebox({
-	// 			useCSS : true, // false will force the use of jQuery for animations
-	// 			hideBarsDelay : 0 // 0 to always show caption and action bar
-	// 		});
- //    	});
- //    });
-
-
-	// // adaptive controls
-	// $.each(data.collections, function(i, collection) {
-	// 	var cid = collection.cid;
-	// 	$('#adaptive-one-activate-'+did+'-'+cid).click(function() {
-	// 		$('#portfolio-adaptive-'+did+'-'+cid).removeClass('adaptive-three');
-	// 		$('#portfolio-adaptive-'+did+'-'+cid).removeClass('adaptive-two');
-	// 		$('#portfolio-adaptive-'+did+'-'+cid).addClass('adaptive-one');
-	// 		$(this).addClass('active-adaptive-style');
-	// 		$('#adaptive-two-activate-'+did+'-'+cid+', #adaptive-three-activate-'+did+'-'+cid).removeClass('active-adaptive-style');
-	// 		return false;
-	// 	});
-
-	// 	$('#adaptive-two-activate-'+did+'-'+cid).click(function() {
-	// 		$('#portfolio-adaptive-'+did+'-'+cid).removeClass('adaptive-three');
-	// 		$('#portfolio-adaptive-'+did+'-'+cid).addClass('adaptive-two');
-	// 		$('#portfolio-adaptive-'+did+'-'+cid).removeClass('adaptive-one');
-	// 		$(this).addClass('active-adaptive-style');
-	// 		$('#adaptive-three-activate-'+did+'-'+cid+', #adaptive-one-activate-'+did+'-'+cid).removeClass('active-adaptive-style');
-	// 		return false;
-	// 	});
-
-	// 	$('#adaptive-three-activate-'+did+'-'+cid).click(function() {
-	// 		$('#portfolio-adaptive-'+did+'-'+cid).addClass('adaptive-three');
-	// 		$('#portfolio-adaptive-'+did+'-'+cid).removeClass('adaptive-two');
-	// 		$('#portfolio-adaptive-'+did+'-'+cid).removeClass('adaptive-one');
-	// 		$(this).addClass('active-adaptive-style');
-	// 		$('#adaptive-two-activate-'+did+'-'+cid+', #adaptive-one-activate-'+did+'-'+cid).removeClass('active-adaptive-style');
-	// 		return false;
-	// 	});
-
-	// });
-
-	// // garment swipebox
- //    $.each(data.collections, function(i, collection) {
- //    	var cid = collection.cid;
- //    	$.each(collection.garments, function(j, garment) {
- //    		var gid = garment.gid;
- //    		$('#garment_'.concat(did, '_', cid, '_', gid) + ' .garment_swiper').swipebox({
-	// 			useCSS : true, // false will force the use of jQuery for animations
-	// 			hideBarsDelay : 0 // 0 to always show caption and action bar
-	// 		});
- //    	});
- //    });
-
- //    //Sharebox Settings//
- //    var snapper = new Snap({
-	//   element: document.getElementById('content')
-	// });
- //    $('.show-share-bottom').click(function(){
-	// 	$('.hide-content').fadeOut(250);
- //       $('.share-bottom').toggleClass('active-share-bottom');
- //        $('.header, .footer-ball').removeClass('hide-header-left');
- //        snapper.close();
- //        return false;
- //    });
 }
 
 
@@ -418,7 +338,6 @@ $(document).ready(function() {
 	});
 
 	var did = CONFIG.get_next_did();
-	console.log(did);
 	enable_widgets(did);
 
 

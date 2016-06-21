@@ -50,6 +50,16 @@ def collections_routes(config):
 	)
 
 
+def api_routes(config):
+	config.add_route('api', '/api/designers')
+	config.add_view(
+		'modeapp.views.api',
+		route_name = 'api',
+		request_method='GET',
+		renderer = 'json'
+	)
+
+
 def main(global_config, **settings):
     """ This function returns a Pyramid WSGI application.
     """
@@ -67,6 +77,7 @@ def main(global_config, **settings):
     # config.include(index_routes)
     config.include(home_routes) # remove
     config.include(collections_routes)
+    config.include(api_routes)
 
     static_dir = settings.get('static_directory')
     config.add_static_view('images', static_dir + '/images')
