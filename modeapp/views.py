@@ -11,7 +11,7 @@ from wechat_sdk import WechatBasic
 # def my_view(request):
 #     return {'project': 'mode'}
 
-api_requester = ApiRequester('http://0.0.0.0:6543')
+api_requester = ApiRequester('http://127.0.0.1:6543')
 
 
 
@@ -44,4 +44,10 @@ def homepage(request): # remove
 
 def collections(request):
 	r = api_requester.get('/designers/1')
+	return r.json()
+
+
+def api(request):
+	did = int(request.params['did'])
+	r = api_requester.get('/designers/%s' % did)
 	return r.json()
