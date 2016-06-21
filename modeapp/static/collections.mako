@@ -196,6 +196,130 @@
 
 
         <div id="mainbody" class="content">
+            <div id='designer${did}'>
+
+            <img src="${profile_images.get('image_url')}" alt="img" class="responsive-image">
+
+            <div class="one-half-responsive last-column">
+                <div id="experience_${did}">
+                    <!-- {{#experience_content.brands}} -->
+                    % for url in experience_content.get('brands'):
+                        <!-- <div><img class="homescreen-responsive-image" src="{{.}}"></div> -->
+                        <div><img class="homescreen-responsive-image" src="${url}"></div>
+                    % endfor
+                    <!-- {{/experience_content.brands}} -->
+                </div>
+            </div>
+
+            <div id="bio_${did}" class="left-if-mobile no-bottom">
+                ${bio}
+            </div>
+
+            <div class="empty-space"></div>
+            <div class="decoration"></div>
+
+            <h4>作品浏览</h4>
+            <a id="next-staff-${did}" href="#" class="next-staff"></a>
+            <a id="prev-staff-${did}" href="#" class="prev-staff"></a>
+
+            <!-- {{#experience_content}} -->
+            <div id="staff-slider-${did}" class="staff-slider" data-snap-ignore="true">
+                % for page in experience_content.get('pages'):
+                <!-- {{#pages}} -->
+                <div class="staff-item">
+                    <div class="homescreen-gallery square-thumbs" data-snap-ignore="true">
+                        <!-- {{#pics}} -->
+                        % for pic in page.get('pics'):
+                        <!-- <a href="{{image}}" class="homescreen-scale-hover experience-gallery" title="{{title}}"> -->
+                        <a href="${pic.get('image')}" class="homescreen-scale-hover experience-gallery" title="${pic.get('title')}">
+                            <img class="homescreen-responsive-image" src="${pic.get('thumbnail')}" alt="img">
+                        </a>
+                        <!-- {{/pics}} -->
+                        % endfor
+                    </div>
+                </div>
+                <!-- {{/pages}} -->
+                % endfor
+            </div>
+            <!-- {{/experience_content}} -->
+            <div class="empty-space"></div>
+            <div class="decoration"></div>
+
+
+
+
+            <!-- {{#collections}} -->
+            % for col_index, collection in enumerate(collections):
+            <div class="staff-item">
+                <h4>${collection.get('title')}</h4>
+            </div>
+            % if collection.get('new_arrival'):
+            <!-- {{#new_arrival}} -->
+            <div id="sig_pic_${did}" class="exclusive-slider" data-snap-ignore="true">
+                % for pic in collection.get('signatrue_pics'):
+                <!-- {{#signatrue_pics}} -->
+                <div>
+                    <img src="${pic}" class="responsive-image" alt="img">
+                </div>
+                <!-- {{/signatrue_pics}} -->
+                % endfor
+            </div>
+            % for video in collection.get('signatrue_videos'):
+            <!-- {{#signatrue_videos}} -->
+            <div class="history_videos">
+                <video id="sig_video_${did}" poster="${video.get('thumbnail')}" width="100%" height="100%" controls="controls" preload="none">
+                    <source src="${video.get('url')}" type="video/mp4">
+                </video>
+            </div>
+            <div class="decoration"></div>
+            <div class="empty-space"></div>
+            <!-- {{/signatrue_videos}} -->
+            % endfor
+            <!-- {{/new_arrival}} -->
+            % endif
+            <div class="adaptive-style">
+                <a id="adaptive-three-activate-${did}-${col_index}" class="adaptive-three-activate" href="#"><i class="fa fa-th"></i></a>
+                <a id="adaptive-two-activate-${did}-${col_index}" class="adaptive-two-activate" href="#"><i class="fa fa-th-large"></i></a>
+                <a id="adaptive-one-activate-${did}-${col_index}" class="adaptive-one-activate active-adaptive-style" href="#"><i class="fa fa-navicon"></i></a>
+            </div>
+            <div id="portfolio-adaptive-${did}-${col_index}" class="portfolio-adaptive-${did} adaptive-one">
+                % for gar_index, garment in enumerate(collection.get('garments')):
+                <!-- {{#garments}} -->
+                <div id="garment_${did}_${col_index}_${gar_index}" class="adaptive-item">
+                    <!-- {{#pic}} -->
+                    <a href="${garment.get('pic').get('image')}" class="garment_swiper" title="${garment.get('pic').get('title')}">
+                        <img class="responsive-image" src="${garment.get('pic').get('thumbnail')}" alt="img">
+                    </a>
+                    <!-- {{/pic}} -->
+                    <div style="display: none;">
+                        % for pic in garment.get('more_pics'):
+                        <!-- {{#more_pics}} -->
+                        <a href="${pic.get('image')}" class="garment_swiper" title="${pic.get('title')}"></a>
+                        <!-- {{/more_pics}} -->
+                        % endfor
+                    </div>
+                    <p class="category-title">
+                        <a href="{{shop_link}}" class="badge-cart"><i class="fa fa-shopping-cart"></i></a>
+                        <a href="#" class="badge-share show-share-bottom color-red-dark"><i class="fa fa-heart"></i></a>
+                    </p>
+                </div>
+                <!-- {{/garments}} -->
+                % endfor
+
+            </div>
+            <div class="decoration"></div>
+            <!-- {{/collections}} -->
+            % endfor
+
+            </div>
+
+            <div id='designer2'></div>
+
+            <div id='designer3'></div>
+
+            <div id='designer4'></div>
+
+
         </div>
 
         <div id="loaderbtn">

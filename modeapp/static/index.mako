@@ -106,7 +106,7 @@
                 <div class="clear"></div>
                 <div class="row">
                     <div class="shopbox">
-                        <a href="#">
+                        <a href="/collections">
                             <img src="http://assets.modeflip.com/index/garment.jpg" alt="" />
                             <h3>产品</h3>
                         </a>
