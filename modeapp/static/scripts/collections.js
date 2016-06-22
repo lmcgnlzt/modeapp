@@ -313,7 +313,7 @@ function enable_widgets(did) {
 		$("div[id^='" + prefix + "']").each(function(j, gar) {
 			var gid = j;
 			$('#garment_'.concat(did, '_', cid, '_', gid) + ' .garment_swiper').swipebox({
-				// useCSS : true, // false will force the use of jQuery for animations
+				useCSS : false, // false will force the use of jQuery for animations
 				hideBarsDelay : 0 // 0 to always show caption and action bar
 			});
 		});
