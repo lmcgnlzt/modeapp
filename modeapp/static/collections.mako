@@ -101,7 +101,9 @@
     <div class="empty-space"></div>
     {{/signatrue_videos}}
     {{/new_arrival}}
-    <div class="adaptive-style">
+
+
+    <!-- <div class="adaptive-style">
         <a id="adaptive-three-activate-{{did}}-{{cid}}" class="adaptive-three-activate" href="#"><i class="fa fa-th"></i></a>
         <a id="adaptive-two-activate-{{did}}-{{cid}}" class="adaptive-two-activate" href="#"><i class="fa fa-th-large"></i></a>
         <a id="adaptive-one-activate-{{did}}-{{cid}}" class="adaptive-one-activate active-adaptive-style" href="#"><i class="fa fa-navicon"></i></a>
@@ -128,7 +130,66 @@
 
     </div>
     <div class="decoration"></div>
-    {{/collections}}
+    {{/collections}} -->
+
+    <!-- <div class="portfolio-one">
+        <div class="portfolio-one-item full-bottom">
+            <div class="portfolio-one-image">
+                <a href="images/pictures/3.jpg" class="swipeboxtest" title="Caption Here">
+                    <i class="fa fa-plus"></i>
+                </a>
+                <img src="images/pictures/3.jpg" class="responsive-image">
+            </div>
+            <div class="portfolio-one-text">
+                <h3 class="title">990</h3>
+                <em class="subtitle">Awesome one column portfolio</em>
+                <div class="portfolio-one-details">
+                    <a href="#">10 September 2055</a>
+                    <a href="#">Mobile</a>
+                    <a href="#">Envato Item</a>
+                </div>
+                <p class="half-bottom">
+                    Lorem ipsum dolor sit amet, consectetur est adipiscing elit. Pellentesque lacus ex,
+                    sollid um facilisis elementum quis, vulputate nec urna. In scelerisque tincidunt
+                    enim, eutsmax.
+                </p>
+                <div class="portfolio-one-links">
+                    <a href="#"><i class="fa fa-shopping-cart"></i> 点击购买</a>
+                    <a href="#">Details <i class="fa fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="decoration"></div>
+        <div class="portfolio-one-item full-bottom">
+            <div class="portfolio-one-image">
+                <a href="images/pictures/5.jpg" class="swipeboxtest" title="Caption Here">
+                    <i class="fa fa-plus"></i>
+                </a>
+                <img src="images/pictures/5.jpg" class="responsive-image">
+            </div>
+            <div class="portfolio-one-text">
+                <h3 class="title">990</h3>
+                <em class="subtitle">Awesome one column portfolio</em>
+                <div class="portfolio-one-details">
+                    <a href="#">10 September 2055</a>
+                    <a href="#">Mobile</a>
+                    <a href="#">Envato Item</a>
+                </div>
+                <p class="half-bottom">
+                    Lorem ipsum dolor sit amet, consectetur est adipiscing elit. Pellentesque lacus ex,
+                    sollid um facilisis elementum quis, vulputate nec urna. In scelerisque tincidunt
+                    enim, eutsmax.
+                </p>
+                <div class="portfolio-one-links">
+                    <a href="#"><i class="fa fa-shopping-cart"></i> 点击购买</a>
+                    <a href="#">Details <i class="fa fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+    <div class="decoration"></div> -->
+
+
+
 
 </script>
 
@@ -246,9 +307,6 @@
             <div class="decoration"></div>
 
 
-
-
-            <!-- {{#collections}} -->
             % for col_index, collection in enumerate(collections):
             <div class="staff-item">
                 <h4>${collection.get('title')}</h4>
@@ -277,39 +335,69 @@
             % endfor
             <!-- {{/new_arrival}} -->
             % endif
-            <div class="adaptive-style">
-                <a id="adaptive-three-activate-${did}-${col_index}" class="adaptive-three-activate" href="#"><i class="fa fa-th"></i></a>
-                <a id="adaptive-two-activate-${did}-${col_index}" class="adaptive-two-activate" href="#"><i class="fa fa-th-large"></i></a>
-                <a id="adaptive-one-activate-${did}-${col_index}" class="adaptive-one-activate active-adaptive-style" href="#"><i class="fa fa-navicon"></i></a>
-            </div>
-            <div id="portfolio-adaptive-${did}-${col_index}" class="portfolio-adaptive-${did} adaptive-one">
+            <div id="collection_${did}_${col_index}" class="portfolio-one">
+
                 % for gar_index, garment in enumerate(collection.get('garments')):
-                <!-- {{#garments}} -->
-                <div id="garment_${did}_${col_index}_${gar_index}" class="adaptive-item">
-                    <!-- {{#pic}} -->
-                    <a href="${garment.get('pic').get('image')}" class="garment_swiper" title="${garment.get('pic').get('title')}">
-                        <img class="responsive-image" src="${garment.get('pic').get('thumbnail')}" alt="img">
-                    </a>
-                    <!-- {{/pic}} -->
-                    <div style="display: none;">
-                        % for pic in garment.get('more_pics'):
-                        <!-- {{#more_pics}} -->
-                        <a href="${pic.get('image')}" class="garment_swiper" title="${pic.get('title')}"></a>
-                        <!-- {{/more_pics}} -->
-                        % endfor
+                <div id="garment_${did}_${col_index}_${gar_index}" class="portfolio-one-item full-bottom">
+                    <div class="portfolio-one-image">
+                        <a href="${garment.get('pic').get('image')}" class="garment_swiper" title="${garment.get('pic').get('title')}">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                        <img src="${garment.get('pic').get('image')}" class="responsive-image">
+                        <div style="display: none;">
+                            % for pic in garment.get('more_pics'):
+                            <a href="${pic.get('image')}" class="garment_swiper" title="${pic.get('title')}"></a>
+                             % endfor
+                        </div>
                     </div>
-                    <p class="category-title">
-                        <a href="{{shop_link}}" class="badge-cart"><i class="fa fa-shopping-cart"></i></a>
-                        <a href="#" class="badge-share show-share-bottom color-red-dark"><i class="fa fa-heart"></i></a>
-                    </p>
+                    <div class="portfolio-one-text">
+                        <div class="portfolio-one-details">
+                            <a>${garment.get('pic').get('title')}</a>
+                            <a><i class="fa fa-jpy"></i>&nbsp;990</a>
+                            <div class="portfolio-two-links">
+                                <a href="#"><i class="fa fa-shopping-cart"></i> 点击购买</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- {{/garments}} -->
                 % endfor
+
 
             </div>
             <div class="decoration"></div>
-            <!-- {{/collections}} -->
             % endfor
+
+
+
+
+            <!-- <div class="portfolio-one">
+                <div class="portfolio-one-item full-bottom">
+                    <div class="portfolio-one-image">
+                        <a href="images/resources/sophia/collections/201607/garments/1/pre1.jpg" class="swipeboxtest" title="蕾丝花边裙">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                        <img src="images/resources/sophia/collections/201607/garments/1/pre1.jpg" class="responsive-image">
+                        <div style="display: none;">
+                            <a href="images/resources/sophia/collections/201607/garments/1/details/1.jpg" class="swipeboxtest" title="111"></a>
+                            <a href="images/resources/sophia/collections/201607/garments/1/details/2.jpg" class="swipeboxtest" title="222"></a>
+                            <a href="images/resources/sophia/collections/201607/garments/1/details/3.jpg" class="swipeboxtest" title="333"></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-one-text">
+                        <div class="portfolio-one-details">
+                            <a>蕾丝花边裙</a>
+                            <a><i class="fa fa-jpy"></i>&nbsp;990</a>
+                            <div class="portfolio-two-links">
+                                <a href="#"><i class="fa fa-shopping-cart"></i> 点击购买</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="decoration"></div>
+            </div> -->
+
+
+
 
             </div>
 
@@ -322,9 +410,9 @@
 
         </div>
 
-        <div id="loaderbtn">
+        <!-- <div id="loaderbtn">
             <a id="loadmore" href="#" class="button center-button button-dark full-bottom detected-button"><i id="loadgif" class="fa fa-arrow-down"></i>加载更多</a>
-        </div>
+        </div> -->
 
 
         <!-- Page Footer-->

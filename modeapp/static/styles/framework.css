@@ -2408,14 +2408,24 @@ table tr:hover td{
 
 .portfolio-one-details a{
 	opacity:0.5;
+	color:#000000;
+	display:inline-block;
+	padding-right:10px;
+	padding-left:10px;
+	margin-bottom:5px;
+	margin-top:15px;
+	font-size:15px;
+}
+
+/*.portfolio-one-details a{
 	color:#666666;
 	display:inline-block;
 	padding-right:10px;
 	padding-left:10px;
 	margin-bottom:5px;
-	margin-top:10px;
-	font-size:11px;
-}
+	margin-top:20px;
+	font-size:15px;
+}*/
 
 .portfolio-one-details a:first-child{
 	padding-left:0px!important;
@@ -2423,7 +2433,7 @@ table tr:hover td{
 
 .portfolio-one-details a:nth-child(2){
 	border-left:solid 1px #cacaca;
-	border-right:solid 1px #cacaca;
+	/*border-right:solid 1px #cacaca;*/
 }
 
 .portfolio-one-links a:last-child i{
@@ -2529,8 +2539,8 @@ table tr:hover td{
 }
 
 .portfolio-two-links a{
-	color:#666666;
-	opacity:0.6;
+	color:#000000;
+	/*opacity:0.6;*/
 }
 
 .portfolio-two-links a:first-child{
@@ -2544,7 +2554,7 @@ table tr:hover td{
 
 .portfolio-two-links a:last-child{
 	float:right;
-	font-size:12px;
+	font-size:13px;
 }
 
 .portfolio-two-details a{
