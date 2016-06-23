@@ -365,16 +365,16 @@ $(document).ready(function() {
 	    $(this).lightGallery({
 	        dynamic: true,
 	        dynamicEl: [{
-	            "src": 'images/resources/sophia/collections/201607/garments/1/pre1.jpg',
-	            'thumb': 'images/resources/sophia/collections/201607/garments/1/pre1.jpg',
+	            "src": 'http://assets.modeflip.com/sophia/collections/201606/garments/1/details/1.jpg',
+	            'thumb': 'http://assets.modeflip.com/sophia/collections/201606/garments/1/details/1.jpg',
 	            'subHtml': '<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>'
 	        }, {
-	            'src': 'images/resources/sophia/collections/201607/garments/1/details/1.jpg',
-	            'thumb': 'images/resources/sophia/collections/201607/garments/1/details/1.jpg',
+	            'src': 'http://assets.modeflip.com/sophia/collections/201606/garments/1/details/2.jpg',
+	            'thumb': 'http://assets.modeflip.com/sophia/collections/201606/garments/1/details/2.jpg',
 	            'subHtml': "<h4>Bowness Bay</h4><p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy I was passing the right place at the right time....</p>"
 	        }, {
-	            'src': 'images/resources/sophia/collections/201607/garments/1/details/2.jpg',
-	            'thumb': 'images/resources/sophia/collections/201607/garments/1/details/12.jpg',
+	            'src': 'http://assets.modeflip.com/sophia/collections/201606/garments/1/details/3.jpg',
+	            'thumb': 'http://assets.modeflip.com/sophia/collections/201606/garments/1/details/3.jpg',
 	            'subHtml': "<h4>Coniston Calmness</h4><p>Beautiful morning</p>"
 	        }]
 	    })
