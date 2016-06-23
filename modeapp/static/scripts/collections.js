@@ -1,3 +1,7 @@
+function load_gallery(did, cid, gid) {
+	load_images(did, cid, gid);
+}
+
 
 (function ($) {
 
@@ -208,8 +212,6 @@ function load() {
 
 
 
-
-
 function enable_widgets(did) {
 	// experience brand logos
 	$('#experience_'+did).slick({
@@ -318,18 +320,19 @@ function enable_widgets(did) {
 	// 		return false;
 	// 	});
 
-	var col_prefix = 'collection_'.concat(did, '_');
-	$("div[id^='" + col_prefix + "']").each(function(i, obj) {
-		var cid = i;
-		var gar_prefix = 'garment_'.concat(did, '_', cid, '_');
-		$("div[id^='" + gar_prefix + "']").each(function(j, gar) {
-			var gid = j;
-			$('#garment_'.concat(did, '_', cid, '_', gid) + ' .garment_swiper').swipebox({
-				// useCSS : true, // false will force the use of jQuery for animations
-				hideBarsDelay : 0 // 0 to always show caption and action bar
-			});
-		});
-	});
+
+	// var col_prefix = 'collection_'.concat(did, '_');
+	// $("div[id^='" + col_prefix + "']").each(function(i, obj) {
+	// 	var cid = i;
+	// 	var gar_prefix = 'garment_'.concat(did, '_', cid, '_');
+	// 	$("div[id^='" + gar_prefix + "']").each(function(j, gar) {
+	// 		var gid = j;
+	// 		$('#garment_'.concat(did, '_', cid, '_', gid) + ' .garment_swiper').swipebox({
+	// 			// useCSS : true, // false will force the use of jQuery for animations
+	// 			hideBarsDelay : 0 // 0 to always show caption and action bar
+	// 		});
+	// 	});
+	// });
 
 }
 
@@ -358,28 +361,69 @@ $(document).ready(function() {
 	enable_widgets(did);
 
 
-	// $('#lightgallery').lightGallery();
+	window.load_images = function(did, cid, gid) {
+		// alert(''.concat(did, cid, gid));  use AJAX to get data and run below
 
-	$('#dynamic').on('click', function() {
+		$(this).on('onBeforeOpen.lg',function(event){
+			$('#red-footer-ball').hide();
+		});
+
+		$(this).on('onCloseAfter.lg',function(event){
+		    $('#red-footer-ball').show();
+		});
 
 	    $(this).lightGallery({
 	        dynamic: true,
+	        download: false,
+	        thumbWidth: 70,
 	        dynamicEl: [{
 	            "src": 'http://assets.modeflip.com/sophia/collections/201606/garments/1/details/1.jpg',
 	            'thumb': 'http://assets.modeflip.com/sophia/collections/201606/garments/1/details/1.jpg',
-	            'subHtml': '<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>'
+	            'subHtml': '<p>镂空两件套裙111</p>'
 	        }, {
 	            'src': 'http://assets.modeflip.com/sophia/collections/201606/garments/1/details/2.jpg',
 	            'thumb': 'http://assets.modeflip.com/sophia/collections/201606/garments/1/details/2.jpg',
-	            'subHtml': "<h4>Bowness Bay</h4><p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy I was passing the right place at the right time....</p>"
+	            'subHtml': '<p>镂空两件套裙222</p>'
 	        }, {
 	            'src': 'http://assets.modeflip.com/sophia/collections/201606/garments/1/details/3.jpg',
 	            'thumb': 'http://assets.modeflip.com/sophia/collections/201606/garments/1/details/3.jpg',
-	            'subHtml': "<h4>Coniston Calmness</h4><p>Beautiful morning</p>"
+	            'subHtml': "<p>镂空两件套裙333</p>"
 	        }]
 	    })
+	}
 
-	});
+
+
+	// $('#dynamic').on('click', function() {
+
+	// 	$(this).on('onBeforeOpen.lg',function(event){
+	// 		$('#red-footer-ball').hide();
+	// 	});
+
+	// 	$(this).on('onCloseAfter.lg',function(event){
+	// 	    $('#red-footer-ball').show();
+	// 	});
+
+	//     $(this).lightGallery({
+	//         dynamic: true,
+	//         download: false,
+	//         thumbWidth: 70,
+	//         dynamicEl: [{
+	//             "src": 'http://assets.modeflip.com/sophia/collections/201606/garments/1/details/1.jpg',
+	//             'thumb': 'http://assets.modeflip.com/sophia/collections/201606/garments/1/details/1.jpg',
+	//             'subHtml': '<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>'
+	//         }, {
+	//             'src': 'http://assets.modeflip.com/sophia/collections/201606/garments/1/details/2.jpg',
+	//             'thumb': 'http://assets.modeflip.com/sophia/collections/201606/garments/1/details/2.jpg',
+	//             'subHtml': "<h4>Bowness Bay</h4><p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy I was passing the right place at the right time....</p>"
+	//         }, {
+	//             'src': 'http://assets.modeflip.com/sophia/collections/201606/garments/1/details/3.jpg',
+	//             'thumb': 'http://assets.modeflip.com/sophia/collections/201606/garments/1/details/3.jpg',
+	//             'subHtml': "<h4>Coniston Calmness</h4><p>Beautiful morning</p>"
+	//         }]
+	//     })
+
+	// });
 
 
 
