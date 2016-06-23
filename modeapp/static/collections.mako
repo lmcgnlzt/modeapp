@@ -344,11 +344,11 @@
                             <i class="fa fa-plus"></i>
                         </a>
                         <img src="${garment.get('pic').get('image')}" class="responsive-image">
-                        <div style="display: none;">
+                        <!-- <div style="display: none;">
                             % for pic in garment.get('more_pics'):
                             <a href="${pic.get('image')}" class="garment_swiper" title="${pic.get('title')}"></a>
                              % endfor
-                        </div>
+                        </div> -->
                     </div>
                     <div class="portfolio-one-text">
                         <div class="portfolio-one-details">
