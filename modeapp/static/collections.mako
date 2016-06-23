@@ -28,7 +28,7 @@
 <link href="styles/slick.css"            rel="stylesheet" type="text/css">
 <link href="styles/jquery.videocontrols.css"   rel="stylesheet" type="text/css">
 
-<link href="styles/lightGallery.css"   rel="stylesheet" type="text/css">
+<link href="styles/lightgallery.css"   rel="stylesheet" type="text/css">
 
 <script type="text/javascript" src="scripts/jquery.js"></script>
 <script type="text/javascript" src="scripts/jqueryui.js"></script>
