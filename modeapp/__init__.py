@@ -11,11 +11,11 @@ from pyramid.view import view_config # remove
 @view_config(route_name='auth', renderer='auth.mako')
 def login_view(request): # remove
     password = request.params.get('password')
-    if request.method == 'POST':
-        if password == '2016':
-            return render_to_response('modeapp:static/index.mako', {}, request=request)
-    return {}
-    # return render_to_response('modeapp:static/index.mako', {}, request=request)
+    # if request.method == 'POST':
+    #     if password == '2016':
+    #         return render_to_response('modeapp:static/index.mako', {}, request=request)
+    # return {}
+    return render_to_response('modeapp:static/index.mako', {}, request=request)
 
 
 
