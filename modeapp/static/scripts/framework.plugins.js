@@ -164,15 +164,16 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
                             e.getPrev()
                         } else if (t <= -r) {
                             e.getNext()
-                        } else {
-                            if (!o.hasClass("visible-bars")) {
-                                e.showBars();
-                                e.setTimeout()
-                            } else {
-                                e.clearTimeout();
-                                e.hideBars()
-                            }
                         }
+                        // else {
+                        //     if (!o.hasClass("visible-bars")) {
+                        //         e.showBars();
+                        //         e.setTimeout()
+                        //     } else {
+                        //         e.clearTimeout();
+                        //         e.hideBars()
+                        //     }
+                        // }
                         n(".touching").off("touchmove").removeClass("touching")
                     })
                 }
@@ -207,20 +208,20 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
                 }
             },
             hideBars: function() {
-                var e = n("#swipebox-caption, #swipebox-action");
-                if (this.doCssTrans()) {
-                    e.removeClass("visible-bars")
-                } else {
-                    n("#swipebox-caption").animate({
-                        top: "-50px"
-                    }, 500);
-                    n("#swipebox-action").animate({
-                        bottom: "-50px"
-                    }, 500);
-                    setTimeout(function() {
-                        e.removeClass("visible-bars")
-                    }, 1e3)
-                }
+                // var e = n("#swipebox-caption, #swipebox-action");
+                // if (this.doCssTrans()) {
+                //     e.removeClass("visible-bars")
+                // } else {
+                //     n("#swipebox-caption").animate({
+                //         top: "-50px"
+                //     }, 500);
+                //     n("#swipebox-action").animate({
+                //         bottom: "-50px"
+                //     }, 500);
+                //     setTimeout(function() {
+                //         e.removeClass("visible-bars")
+                //     }, 1e3)
+                // }
             },
             animBars: function() {
                 var e = this;
@@ -276,8 +277,8 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
                 }
                 n("#swipebox-close").bind("click touchend", function(t) {
                     e.closeSlide()
-					$('.gallery').delay(01).show(0);
-					$('.portfolio-wide').delay(01).show(0);
+					// $('.gallery').delay(01).show(0);
+					// $('.portfolio-wide').delay(01).show(0);
                 })
             },
             setSlide: function(e, t) {
