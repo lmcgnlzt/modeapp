@@ -40,7 +40,6 @@
 
 <script type="text/javascript" src="scripts/lightgallery.min.js"></script>
 <script type="text/javascript" src="scripts/lg-thumbnail.min.js"></script>
-<script type="text/javascript" src="scripts/lg-fullscreen.min.js"></script>
 
 <script type="text/javascript" src="scripts/collections.js"></script>
 
@@ -226,7 +225,7 @@
         </div>
     </div>
 
-    <a href="#" class="footer-ball"><i class="fa fa-navicon"></i></a>
+    <a id="red-footer-ball" href="#" class="footer-ball"><i class="fa fa-navicon"></i></a>
 
     <!-- Page Content-->
     <div id="content" class="snap-content">
@@ -313,38 +312,61 @@
             <div class="decoration"></div>
 
 
-            <a id="dynamic" href="#" class="button center-button button-dark full-bottom detected-button">加载更多</a>
-
-            <!-- <div id="lightgallery">
-              <a href="images/resources/sophia/collections/201607/garments/1/pre1.jpg">
-                  <img src="images/resources/sophia/collections/201607/garments/1/pre1.jpg" />
-              </a>
-              <a href="images/resources/sophia/collections/201607/garments/1/details/1.jpg">
-                  <img src="images/resources/sophia/collections/201607/garments/1/details/1.jpg" />
-              </a>
-              <a href="images/resources/sophia/collections/201607/garments/1/details/2.jpg">
-                  <img src="images/resources/sophia/collections/201607/garments/1/details/2.jpg" />
-              </a>
-            </div> -->
-
-
-
-
-
-
+            % for col_index, collection in enumerate(collections):
+            <div class="staff-item">
+                <h4>${collection.get('title')}</h4>
+            </div>
+            % if collection.get('new_arrival'):
+            <!-- {{#new_arrival}} -->
+            <div id="sig_pic_${did}" class="exclusive-slider" data-snap-ignore="true">
+                % for pic in collection.get('signatrue_pics'):
+                <!-- {{#signatrue_pics}} -->
+                <div>
+                    <img src="${pic}" class="responsive-image" alt="img">
+                </div>
+                <!-- {{/signatrue_pics}} -->
+                % endfor
+            </div>
+            % for video in collection.get('signatrue_videos'):
+            <!-- {{#signatrue_videos}} -->
+            <div class="history_videos">
+                <video id="sig_video_${did}" poster="${video.get('thumbnail')}" width="100%" height="100%" controls="controls" preload="none">
+                    <source src="${video.get('url')}" type="video/mp4">
+                </video>
+            </div>
+            <div class="decoration"></div>
+            <div class="empty-space"></div>
+            <!-- {{/signatrue_videos}} -->
+            % endfor
+            <!-- {{/new_arrival}} -->
+            % endif
+            <div class="portfolio-one">
+                % for gar_index, garment in enumerate(collection.get('garments')):
+                <div class="portfolio-one-item full-bottom">
+                    <div class="portfolio-one-image">
+                        <a href="#" onclick="javascript:load_gallery(${did}, ${collection.get('cid')}, ${garment.get('gid')});""><i class="fa fa-plus"></i></a>
+                        <img src="${garment.get('pic').get('image')}" class="responsive-image">
+                    </div>
+                    <div class="portfolio-one-text">
+                        <div class="portfolio-one-details">
+                            <a>${garment.get('pic').get('title')}</a>
+                            <a><i class="fa fa-jpy"></i>&nbsp;990</a>
+                            <div class="portfolio-two-links">
+                                <a href="#"><i class="fa fa-shopping-cart"></i> 点击购买</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="decoration"></div>
+                % endfor
+            </div>
+            % endfor
 
             <!-- <div class="portfolio-one">
                 <div class="portfolio-one-item full-bottom">
                     <div class="portfolio-one-image">
-                        <a href="images/resources/sophia/collections/201607/garments/1/pre1.jpg" class="swipeboxtest" title="蕾丝花边裙">
-                            <i class="fa fa-plus"></i>
-                        </a>
+                        <a id="dynamic" href="#"><i class="fa fa-plus"></i></a>
                         <img src="images/resources/sophia/collections/201607/garments/1/pre1.jpg" class="responsive-image">
-                        <div style="display: none;">
-                            <a href="images/resources/sophia/collections/201607/garments/1/details/1.jpg" class="swipeboxtest" title="111"></a>
-                            <a href="images/resources/sophia/collections/201607/garments/1/details/2.jpg" class="swipeboxtest" title="222"></a>
-                            <a href="images/resources/sophia/collections/201607/garments/1/details/3.jpg" class="swipeboxtest" title="333"></a>
-                        </div>
                     </div>
                     <div class="portfolio-one-text">
                         <div class="portfolio-one-details">
