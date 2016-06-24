@@ -18,8 +18,6 @@ def login_view(request): # remove
     # return render_to_response('modeapp:static/index.mako', {}, request=request)
 
 
-
-
 # def index_routes(config):
 # 	config.add_route('index', '/')
 # 	config.add_view(
@@ -41,28 +39,8 @@ def home_routes(config): # remove
 	)
 
 
-def collections_routes(config):
-	config.add_route('collections', '/collections')
-	config.add_view(
-		'modeapp.views.collections',
-		route_name = 'collections',
-		renderer = 'modeapp:static/collections.mako'
-	)
-
-
-def api_routes(config):
-	config.add_route('api', '/api/designers')
-	config.add_view(
-		'modeapp.views.api',
-		route_name = 'api',
-		request_method='GET',
-		renderer = 'json'
-	)
-
 
 def main(global_config, **settings):
-    """ This function returns a Pyramid WSGI application.
-    """
     config = Configurator(settings=settings)
     config.include('pyramid_mako')
 
@@ -76,8 +54,10 @@ def main(global_config, **settings):
 
     # config.include(index_routes)
     config.include(home_routes) # remove
-    config.include(collections_routes)
-    config.include(api_routes)
+
+    config.include('modeapp.api_handler')
+    config.include('modeapp.view_handler')
+
 
     static_dir = settings.get('static_directory')
     config.add_static_view('images', static_dir + '/images')

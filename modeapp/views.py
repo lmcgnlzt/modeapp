@@ -1,7 +1,7 @@
-from pyramid.view import view_config
-import logging
+# from pyramid.view import view_config
 
-from modeapp.utils.api_requests import ApiRequester
+
+
 
 from wechat_sdk import WechatConf
 from wechat_sdk import WechatBasic
@@ -10,8 +10,6 @@ from wechat_sdk import WechatBasic
 # @view_config(route_name='home', renderer='staic/index.mako')
 # def my_view(request):
 #     return {'project': 'mode'}
-
-api_requester = ApiRequester('http://127.0.0.1:6543')
 
 
 
@@ -33,21 +31,5 @@ def handshake(params):
 	return None
 
 
-def index(request):
-	# echostr = handshake(request.params)
-	return {'success' : True}
-
-
 def homepage(request): # remove
 	return {'success' : True}
-
-
-def collections(request):
-	r = api_requester.get('/designers/1')
-	return r.json()
-
-
-def api(request):
-	did = int(request.params['did'])
-	r = api_requester.get('/designers/%s' % did)
-	return r.json()
