@@ -26,19 +26,24 @@
 <link href="styles/font-awesome.css"     rel="stylesheet" type="text/css">
 <link href="styles/animate.css"          rel="stylesheet" type="text/css">
 <link href="styles/slick.css"            rel="stylesheet" type="text/css">
+<link href="styles/jquery.videocontrols.css"   rel="stylesheet" type="text/css">
+
 <link href="styles/lightgallery.css"   rel="stylesheet" type="text/css">
 
 <script type="text/javascript" src="scripts/jquery.js"></script>
 <script type="text/javascript" src="scripts/jqueryui.js"></script>
 <script type="text/javascript" src="scripts/framework.plugins.js"></script>
 <script type="text/javascript" src="scripts/plugins.js"></script>
+<script type="text/javascript" src="scripts/mustache.js"></script>
+<script type="text/javascript" src="scripts/jquery.videocontrols.js"></script>
 <script type="text/javascript" src="scripts/slick.js"></script>
 
 <script type="text/javascript" src="scripts/lightgallery.min.js"></script>
 <script type="text/javascript" src="scripts/lg-thumbnail.min.js"></script>
-<script type="text/javascript" src="scripts/lg-video.min.js"></script>
 
-<script type="text/javascript" src="scripts/index.js"></script>
+<script type="text/javascript" src="scripts/designers.js"></script>
+
+
 </head>
 <body>
 
@@ -57,7 +62,7 @@
         <div class="snap-drawer snap-drawer-left">
             <a href="/homepage" class="selected-item"><i class="fa fa-home"></i>Home</a>
             <a href="/collections"><i class="fa fa-star"></i>Shop</a>
-            <a href="/designer_list"><i class="fa fa-user"></i>Designer</a>
+            <a href="#"><i class="fa fa-user"></i>Designer</a>
             <a href="#"><i class="fa fa-book"></i>FLIP Book</a>
             <a href="#"><i class="fa fa-music"></i>3D Music</a>
             <a href="#"><i class="fa fa-shopping-cart"></i>Store</a>
@@ -67,84 +72,92 @@
         </div>
     </div>
 
-    <a href="#" class="footer-ball"><i class="fa fa-navicon"></i></a>
+
+    <a id="red-footer-ball" href="#" class="footer-ball"><i class="fa fa-navicon"></i></a>
+
+
 
     <!-- Page Content-->
     <div id="content" class="snap-content">
-        <div class="slider-container full-bottom">
-            <div class="homepage-slider" data-snap-ignore="true">
-                <div>
-                    <div class="overlay"></div>
-                    <div class="homepage-slider-caption homepage-left-caption">
-                        <h3>TOP Designers</h3>
-                        <p>独家定制</p>
-                    </div>
-                    <img src="http://assets.modeflip.com/index/header1.jpg" class="responsive-image" alt="img">
-                </div>
-                <div>
-                    <div class="overlay"></div>
-                    <div class="homepage-slider-caption homepage-center-caption">
-                        <h3>优质面料</h3>
-                        <p>精致纯手工制作工艺</p>
-                    </div>
-                    <img src="http://assets.modeflip.com/index/header4.jpg" class="responsive-image" alt="img">
-                </div>
-                <div>
-                    <div class="overlay"></div>
-                    <div class="homepage-slider-caption homepage-right-caption">
-                        <h3>限量主题系列</h3>
-                        <p>设计师来自美国、意大利、英国、法国</p>
-                    </div>
-                    <img src="http://assets.modeflip.com/index/header3.jpg" class="responsive-image" alt="img">
-                </div>
-            </div>
-        </div>
 
-        <div class="content">
+        <div id="designer_page" class="content">
 
-            <div>
-                <div class="section-heading">
-                    <h3>SHOP AND DISCOVER</h3>
-                </div>
-                <div class="clear"></div>
-                <div class="row">
-                    <div class="shopbox">
-                        <a href="/collections">
-                            <img src="http://assets.modeflip.com/index/garment.jpg" alt="" />
-                            <h3>产品</h3>
-                        </a>
-                    </div>
-                    <div class="shopbox">
-                        <a href="/designer_list">
-                        <img src="http://assets.modeflip.com/index/designer.jpg" alt="" />
-                        <h3>设计师</h3>
-                        </a>
-                    </div>
-                    <div class="shopbox">
-                        <a href="#">
-                        <img src="http://assets.modeflip.com/index/book.jpg" alt="" />
-                        <h3>FASHION BOOK</h3>
-                        </a>
-                    </div>
-                    <div class="shopbox">
-                        <a href="#">
-                        <img src="http://assets.modeflip.com/index/music.jpg" alt="" />
-                        <h3>3D 音乐</h3>
-                        </a>
-                    </div>
-                </div>
+            <div class="content-heading">
+                <h1>Top Designers X MODEFLIP</h1>
+                <!-- <em>顶级设计师，来自纽约，法国，意大利</em> -->
+                <!-- <i class="fa fa-cog"></i> -->
             </div>
 
             <div class="decoration"></div>
 
-        </div>
 
+
+            % for index, designer in enumerate(designers):
+            <div id="designer-${designer.get('did')}" class="one-half-responsive">
+                % if index % 2 == 0:
+                <p class="thumb-left no-bottom">
+                % else:
+                <p class="thumb-right no-bottom">
+                % endif
+                    <img src="${designer.get('profile_images').get('icon_url')}" alt="img" onclick="javascript:loadProfile(${designer.get('did')})">
+                    <strong>${designer.get('name')}</strong>
+                    <br>
+                    <span style="padding-left:0px;"><b><i>MaxMara 设计师, 来自 ${designer.get('origin')}</i></b></span>
+                    <br>
+                    <em class="more"><br>${designer.get('bio')}</em>
+                    <!-- <em class="more">来自{{origin}}，巴黎高级时装业的创始人,1825年出生与英国.1858年,他留在.德.拉.派大街创建了自己的时装店.他把新设计的衣服让工作室的漂亮姑娘穿起来想顾客展示推销</em> -->
+                </p>
+                <div class="thumb-clear"></div>
+                <!-- <div class="designer_experience">
+                    {{#experience_content.brands}}
+                    <div><img class="homescreen-responsive-image" src="{{.}}"></div>
+                    {{/experience_content.brands}}
+                </div>
+                <div class="thumb-clear"></div> -->
+            </div>
+            <div class="decoration"></div>
+            % endfor
+
+
+
+
+            <!-- <div id="mode_designers" class="container no-bottom">
+
+
+                <script id="designerListTemplate" type="text/template">
+                {{#designer}}
+                <div id="designer-{{did}}" class="one-half-responsive">
+                    <p class="{{position}} no-bottom">
+                        <img src="{{profile_images.icon_url}}" alt="img" onclick="javascript:loadProfile({{did}})">
+                        <strong>{{name}}</strong>
+                        <br>
+                        <span style="padding-left:0px;"><b><i>MaxMara 设计师, 来自 {{origin}}</i></b></span>
+                        <br>
+                        <em class="more">来自{{origin}}，巴黎高级时装业的创始人,1825年出生与英国.1858年,他留在.德.拉.派大街创建了自己的时装店.他把新设计的衣服让工作室的漂亮姑娘穿起来想顾客展示推销</em>
+                    </p>
+                    <div class="thumb-clear"></div>
+                    <div class="designer_experience">
+                        {{#experience_content.brands}}
+                        <div><img class="homescreen-responsive-image" src="{{.}}"></div>
+                        {{/experience_content.brands}}
+                    </div>
+                    <div class="thumb-clear"></div>
+                </div>
+                <div class="decoration"></div>
+                {{/designer}}
+                </script>
+
+
+             </div> -->
+
+
+        </div>
         <!-- Page Footer-->
         <div class="footer">
             <p class="center-text">Copyright 2016. All rights reserved.</p>
             <div class="footer-socials half-bottom">
                 <a href="#" class="footer-facebook"><i class="fa fa-question"></i></a>
-                <a href="#" class="footer-twitter"><i class="fa fa-envelope-o"></i></a>
+                <a href="#" class="footer-twitter"><i class="fa fa-phone"></i></a>
                 <a href="#" class="footer-transparent"></a>
                 <a href="#" class="footer-share show-share-bottom"><i class="fa fa-share-alt"></i></a>
                 <a href="#" class="footer-up"><i class="fa fa-angle-double-up"></i></a>
@@ -152,7 +165,6 @@
         </div>
 
     </div>
-
 
     <div class="share-bottom">
         <h3>Share Page</h3>

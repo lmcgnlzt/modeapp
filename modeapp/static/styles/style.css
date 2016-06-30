@@ -700,10 +700,10 @@ body{
     margin-top:10px;
 }
 
-.product-item img:hover{
+/*.product-item img:hover{
     transform:scale(1.1, 1.1);
     transition:all 500ms ease;
-}
+}*/
 
 .product-item h4{
     text-align:center;

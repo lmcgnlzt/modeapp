@@ -4922,7 +4922,7 @@ table tr:hover td{
     margin-bottom:10px;
 }
 
-@media(min-width:0px) and (max-width:400px){
+/*@media(min-width:0px) and (max-width:400px){
     .homescreen-gallery a{
         width:32%;
         float:left;
@@ -4935,9 +4935,10 @@ table tr:hover td{
     .homescreen-gallery a:nth-child(3n+2){  margin-left:1%; margin-right:1%; margin-bottom:2%; }
     .homescreen-gallery a:nth-child(3n+3){  margin-left:1%; margin-bottom:2%; }
 
-}
+}*/
 
-@media(min-width:400px) and (max-width:768px){
+/*@media(min-width:400px) and (max-width:768px){*/
+@media(min-width:0px) and (max-width:768px){
     .homescreen-gallery a{
         width:23.5%;
         float:left;

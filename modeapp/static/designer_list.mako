@@ -17,7 +17,7 @@
 <link rel="apple-touch-startup-image" sizes="1536x2008" href="images/splash/splash-screen-ipad-portrait-retina.png"   media="(device-width: 768px)  and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)"/>
 <link rel="apple-touch-startup-image" sizes="1496x2048" href="images/splash/splash-screen-ipad-landscape-retina.png"   media="(device-width: 768px) and (orientation: landscape)    and (-webkit-device-pixel-ratio: 2)"/>
 
-<title>MODE FLIP</title>
+<title>Top Designers x MODE FLIP</title>
 
 <link href="styles/style.css"            rel="stylesheet" type="text/css">
 <link href="styles/framework.css"        rel="stylesheet" type="text/css">
@@ -38,7 +38,9 @@
 <script type="text/javascript" src="scripts/lg-thumbnail.min.js"></script>
 <script type="text/javascript" src="scripts/lg-video.min.js"></script>
 
-<script type="text/javascript" src="scripts/index.js"></script>
+<script type="text/javascript" src="scripts/designer_list.js"></script>
+
+
 </head>
 <body>
 
@@ -67,84 +69,54 @@
         </div>
     </div>
 
-    <a href="#" class="footer-ball"><i class="fa fa-navicon"></i></a>
+
+    <a id="red-footer-ball" href="#" class="footer-ball"><i class="fa fa-navicon"></i></a>
+
+
 
     <!-- Page Content-->
     <div id="content" class="snap-content">
-        <div class="slider-container full-bottom">
-            <div class="homepage-slider" data-snap-ignore="true">
-                <div>
-                    <div class="overlay"></div>
-                    <div class="homepage-slider-caption homepage-left-caption">
-                        <h3>TOP Designers</h3>
-                        <p>独家定制</p>
-                    </div>
-                    <img src="http://assets.modeflip.com/index/header1.jpg" class="responsive-image" alt="img">
-                </div>
-                <div>
-                    <div class="overlay"></div>
-                    <div class="homepage-slider-caption homepage-center-caption">
-                        <h3>优质面料</h3>
-                        <p>精致纯手工制作工艺</p>
-                    </div>
-                    <img src="http://assets.modeflip.com/index/header4.jpg" class="responsive-image" alt="img">
-                </div>
-                <div>
-                    <div class="overlay"></div>
-                    <div class="homepage-slider-caption homepage-right-caption">
-                        <h3>限量主题系列</h3>
-                        <p>设计师来自美国、意大利、英国、法国</p>
-                    </div>
-                    <img src="http://assets.modeflip.com/index/header3.jpg" class="responsive-image" alt="img">
-                </div>
-            </div>
-        </div>
 
-        <div class="content">
+        <div id="designer_page" class="content">
 
-            <div>
-                <div class="section-heading">
-                    <h3>SHOP AND DISCOVER</h3>
-                </div>
-                <div class="clear"></div>
-                <div class="row">
-                    <div class="shopbox">
-                        <a href="/collections">
-                            <img src="http://assets.modeflip.com/index/garment.jpg" alt="" />
-                            <h3>产品</h3>
-                        </a>
-                    </div>
-                    <div class="shopbox">
-                        <a href="/designer_list">
-                        <img src="http://assets.modeflip.com/index/designer.jpg" alt="" />
-                        <h3>设计师</h3>
-                        </a>
-                    </div>
-                    <div class="shopbox">
-                        <a href="#">
-                        <img src="http://assets.modeflip.com/index/book.jpg" alt="" />
-                        <h3>FASHION BOOK</h3>
-                        </a>
-                    </div>
-                    <div class="shopbox">
-                        <a href="#">
-                        <img src="http://assets.modeflip.com/index/music.jpg" alt="" />
-                        <h3>3D 音乐</h3>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <!-- <div class="content-heading">
+                <h1>Top Designers x MODEF LIP</h1>
+            </div> -->
 
             <div class="decoration"></div>
+            <div style="display: none;" id="did_list">${dids}</div>
+
+            % for index, designer in enumerate(designers):
+            <div id="designer-${designer.get('did')}" class="one-half-responsive">
+                % if index % 2 == 0:
+                <p class="thumb-left no-bottom">
+                % else:
+                <p class="thumb-right no-bottom">
+                <!-- <p class="thumb-left no-bottom"> -->
+                % endif
+                    <a href="/designer_view?did=${designer.get('did')}"><img src="${designer.get('profile_images').get('icon_url')}" alt="img"></a>
+                    <strong>${designer.get('name')}</strong>
+                    <br>
+                    <em id="bio_${designer.get('did')}" class="more">来自 ${designer.get('origin')}。${designer.get('bio')}</em>
+                </p>
+                <div class="designer_experience">
+                    % for brand in designer.get('experience_content').get('brands'):
+                    <div><img class="homescreen-responsive-image" src="${brand}"></div>
+                    % endfor
+                </div>
+                <div class="thumb-clear"></div>
+            </div>
+            <div class="decoration"></div>
+            % endfor
+
 
         </div>
-
         <!-- Page Footer-->
         <div class="footer">
             <p class="center-text">Copyright 2016. All rights reserved.</p>
             <div class="footer-socials half-bottom">
                 <a href="#" class="footer-facebook"><i class="fa fa-question"></i></a>
-                <a href="#" class="footer-twitter"><i class="fa fa-envelope-o"></i></a>
+                <a href="#" class="footer-twitter"><i class="fa fa-phone"></i></a>
                 <a href="#" class="footer-transparent"></a>
                 <a href="#" class="footer-share show-share-bottom"><i class="fa fa-share-alt"></i></a>
                 <a href="#" class="footer-up"><i class="fa fa-angle-double-up"></i></a>
@@ -152,7 +124,6 @@
         </div>
 
     </div>
-
 
     <div class="share-bottom">
         <h3>Share Page</h3>
