@@ -17,7 +17,7 @@
 <link rel="apple-touch-startup-image" sizes="1536x2008" href="images/splash/splash-screen-ipad-portrait-retina.png"   media="(device-width: 768px)  and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)"/>
 <link rel="apple-touch-startup-image" sizes="1496x2048" href="images/splash/splash-screen-ipad-landscape-retina.png"   media="(device-width: 768px) and (orientation: landscape)    and (-webkit-device-pixel-ratio: 2)"/>
 
-<title>ModeFlip</title>
+<title>MODE FLIP</title>
 
 <link href="styles/style.css"            rel="stylesheet" type="text/css">
 <link href="styles/framework.css"        rel="stylesheet" type="text/css">
@@ -26,20 +26,19 @@
 <link href="styles/font-awesome.css"     rel="stylesheet" type="text/css">
 <link href="styles/animate.css"          rel="stylesheet" type="text/css">
 <link href="styles/slick.css"            rel="stylesheet" type="text/css">
-<link href="styles/jquery.videocontrols.css"   rel="stylesheet" type="text/css">
-
 <link href="styles/lightgallery.css"   rel="stylesheet" type="text/css">
+<!-- <link href="http://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet" type="text/css"> -->
 
 <script type="text/javascript" src="scripts/jquery.js"></script>
 <script type="text/javascript" src="scripts/jqueryui.js"></script>
 <script type="text/javascript" src="scripts/framework.plugins.js"></script>
 <script type="text/javascript" src="scripts/plugins.js"></script>
-<script type="text/javascript" src="scripts/mustache.js"></script>
-<script type="text/javascript" src="scripts/jquery.videocontrols.js"></script>
 <script type="text/javascript" src="scripts/slick.js"></script>
 
 <script type="text/javascript" src="scripts/lightgallery.min.js"></script>
 <script type="text/javascript" src="scripts/lg-thumbnail.min.js"></script>
+<!-- <script type="text/javascript" src="http://vjs.zencdn.net/4.12/video.js"></script> -->
+<script type="text/javascript" src="scripts/lg-video.min.js"></script>
 
 <script type="text/javascript" src="scripts/collections.js"></script>
 
@@ -59,14 +58,15 @@
 <div class="all-elements">
     <div class="snap-drawers">
         <div class="snap-drawer snap-drawer-left">
-            <a href="/homepage"><i class="fa fa-home"></i>首页</a>
-            <a href="/collections" class="selected-item"><i class="fa fa-shopping-cart"></i>产品</a>
-            <a href="#"><i class="fa fa-user"></i>设计师</a>
-            <a href="#"><i class="fa fa-book"></i>Book</a>
-            <a href="#"><i class="fa fa-music"></i>3D 音乐</a>
-            <a href="#"><i class="fa fa-newspaper-o"></i>时尚速递</a>
-            <a href="#"><i class="fa fa-info"></i>关于Mode</a>
-            <a href="#" class="sidebar-close"><i class="fa fa-times"></i>隐藏</a>
+            <a href="/homepage" class="selected-item"><i class="fa fa-home"></i>Home</a>
+            <a href="/collections"><i class="fa fa-star"></i>Shop</a>
+            <a href="/designer_list"><i class="fa fa-user"></i>Designer</a>
+            <a href="#"><i class="fa fa-book"></i>FLIP Book</a>
+            <a href="#"><i class="fa fa-music"></i>3D Music</a>
+            <a href="#"><i class="fa fa-shopping-cart"></i>Store</a>
+            <a href="#"><i class="fa fa-rss"></i>FASHION</a>
+            <a href="#"><i class="fa fa-info"></i>MODE FLIP</a>
+            <a href="#" class="sidebar-close"><i class="fa fa-times"></i>Close</a>
         </div>
     </div>
 
