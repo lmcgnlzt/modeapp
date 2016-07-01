@@ -127,22 +127,22 @@ function enable_widgets(did) {
 		  // autoplaySpeed: 2500,
 		});
 
-	// signature video
-	var collection_video_prefix = 'collection-video-'.concat(did, '-');
-	$("ul[id^='" + collection_video_prefix + "']").each(function(i, el) {
-		$(el).on('onBeforeOpen.lg',function(event){
-			$('#red-footer-ball').hide();
-		});
+	// // signature video
+	// var collection_video_prefix = 'collection-video-'.concat(did, '-');
+	// $("ul[id^='" + collection_video_prefix + "']").each(function(i, el) {
+	// 	$(el).on('onBeforeOpen.lg',function(event){
+	// 		$('#red-footer-ball').hide();
+	// 	});
 
-		$(el).on('onCloseAfter.lg',function(event){
-		    $('#red-footer-ball').show();
-		});
+	// 	$(el).on('onCloseAfter.lg',function(event){
+	// 	    $('#red-footer-ball').show();
+	// 	});
 
-		$(el).lightGallery({
-		    closable: false,
-		    download: false,
-		});
-	});
+	// 	$(el).lightGallery({
+	// 	    closable: false,
+	// 	    download: false,
+	// 	});
+	// });
 
 }
 
