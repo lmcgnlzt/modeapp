@@ -203,7 +203,7 @@
                 </div>
                 % for index, video in enumerate(collection.get('signatrue_videos')):
 
-                <video id="sig_video_{{did}}" poster="${video.get('thumbnail')}" onclick="this.play();" width="400" height="300" controls preload="none">
+                <video id="sig_video_{{did}}" poster="${video.get('poster')}" onclick="this.play();" width="100%" height="auto" controls preload="none">
                     <source src="${video.get('url')}" type="video/mp4">
                 </video>
 
