@@ -70,7 +70,7 @@
                 <a>${garment.get('pic').get('title')}</a>
                 <a><i class="fa fa-jpy"></i>&nbsp;${garment.get('price')}</a>
                 <div class="portfolio-two-links">
-                    <a href="#"><i class="fa fa-shopping-cart"></i> 点击购买</a>
+                    <a href="${garment.get('shop_link')}"><i class="fa fa-shopping-cart"></i> 点击购买</a>
                 </div>
             </div>
         </div>
