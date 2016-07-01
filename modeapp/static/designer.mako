@@ -202,6 +202,13 @@
                     % endfor
                 </div>
                 % for index, video in enumerate(collection.get('signatrue_videos')):
+
+                <div class="history_videos">
+                    <video id="sig_video_{{did}}" poster="${video.get('thumbnail')}" onclick="this.play();" width="100%" height="100%" controls preload="none">
+                        <source src="${video.get('url')}" type="video/mp4">
+                    </video>
+                </div>
+
                 <div class="collection_videos">
                     <div style="display:none;" id="col-video-${did}-${index}">
                         <video class="lg-video-object lg-html5 video-js vjs-default-skin" width="100%" height="100%" controls preload="none">
