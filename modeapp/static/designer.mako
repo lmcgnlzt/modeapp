@@ -166,20 +166,10 @@
 
                 % for index, video in enumerate(exclusive_content.get('videos')):
                 <h5>${video.get('title')}</h5>
-                <div class="exclusive_videos">
-                    <div style="display:none;" id="excl-video-${did}-${index}">
-                        <video class="lg-video-object lg-html5 video-js vjs-default-skin" width="100%" height="100%" controls preload="none">
-                            <source src="${video.get('url')}" type="video/mp4">
-                        </video>
-                    </div>
-                    <ul id="exclusive-video-${did}-${index}">
-                        <li data-poster="${video.get('poster')}" data-sub-html="${video.get('title')}" data-html="#excl-video-${did}-${index}" >
-                            <img class="responsive-image" src="${video.get('thumbnail')}" />
-                        </li>
-                    </ul>
-                </div>
+                <video id="exclusive-video-${did}-${index}" poster="${video.get('poster')}" onclick="this.play();" width="100%" height="auto" controls preload="none">
+                    <source src="${video.get('url')}" type="video/mp4">
+                </video>
                 % endfor
-
                 <div class="decoration"></div>
                 <div class="empty-space"></div>
 
@@ -202,23 +192,9 @@
                     % endfor
                 </div>
                 % for index, video in enumerate(collection.get('signatrue_videos')):
-
-                <video id="sig_video_{{did}}" poster="${video.get('poster')}" onclick="this.play();" width="100%" height="auto" controls preload="none">
+                <video id="collection-video-${did}-${index}" poster="${video.get('poster')}" onclick="this.play();" width="100%" height="auto" controls preload="none">
                     <source src="${video.get('url')}" type="video/mp4">
                 </video>
-
-                <div class="collection_videos">
-                    <div style="display:none;" id="col-video-${did}-${index}">
-                        <video class="lg-video-object lg-html5 video-js vjs-default-skin" width="100%" height="100%" controls preload="none">
-                            <source src="${video.get('url')}" type="video/mp4">
-                        </video>
-                    </div>
-                    <ul id="collection-video-${did}-${index}">
-                        <li data-poster="${video.get('poster')}" data-sub-html="${video.get('title')}" data-html="#col-video-${did}-${index}" >
-                            <img class="responsive-image" src="${video.get('thumbnail')}" />
-                        </li>
-                    </ul>
-                </div>
                 <div class="decoration"></div>
                 <div class="empty-space"></div>
                 % endfor
