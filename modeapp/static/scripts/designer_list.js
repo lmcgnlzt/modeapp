@@ -46,10 +46,6 @@ $(document).ready(function() {
         shortenText(did);
     });
 
-    $('.designer_experience').slick({
-	  slidesToShow: 5,
-	});
-
 
     $('.menu-wrapper').addClass('hide-menu-wrapper');
     var menu_slider = $(".menu");
@@ -68,6 +64,12 @@ $(document).ready(function() {
         //}
     });
 
+ //    $('.designer_experience').slick({
+	//   slidesToShow: 3,
+	//   slidesToScroll: 1,
+	//   autoplay: true,
+	//   autoplaySpeed: 2500,
+	// });
 
  //    // signature picture
  //    $(".exclusive-slider").slick({
