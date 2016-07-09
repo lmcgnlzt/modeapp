@@ -87,7 +87,7 @@ function enable_widgets(did) {
 		});
 
 	// bio shorten text
- 	shortenText(did);
+ 	// shortenText(did);
 
  	//Detect if iOS WebApp Engaged and permit navigation without deploying Safari
 	(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")
@@ -143,6 +143,21 @@ function enable_widgets(did) {
 	// 	    download: false,
 	// 	});
 	// });
+
+	//Countdown timer
+	var target_date = $('#target_date_'+did).text();
+	$('#countdown_'+did).countdown({
+	  date: target_date,
+	  render: function(data) {
+		$(this.el).html(
+		"<div class='countdown-box box-years'><div class='countdown-years'>" + this.leadingZeros(data.years, 2) +
+		"</div><span>years</span></div><div class='countdown-box box-days'><div class='countdown-days'>" + this.leadingZeros(data.days, 2) +
+		"</div><span>days</span></div><div class='countdown-box box-hours'><div class='countdown-hours'>" + this.leadingZeros(data.hours, 2) +
+		"</div><span>hours</span></div><div class='countdown-box box-minutes'><div class='countdown-minutes'>" + this.leadingZeros(data.min, 2) +
+		"</div><span>min</span></div><div class='countdown-box box-seconds'><div class='countdown-seconds'>" + this.leadingZeros(data.sec, 2) +
+		"</div><span>sec</span></div>");
+	  }
+	});
 
 }
 
@@ -201,7 +216,7 @@ function load_gallery_content(el, did, cid, gid) {
 
 
 function load_experience_content(el, did, index) {
-	$.getJSON(CONFIG.api_base_url().concat('/experience'), {'did': did}, function(data) {
+	$.getJSON(CONFIG.api_base_url().concat('/experience/sig_pics'), {'did': did}, function(data) {
 	    $(el).on('onBeforeOpen.lg',function(event){
 			$('#red-footer-ball').hide();
 		});

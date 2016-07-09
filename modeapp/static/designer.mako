@@ -36,7 +36,6 @@
 
 <script type="text/javascript" src="scripts/lightgallery.min.js"></script>
 <script type="text/javascript" src="scripts/lg-thumbnail.min.js"></script>
-<script type="text/javascript" src="scripts/lg-video.min.js"></script>
 
 <script type="text/javascript" src="scripts/designer.js"></script>
 
@@ -78,19 +77,16 @@
     <div id="content" class="snap-content">
             <div style="display: none;" id="curr_did">${did}</div>
 
-        <!-- <div id="designer_page" class="content"> -->
-
             <div class="homescreen-content-fullscreen">
                <div class="homescreen-page-profile">
                     <div class="homescreen-page-profile-header" style="background-image: url(${profile_images.get('background_url')})">
                         <img src="${profile_images.get('icon_url')}" alt="img">
-                        <!-- <img src="images/modeflip/icon/touxiang.jpg" alt="img"> -->
                         <h3>${name}</h3>
                         <em><i class="fa fa-location-arrow"></i>${origin}</em>
                         <div class="homescreen-overlay homescreen-bg-black"></div>
                         <div class="homescreen-follow-buttons">
-                            <a href="#">Like</a>
-                            <a href="#">Follow</a>
+                            <a href="#" onclick="javascript:like(this, ${did});">+ Like</a>
+                            <a href="#" onclick="javascript:wish(this, ${did});">Wish</a>
                         </div>
                    </div>
                </div>
@@ -99,16 +95,16 @@
             <div class="content">
                 <div class="homescreen-page-profile-followers">
                         <a href="#">
-                            <i class="fa fa-facebook"></i>
-                            ${likes} Likes
+                            <i class="fa fa-thumbs-o-up"></i>
+                            <div id="like_count">${likes_and_wishes.get('likes')} Likes</div>
                         </a>
                         <a href="#">
-                            <i class="fa fa-twitter"></i>
-                            ${subscribers} Followers
+                            <i class="fa fa-heart-o"></i>
+                            <div id="wish_count">${likes_and_wishes.get('wishes')} Wishes</div>
                         </a>
-                        <a href="#">
+                        <a href="#" class="show-share-bottom">
                             <i class="fa fa-envelope-o"></i>
-                            13k  Subscribers
+                            Text Me
                         </a>
                 </div>
 
@@ -129,7 +125,7 @@
                 <div class="empty-space"></div>
                 <div class="decoration"></div>
 
-                <h4>作品浏览</h4>
+                <h4>全部作品浏览</h4>
                 <a id="next-staff-${did}" href="#" class="next-staff"></a>
                 <a id="prev-staff-${did}" href="#" class="prev-staff"></a>
 
@@ -149,12 +145,21 @@
                     </div>
                     % endfor
                 </div>
+
+                % for index, video in enumerate(experience_content.get('videos')):
+                <video id="experience-video-${did}-${index}" poster="${video.get('poster')}" onclick="this.play();" width="100%" height="auto" controls preload="none">
+                    <source src="${video.get('url')}" type="video/mp4">
+                </video>
+                <div class="decoration"></div>
+                <div class="empty-space"></div>
+                % endfor
+
                 <div class="empty-space"></div>
                 <div class="decoration"></div>
+                <div class="empty-space"></div>
 
 
                 <h5>${exclusive_content.get('title')}</h5>
-
                 <div id="exclusive_${did}" class="exclusive-slider" data-snap-ignore="true">
                     % for pic_url in exclusive_content.get('pics'):
                     <div>
@@ -164,117 +169,134 @@
                 </div>
                 <div class="empty-space"></div>
 
-                % for index, video in enumerate(exclusive_content.get('videos')):
-                <h5>${video.get('title')}</h5>
-                <video id="exclusive-video-${did}-${index}" poster="${video.get('poster')}" onclick="this.play();" width="100%" height="auto" controls preload="none">
-                    <source src="${video.get('url')}" type="video/mp4">
-                </video>
-                % endfor
-                <div class="decoration"></div>
-                <div class="empty-space"></div>
 
+                % if on_market:
 
-                <br>
-                <br>
-                <br>
-
-
-                % for collection in collections:
-                <div class="staff-item">
-                    <h4>${collection.get('title')}</h4>
-                </div>
-                % if collection.get('new_arrival'):
-                <div id="sig_pic_${did}" class="exclusive-slider" data-snap-ignore="true">
-                    % for pic in collection.get('signatrue_pics'):
-                    <div>
-                        <img src="${pic}" class="responsive-image" alt="img">
-                    </div>
+                    % for index, video in enumerate(exclusive_content.get('videos')):
+                    <h5>${video.get('title')}</h5>
+                    <video id="exclusive-video-${did}-${index}" poster="${video.get('poster')}" onclick="this.play();" width="100%" height="auto" controls preload="none">
+                        <source src="${video.get('url')}" type="video/mp4">
+                    </video>
                     % endfor
-                </div>
-                % for index, video in enumerate(collection.get('signatrue_videos')):
-                <video id="collection-video-${did}-${index}" poster="${video.get('poster')}" onclick="this.play();" width="100%" height="auto" controls preload="none">
-                    <source src="${video.get('url')}" type="video/mp4">
-                </video>
-                <div class="decoration"></div>
-                <div class="empty-space"></div>
-                % endfor
-                % endif
+                    <div class="decoration"></div>
+                    <div class="empty-space"></div>
 
 
-                <div class="portfolio-one">
-                    % for garment in collection.get('garments'):
-                    <div class="portfolio-one-item full-bottom">
-                        <div class="portfolio-one-image">
-                            <a href="#" onclick="javascript:load_gallery(this, ${did}, ${collection.get('cid')}, ${garment.get('gid')});""><i class="fa fa-plus"></i></a>
-                            <img src="${garment.get('pic').get('image')}" class="responsive-image">
+                    % for collection in collections:
+                    <div class="staff-item">
+                        <h4>${collection.get('title')}</h4>
+                    </div>
+                    % if collection.get('new_arrival'):
+                    <div id="sig_pic_${did}" class="exclusive-slider" data-snap-ignore="true">
+                        % for pic in collection.get('signatrue_pics'):
+                        <div>
+                            <img src="${pic}" class="responsive-image" alt="img">
                         </div>
-                        <div class="portfolio-one-text">
-                            <div class="portfolio-one-details">
-                                <a>${garment.get('pic').get('title')}</a>
-                                <a><i class="fa fa-jpy"></i>&nbsp;${garment.get('price')}</a>
-                                <div class="portfolio-two-links">
-                                    <a href="#"><i class="fa fa-shopping-cart"></i> 点击购买</a>
+                        % endfor
+                    </div>
+                    % for index, video in enumerate(collection.get('signatrue_videos')):
+                    <video id="collection-video-${did}-${index}" poster="${video.get('poster')}" onclick="this.play();" width="100%" height="auto" controls preload="none">
+                        <source src="${video.get('url')}" type="video/mp4">
+                    </video>
+                    <div class="decoration"></div>
+                    <div class="empty-space"></div>
+                    % endfor
+                    % endif
+
+                    <div class="portfolio-one">
+                        % for garment in collection.get('garments'):
+                        <div class="portfolio-one-item full-bottom">
+                            <div class="portfolio-one-image">
+                                <a href="#" onclick="javascript:load_gallery(this, ${did}, ${collection.get('cid')}, ${garment.get('gid')});"><i class="fa fa-plus"></i></a>
+                                <img src="${garment.get('pic').get('image')}" class="responsive-image">
+                            </div>
+                            <div class="portfolio-one-text">
+                                <div class="portfolio-one-details">
+                                    <a>${garment.get('pic').get('title')}</a>
+                                    <a><i class="fa fa-jpy"></i>&nbsp;${garment.get('price')}</a>
+                                    <div class="portfolio-two-links">
+                                        <a href="#"><i class="fa fa-shopping-cart"></i> 点击购买</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="decoration"></div>
+                        % endfor
                     </div>
-                    <div class="decoration"></div>
                     % endfor
-                </div>
-                % endfor
 
-
-                <a href="#" class="next-product"></a>
-                <a href="#" class="prev-product"></a>
-                <div class="product-slider" data-snap-ignore="true">
-                    % for product in signatrue_products:
-                    <div>
-                        <div class="product-item">
-                            <img src="${product.get('picture')}" alt="img">
-                            <h4>${product.get('title')}</h4>
-                            <em>${product.get('subtitle')}</em>
-                            <strong>${product.get('desc')}</strong>
-                            <a href="#" class="button button-blue center-button"><i class="fa fa-shopping-cart"></i>购买</a>
+                    <a href="#" class="next-product"></a>
+                    <a href="#" class="prev-product"></a>
+                    <div class="product-slider" data-snap-ignore="true">
+                        % for product in signatrue_products:
+                        <div>
+                            <div class="product-item">
+                                <img src="${product.get('picture')}" alt="img">
+                                <h4>${product.get('title')}</h4>
+                                <em>${product.get('subtitle')}</em>
+                                <strong>${product.get('desc')}</strong>
+                                <a href="#" class="button button-blue center-button"><i class="fa fa-shopping-cart"></i>购买</a>
+                            </div>
                         </div>
+                        % endfor
                     </div>
-                    % endfor
-                </div>
-                <p></p>
-                <div class="decoration"></div>
-
-
-                <!-- <div class="one-half-responsive">
-                    <img src="images/modeflip/music/music_ui.png" alt="img" class="responsive-image">
-                </div>
-
-                <div class="one-third-responsive last-column">
-                    <p class="user-list-socials">
-                        <img src="images/pictures/1s.jpg" alt="img">
-                        <strong>Ugly Is Beautiful<br><em>David Usher</em></strong>
-                        <a href="#" class="icon1 mail-color"><i class="fa fa-play"></i></a>
-                        <a href="#" class="icon2 facebook-color"><i class="fa fa-share-square-o"></i></a>
-                    </p>
-                    <p class="user-list-socials">
-                        <img src="images/pictures/2s.jpg" alt="img">
-                        <strong>Ugly Is Beautiful<br><em>David Usher</em></strong>
-                        <a href="#" class="icon1 mail-color"><i class="fa fa-play"></i></a>
-                        <a href="#" class="icon2 facebook-color"><i class="fa fa-share-square-o"></i></a>
-                    </p>
-                    <p class="user-list-socials">
-                        <img src="images/pictures/3s.jpg" alt="img">
-                        <strong>Ugly Is Beautiful<br><em>David Usher</em></strong>
-                        <a href="#" class="icon1 mail-color"><i class="fa fa-play"></i></a>
-                        <a href="#" class="icon2 facebook-color"><i class="fa fa-share-square-o"></i></a>
-                    </p>
-                    <p class="user-list-socials">
-                        <img src="images/pictures/4s.jpg" alt="img">
-                        <strong>Ugly Is Beautiful<br><em>David Usher</em></strong>
-                        <a href="#" class="icon1 mail-color"><i class="fa fa-play"></i></a>
-                        <a href="#" class="icon2 facebook-color"><i class="fa fa-share-square-o"></i></a>
-                    </p>
+                    <p></p>
                     <div class="decoration"></div>
-                </div> -->
 
+
+                    <!-- <div class="one-half-responsive">
+                        <img src="images/modeflip/music/music_ui.png" alt="img" class="responsive-image">
+                    </div>
+
+                    <div class="one-third-responsive last-column">
+                        <p class="user-list-socials">
+                            <img src="images/pictures/1s.jpg" alt="img">
+                            <strong>Ugly Is Beautiful<br><em>David Usher</em></strong>
+                            <a href="#" class="icon1 mail-color"><i class="fa fa-play"></i></a>
+                            <a href="#" class="icon2 facebook-color"><i class="fa fa-share-square-o"></i></a>
+                        </p>
+                        <p class="user-list-socials">
+                            <img src="images/pictures/2s.jpg" alt="img">
+                            <strong>Ugly Is Beautiful<br><em>David Usher</em></strong>
+                            <a href="#" class="icon1 mail-color"><i class="fa fa-play"></i></a>
+                            <a href="#" class="icon2 facebook-color"><i class="fa fa-share-square-o"></i></a>
+                        </p>
+                        <p class="user-list-socials">
+                            <img src="images/pictures/3s.jpg" alt="img">
+                            <strong>Ugly Is Beautiful<br><em>David Usher</em></strong>
+                            <a href="#" class="icon1 mail-color"><i class="fa fa-play"></i></a>
+                            <a href="#" class="icon2 facebook-color"><i class="fa fa-share-square-o"></i></a>
+                        </p>
+                        <p class="user-list-socials">
+                            <img src="images/pictures/4s.jpg" alt="img">
+                            <strong>Ugly Is Beautiful<br><em>David Usher</em></strong>
+                            <a href="#" class="icon1 mail-color"><i class="fa fa-play"></i></a>
+                            <a href="#" class="icon2 facebook-color"><i class="fa fa-share-square-o"></i></a>
+                        </p>
+                        <div class="decoration"></div>
+                    </div> -->
+
+                % else:
+
+                    <div class="portfolio-one">
+
+                        <div class="portfolio-one-item full-bottom">
+                            <div class="portfolio-one-image">
+                                <div class="soon-page">
+                                    <h1>Coming Soon</h1>
+                                    <!-- <h4>We're still working on this product!</h4> -->
+                                    <p>
+                                        距设计师产品上线还有
+                                    </p>
+                                    <div id="countdown_${did}" class="countdown"></div><div style="display: none;" id="target_date_${did}">${pre_mkt_content.get('target_date')}</div>
+                                </div>
+                                <a href="#"><i class="fa fa-clock-o"></i></a>
+                                <img src="${pre_mkt_content.get('target_pic')}" class="responsive-image">
+                            </div>
+                        </div>
+                        <div class="decoration"></div>
+                    </div>
+                % endif
 
         </div>
         <!-- Page Footer-->
@@ -284,7 +306,7 @@
                 <a href="#" class="footer-facebook"><i class="fa fa-question"></i></a>
                 <a href="#" class="footer-twitter"><i class="fa fa-phone"></i></a>
                 <a href="#" class="footer-transparent"></a>
-                <a href="#" class="footer-share show-share-bottom"><i class="fa fa-share-alt"></i></a>
+                <a href="#" class="footer-share"><i class="fa fa-share-alt"></i></a>
                 <a href="#" class="footer-up"><i class="fa fa-angle-double-up"></i></a>
             </div>
         </div>
@@ -292,37 +314,17 @@
     </div>
 
     <div class="share-bottom">
-        <h3>Share Page</h3>
-        <div class="share-socials-bottom">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.themeforest.net/">
-                <i class="fa fa-facebook facebook-color"></i>
-                Facebook
-            </a>
-            <a href="https://twitter.com/home?status=Check%20out%20ThemeForest%20http://www.themeforest.net">
-                <i class="fa fa-twitter twitter-color"></i>
-                Twitter
-            </a>
-            <a href="https://plus.google.com/share?url=http://www.themeforest.net">
-                <i class="fa fa-google-plus google-color"></i>
-                Google
-            </a>
-
-            <a href="https://pinterest.com/pin/create/button/?url=http://www.themeforest.net/&media=https://0.s3.envato.com/files/63790821/profile-image.jpg&description=Themes%20and%20Templates">
-                <i class="fa fa-pinterest-p pinterest-color"></i>
-                Pinterest
-            </a>
-            <a href="sms:">
-                <i class="fa fa-comment-o sms-color"></i>
-                Text
-            </a>
-            <a href="mailto:?&subject=Check this page out!&body=http://www.themeforest.net">
-                <i class="fa fa-envelope-o mail-color"></i>
-                Email
+        <h3>给设计师留言</h3>
+        <div class="text-me-bottom">
+            <a href="#">
+                <div class="formTextareaWrap">
+                    <textarea id="text_area" placeholder="我们会尽快审核并传达您的信息, 谢谢!" name="contactMessageTextarea" class="contactTextarea"></textarea>
+                </div>
+                <input id="submit_text" type="button" class="buttonWrap button button-green contactSubmitButton" value="发送"/>
             </a>
         </div>
         <a href="#" class="close-share-bottom">Close</a>
     </div>
-
 </div>
 
 </body>

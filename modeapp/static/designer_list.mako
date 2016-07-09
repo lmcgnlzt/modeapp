@@ -36,7 +36,6 @@
 
 <script type="text/javascript" src="scripts/lightgallery.min.js"></script>
 <script type="text/javascript" src="scripts/lg-thumbnail.min.js"></script>
-<script type="text/javascript" src="scripts/lg-video.min.js"></script>
 
 <script type="text/javascript" src="scripts/designer_list.js"></script>
 
@@ -97,7 +96,7 @@
                     <a href="/designer_view?did=${designer.get('did')}"><img src="${designer.get('profile_images').get('icon_url')}" alt="img"></a>
                     <strong>${designer.get('name')}</strong>
                     <br>
-                    <em id="bio_${designer.get('did')}" class="more">来自 ${designer.get('origin')}。${designer.get('bio')}</em>
+                    <em id="bio_${designer.get('did')}" class="more">来自 ${designer.get('origin')}。${designer.get('intro')}</em>
                 </p>
                 <div class="designer_experience">
                     % for brand in designer.get('experience_content').get('brands'):

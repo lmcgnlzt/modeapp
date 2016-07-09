@@ -36,7 +36,6 @@
 
 <script type="text/javascript" src="scripts/lightgallery.min.js"></script>
 <script type="text/javascript" src="scripts/lg-thumbnail.min.js"></script>
-<script type="text/javascript" src="scripts/lg-video.min.js"></script>
 
 <script type="text/javascript" src="scripts/index.js"></script>
 </head>
