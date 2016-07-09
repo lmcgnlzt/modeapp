@@ -47,7 +47,7 @@ $(document).ready(function() {
     });
 
     $('.designer_experience').slick({
-	  slidesToShow: 5,
+	  slidesToShow: 4,
 	});
 
 

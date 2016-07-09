@@ -21,15 +21,35 @@ class APIView(object):
 		return data
 
 	def get_garments_data(self):
-		did = int(self.request.params.get('did'))
-		cid = int(self.request.params.get('cid'))
-		gid = int(self.request.params.get('gid'))
+		did = int(self.request.GET.get('did'))
+		cid = int(self.request.GET.get('cid'))
+		gid = int(self.request.GET.get('gid'))
 		ret = self.requester.get('/garments/{}/{}/{}'.format(did, cid, gid))
 		return ret.json()
 
 	def get_experience_data(self):
-		did = int(self.request.params.get('did'))
+		did = int(self.request.GET.get('did'))
 		ret = self.requester.get('/experience/{}'.format(did))
+		return ret.json()
+
+	def get_experience_sig_pics(self):
+		did = int(self.request.GET.get('did'))
+		ret = self.requester.get('/experience/sig_pics/{}'.format(did))
+		return ret.json()
+
+	def get_experience_pics(self):
+		did = int(self.request.GET.get('did'))
+		ret = self.requester.get('/experience/pics/{}'.format(did))
+		return ret.json()
+
+	def increment_likes(self):
+		did = int(self.request.matchdict.get('did'))
+		ret = self.requester.put('/designers/{}/like'.format(did))
+		return ret.json()
+
+	def increment_wishes(self):
+		did = int(self.request.matchdict.get('did'))
+		ret = self.requester.put('/designers/{}/wish'.format(did))
 		return ret.json()
 
 
@@ -57,3 +77,15 @@ def includeme(config):
 
 	config.add_route('experience', '/api/experience')
 	add_view(config, 'experience', 'GET', 'get_experience_data')
+
+	config.add_route('experience_sig_pics', '/api/experience/sig_pics')
+	add_view(config, 'experience_sig_pics', 'GET', 'get_experience_sig_pics')
+
+	config.add_route('experience_pics', '/api/experience/pics')
+	add_view(config, 'experience_pics', 'GET', 'get_experience_pics')
+
+	config.add_route('do_like', '/api/designers/{did:\d+}/like')
+	add_view(config, 'do_like', 'GET', 'increment_likes')
+
+	config.add_route('do_wish', '/api/designers/{did:\d+}/wish')
+	add_view(config, 'do_wish', 'GET', 'increment_wishes')

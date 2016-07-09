@@ -1,19 +1,4 @@
-function load_gallery(el, did, cid, gid) {
-	load_images(el, did, cid, gid);
-}
-
-function load_works(el, did, index) {
-	load_works(el, did, index);
-}
-
-function like(el, did) {
-	like(el, did);
-}
-
-function wish(el, did) {
-	wish(el, did);
-}
-
+// JavaScript Document
 
 (function ($) {
 
@@ -22,299 +7,13 @@ $(window).load(function() {
 	$("#preloader").delay(400).fadeOut("medium"); // will fade out the white DIV that covers the website.
 });
 
-
-
-function shortenText(did) {
-    var showChar = 120;
-    var ellipsestext = "....";
-    var moretext = "更多";
-    var lesstext = "收起";
-    $('#bio_'+did).each(function() {
-        var content = $(this).html();
-        if (content.length > showChar) {
-            var c = content.substr(0, showChar);
-            var h = content.substr(showChar, content.length - showChar);
-            var html = c + '<span>' + ellipsestext + '</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" id="morelink_' + did + '"" class="morelink">' + moretext + '</a></span>';
-            $(this).html(html);
-        }
-    });
-    $("#morelink_"+did).click(function() {
-        if ($(this).hasClass("less")) {
-            $(this).removeClass("less");
-            $(this).html(moretext);
-        } else {
-            $(this).addClass("less");
-            $(this).html(lesstext);
-        }
-        $(this).parent().prev().toggle();
-        $(this).prev().toggle();
-        return false;
-    });
-}
-
-
-
-var CONFIG = (function() {
-    var API_BASE_URL = '/api'; //shared variable available only inside module
-    var DID = 0
-
-    return {
-        api_base_url: function() {
-            return API_BASE_URL;
-        },
-        set_did(did) {
-        	DID = did;
-        },
-        get_did() {
-        	return DID;
-        }
-    };
-})();
-
-
-
-
-function enable_widgets(did) {
-	// experience brand logos
-	$('#experience_'+did).slick({
-		  slidesToShow: 3,
-		  slidesToScroll: 1,
-		  autoplay: true,
-		  autoplaySpeed: 2500,
-		});
-
-	// bio shorten text
- 	shortenText(did);
-
- 	//Detect if iOS WebApp Engaged and permit navigation without deploying Safari
-	(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")
-
-	// experience gallery
-	var owlStaffControls = $("#staff-slider-"+did);
-	owlStaffControls.owlCarousel({
-		items : 3,
-		itemsDesktop : [1199,3],
-		itemsDesktopSmall : [980,3],
-		itemsTablet: [768,2],
-		itemsTabletSmall: [480,1],
-		itemsMobile : [370,1],
-		singleItem : false,
-		itemsScaleUp : false,
-		slideSpeed : 250,
-		paginationSpeed : 250,
-		rewindSpeed : 250,
-		pagination:false,
-		autoPlay : false,
-		autoHeight: false,
-	});
-	$("#next-staff-"+did).click(function(){
-	  owlStaffControls.trigger('owl.next');
-	  return false;
-	});
-	$("#prev-staff-"+did).click(function(){
-	  owlStaffControls.trigger('owl.prev');
-	  return false;
-	});
-
-	// // exclusive video
-	// var exclusive_video_prefix = 'exclusive-video-'.concat(did, '-');
-	// $("ul[id^='" + exclusive_video_prefix + "']").each(function(i, el) {
-	// 	$(el).on('onBeforeOpen.lg',function(event){
-	// 		$('#red-footer-ball').hide();
-	// 	});
-
-	// 	$(el).on('onCloseAfter.lg',function(event){
-	// 	    $('#red-footer-ball').show();
-	// 	});
-
-	// 	$(el).lightGallery({
-	// 	    closable: false,
-	// 	    download: false,
-	// 	});
-	// });
-
-	// signature picture
-	$("#sig_pic_"+did).slick({
-		  slidesToShow: 1,
-		  // slidesToScroll: 1,
-		  // autoplay: false,
-		  // autoplaySpeed: 2500,
-		});
-
-	// // signature video
-	// var collection_video_prefix = 'collection-video-'.concat(did, '-');
-	// $("ul[id^='" + collection_video_prefix + "']").each(function(i, el) {
-	// 	$(el).on('onBeforeOpen.lg',function(event){
-	// 		$('#red-footer-ball').hide();
-	// 	});
-
-	// 	$(el).on('onCloseAfter.lg',function(event){
-	// 	    $('#red-footer-ball').show();
-	// 	});
-
-	// 	$(el).lightGallery({
-	// 	    closable: false,
-	// 	    download: false,
-	// 	});
-	// });
-
-
-
-	//Countdown timer
-	var target_date = $('#target_date_'+did).text();
-	$('#countdown_'+did).countdown({
-	  date: target_date,
-	  render: function(data) {
-		$(this.el).html(
-		"<div class='countdown-box box-years'><div class='countdown-years'>" + this.leadingZeros(data.years, 2) +
-		"</div><span>years</span></div><div class='countdown-box box-days'><div class='countdown-days'>" + this.leadingZeros(data.days, 2) +
-		"</div><span>days</span></div><div class='countdown-box box-hours'><div class='countdown-hours'>" + this.leadingZeros(data.hours, 2) +
-		"</div><span>hours</span></div><div class='countdown-box box-minutes'><div class='countdown-minutes'>" + this.leadingZeros(data.min, 2) +
-		"</div><span>min</span></div><div class='countdown-box box-seconds'><div class='countdown-seconds'>" + this.leadingZeros(data.sec, 2) +
-		"</div><span>sec</span></div>");
-	  }
-	});
-
-
-}
-
-
-
-function load_gallery_content(el, did, cid, gid) {
-	$.getJSON(CONFIG.api_base_url().concat('/garments'), {'did': did, 'cid': cid, 'gid': gid}, function(data) {
-	    $(el).on('onBeforeOpen.lg',function(event){
-			$('#red-footer-ball').hide();
-		});
-
-		$(el).on('onCloseAfter.lg',function(event){
-		    $('#red-footer-ball').show();
-		});
-
-		elements = [];
-		for (var i=0; i<data['details'].length; i++) {
-			item = {
-				'src': data['details'][i].image,
-				'thumb': data['details'][i].image,
-				'subHtml': '<p>'.concat(data['details'][i].title, '</p>'),
-			}
-			elements.push(item);
-		}
-
-	    $(el).lightGallery({
-	        dynamic: true,
-	        closable: false,
-	        download: false,
-	        thumbWidth: 70,
-	        dynamicEl: elements,
-	    })
-	});
-}
-
-
-function load_experience_content(el, did, index) {
-	$.getJSON(CONFIG.api_base_url().concat('/experience/pics'), {'did': did}, function(data) {
-	    $(el).on('onBeforeOpen.lg',function(event){
-			$('#red-footer-ball').hide();
-		});
-
-		$(el).on('onCloseAfter.lg',function(event){
-		    $('#red-footer-ball').show();
-		});
-
-		elements = [];
-		for (var i=0; i<data.length; i++) {
-			item = {
-				'src': data[i]['image'],
-				'thumb': data[i]['image'],
-				'subHtml': '<p>'.concat(data[i]['title'], '</p>'),
-			}
-			elements.push(item);
-		}
-
-	    $(el).lightGallery({
-	        dynamic: true,
-	        closable: false,
-	        download: false,
-	        thumbWidth: 70,
-	        dynamicEl: elements,
-	        index: index,
-	    })
-	});
-}
-
-
-function do_like(el, did) {
-	$.getJSON(CONFIG.api_base_url().concat('/designers/'+did+'/like'), function(data) {
-		$('#like_count').html(data + ' Likes');
-	});
-}
-
-
-function do_wish(el, did) {
-	$.getJSON(CONFIG.api_base_url().concat('/designers/'+did+'/wish'), function(data) {
-		$('#wish_count').html(data + ' Wishes');
-	});
-}
-
-
-
 $(document).ready(function() {
-
-	var did = $('#curr_did').text();
-	CONFIG.set_did(did);
-
-	enable_widgets(did);
-
-
-	window.load_works = function(el, did, index) {
-		load_experience_content(el, did, index);
-	}
-
-
-	window.load_images = function(el, did, cid, gid) {
-		load_gallery_content(el, did, cid, gid);
-	}
-
-	window.like = function(el, did) {
-		do_like(el, did);
-	}
-
-	window.wish = function(el, did) {
-		do_wish(el, did);
-	}
-
-	//Send Message Settings//
-	$('#submit_text').on('click',function() {
-		if ($('#text_area').val()) {
-			$(this).val('发送中 ....').attr('disabled','disabled');
-	    	setTimeout(function(){
-	    		$('#submit_text').val('发送成功');
-	    		setTimeout(function() {$('.share-bottom').removeClass('active-share-bottom');}, 600);
-	    	}, 1000);
-		}
-	});
-
-    $('.show-share-bottom').click(function(){
-    	$('#submit_text').val('发送').removeAttr("disabled");
-    	$('#text_area').val('');
-		$('.hide-content').fadeOut(250);
-       	$('.share-bottom').toggleClass('active-share-bottom');
-        $('.header, .footer-ball').removeClass('hide-header-left');
-        snapper.close();
-        return false;
-    });
-
-    $('.close-share-bottom, #content, .open-menu, .open-more').click(function(){
-       $('.share-bottom').removeClass('active-share-bottom');
-    });
-
-
-
 
     //Remove 300ms lag set by -webkit-browsers
     window.addEventListener('load', function() {
 		FastClick.attach(document.body);
 	}, false);
+
 
     $('.menu-wrapper').addClass('hide-menu-wrapper');
     var menu_slider = $(".menu");
@@ -332,29 +31,6 @@ $(document).ready(function() {
         //     this.jumpTo(0); //for 4th slide
         //}
     });
-
-
-    window.load = function(did) {
-        $("#status").show(); // will first fade out the loading animation
-        $("#preloader").show();
-
-        $.getJSON(CONFIG.get_base_url().concat("/designers/", did), function(data) {
-
-            var html = Mustache.to_html($('#profile_temp').html(), data);
-
-            $('#content').html(html).promise().done(function(){
-                activate(data);
-            });
-
-            $("#preloader").delay(400).fadeOut("medium"); // will fade out the white DIV that covers the website.
-
-        });
-    }
-
-
-
-
-
 
 
 	$('.swipebox').click(function(){
@@ -388,38 +64,38 @@ $(document).ready(function() {
 	  element: document.getElementById('content')
 	});
 
+    //Sharebox Settings//
 
-	/*/////////*/
-	/*Pie Chart*/
-	/*/////////*/
+    $('.show-share-bottom').click(function(){
+		$('.hide-content').fadeOut(250);
+       $('.share-bottom').toggleClass('active-share-bottom');
+        $('.header, .footer-ball').removeClass('hide-header-left');
+        snapper.close();
+        return false;
+    });
 
-	var pieData = [
-		{	value: 50,	color: "#e74c3c", highlight: "#c0392b", label: "Red"			},
-		{	value: 10,	color: "#2ecc71", highlight: "#27ae60",	label: "Green"			},
-		{	value: 20,	color: "#f1c40f", highlight: "#f39c12",	label: "Yellow"			},
-		{	value: 20,	color: "#2c3e50", highlight: "#34495e",	label: "Dark Blue"		}
-	];
+    $('.close-share-bottom, #content, .open-menu, .open-more').click(function(){
+       $('.share-bottom').removeClass('active-share-bottom');
+    });
 
-	var barChartData = {
-		labels : ["One","Two","Three","Four","Five"],
-		datasets : [
-			{
-				fillColor : "rgba(0,0,0,0.1)",
-				strokeColor : "rgba(0,0,0,0.2)",
-				highlightFill: "rgba(0,0,0,0.25)",
-				highlightStroke: "rgba(0,0,0,0.25)",
-				data : [20,10,40,30,10]
-			}
-		]
-	}
+    //Countdown timer
 
-	// window.onload = function(){
-	// 	var pie_chart_1 = document.getElementById("generate-pie-chart").getContext("2d");
-	// 	window.pie_chart_1 = new Chart(pie_chart_1).Pie(pieData);
+	var endDate = "July 9, 2016 15:03:25";
 
-	// 	var bar_chart_1 = document.getElementById("generate-bar-chart").getContext("2d");
-	// 	window.pie_chart_1 = new Chart(bar_chart_1).Bar(barChartData);
-	// };
+	$('.countdown').countdown({
+	  date: endDate,
+	  render: function(data) {
+		$(this.el).html(
+		"<div class='countdown-box box-years'><div class='countdown-years'>" + this.leadingZeros(data.years, 2) +
+		"</div><span>years</span></div><div class='countdown-box box-days'><div class='countdown-days'>" + this.leadingZeros(data.days, 2) +
+		"</div><span>days</span></div><div class='countdown-box box-hours'><div class='countdown-hours'>" + this.leadingZeros(data.hours, 2) +
+		"</div><span>hours</span></div><div class='countdown-box box-minutes'><div class='countdown-minutes'>" + this.leadingZeros(data.min, 2) +
+		"</div><span>min</span></div><div class='countdown-box box-seconds'><div class='countdown-seconds'>" + this.leadingZeros(data.sec, 2) +
+		"</div><span>sec</span></div>");
+	  }
+	});
+
+
 
 	//Animate.css scroll to begin animation //
 
@@ -710,36 +386,6 @@ $(document).ready(function() {
 	  return false;
 	});
 
-
-	var owlProductControls = $(".product-slider");
-	owlProductControls.owlCarousel({
-		//Basic Stuff
-		items : 3,
-		itemsDesktop : [1199,3],
-		itemsDesktopSmall : [980,3],
-		itemsTablet: [768,2],
-		itemsTabletSmall: [480,1],
-		itemsMobile : [370,1],
-		singleItem : false,
-		itemsScaleUp : false,
-		slideSpeed : 250,
-		paginationSpeed : 250,
-		rewindSpeed : 250,
-		pagination:false,
-		autoPlay : false,
-		autoHeight: false,
-	});
-
-	$(".next-product").click(function(){
-	  owlProductControls.trigger('owl.next');
-	  return false;
-	});
-	$(".prev-product").click(function(){
-	  owlProductControls.trigger('owl.prev');
-	  return false;
-	});
-
-
 	var owlQuoteSlider = $(".quote-slider");
 	owlQuoteSlider.owlCarousel({
 		items : 1,
@@ -791,14 +437,13 @@ $(document).ready(function() {
 
 	//Init the carousel
 	$(".homepage-slider").owlCarousel({
-		autoPlay: false,
-		// slideSpeed : 500,
-		// paginationSpeed : 500,
-		// singleItem : true,
-		// pagination:false,
-		// afterInit : progressBar,
-		// afterMove : moved,
-		// startDragging : pauseOnDragging
+		slideSpeed : 500,
+		paginationSpeed : 500,
+		singleItem : true,
+		pagination:false,
+		afterInit : progressBar,
+		afterMove : moved,
+		startDragging : pauseOnDragging
 	});
 
 	//Init progressBar where elem is $("#owl-demo")
