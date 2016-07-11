@@ -14,10 +14,15 @@ class RendersView(object):
 	def _did_list(self):
 		return self.requester.get('/dids').json()
 
+	# def collections_view(self): # lazy load implmentation
+	# 	r = self.requester.get('/portfolios/1')
+	# 	ret = r.json()
+	# 	ret['dids'] = self._did_list()
+	# 	return ret
+
 	def collections_view(self):
-		r = self.requester.get('/portfolios/1')
+		r = self.requester.get('/collections')
 		ret = r.json()
-		ret['dids'] = self._did_list()
 		return ret
 
 	def designer_list_view(self):
@@ -29,6 +34,9 @@ class RendersView(object):
 		did = int(self.request.params.get('did'))
 		r = self.requester.get('/portfolios/{}'.format(did))
 		return r.json()
+
+	def flipbook_view(self):
+		return {'success' : True}
 
 
 def includeme(config):
@@ -54,4 +62,12 @@ def includeme(config):
 		attr = 'designer_view',
 		route_name = 'designer',
 		renderer = 'modeapp:static/designer.mako'
+	)
+
+	config.add_route('flipbook', '/flipbook_view')
+	config.add_view(
+		'modeapp.view_handler.RendersView',
+		attr = 'flipbook_view',
+		route_name = 'flipbook',
+		renderer = 'modeapp:static/book.mako'
 	)

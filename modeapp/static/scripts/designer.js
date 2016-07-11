@@ -25,18 +25,16 @@ $(window).load(function() {
 
 
 function shortenText(did) {
-    var showChar = 120;
     var ellipsestext = "....";
     var moretext = "更多";
     var lesstext = "收起";
     $('#bio_'+did).each(function() {
         var content = $(this).html();
-        if (content.length > showChar) {
-            var c = content.substr(0, showChar);
-            var h = content.substr(showChar, content.length - showChar);
-            var html = c + '<span>' + ellipsestext + '</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" id="morelink_' + did + '"" class="morelink">' + moretext + '</a></span>';
-            $(this).html(html);
-        }
+        var firstParaIndex = content.indexOf('</p>')+4
+        var c = content.substr(0, firstParaIndex);
+        var h = content.substr(firstParaIndex, content.length - firstParaIndex);
+        var html = c + '<span>' + ellipsestext + '</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" id="morelink_' + did + '"" class="morelink">' + moretext + '</a></span>';
+        $(this).html(html);
     });
     $("#morelink_"+did).click(function() {
         if ($(this).hasClass("less")) {

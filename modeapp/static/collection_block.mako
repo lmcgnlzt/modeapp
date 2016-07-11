@@ -1,6 +1,6 @@
 <%block name="collection_block">
 
-<img src="${profile_images.get('image_url')}" alt="img" class="responsive-image">
+<img src="${data.get('profile_images').get('image_url')}" alt="img" class="responsive-image">
 
 
 <div class="one-half-responsive last-column">
@@ -19,7 +19,7 @@
 <div class="decoration"></div>
 
 
-<h4>精选作品浏览</h4>
+<h4>设计师作品浏览</h4>
 <a id="next-staff-${did}" href="#" class="next-staff"></a>
 <a id="prev-staff-${did}" href="#" class="prev-staff"></a>
 
@@ -40,13 +40,6 @@
     % endfor
 </div>
 
-% for index, video in enumerate(experience_content.get('videos')):
-<video id="experience-video-${did}-${index}" poster="${video.get('poster')}" onclick="this.play();" width="100%" height="auto" controls preload="none">
-    <source src="${video.get('url')}" type="video/mp4">
-</video>
-<div class="decoration"></div>
-<div class="empty-space"></div>
-% endfor
 
 <div class="empty-space"></div>
 <div class="decoration"></div>
@@ -107,7 +100,6 @@
             <div class="portfolio-one-image">
                 <div class="soon-page">
                     <h1>Coming Soon</h1>
-                    <h4>We're still working on this product!</h4>
                     <p>
                         距设计师产品上线还有
                     </p>
@@ -117,9 +109,13 @@
                 <img src="${pre_mkt_content.get('target_pic')}" class="responsive-image">
             </div>
         </div>
-        <div class="decoration"></div>
+
     </div>
 % endif
 
+<div class="empty-space"></div>
+<div class="empty-space"></div>
+<div class="decoration"></div>
+<div class="empty-space"></div>
 
 </%block>

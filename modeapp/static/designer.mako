@@ -59,7 +59,7 @@
             <a href="/homepage" class="selected-item"><i class="fa fa-home"></i>Home</a>
             <a href="/collections"><i class="fa fa-star"></i>Shop</a>
             <a href="/designer_list"><i class="fa fa-user"></i>Designer</a>
-            <a href="#"><i class="fa fa-book"></i>FLIP Book</a>
+            <a href="/flipbook_view"><i class="fa fa-book"></i>FLIP Book</a>
             <a href="#"><i class="fa fa-music"></i>3D Music</a>
             <a href="#"><i class="fa fa-shopping-cart"></i>Store</a>
             <a href="#"><i class="fa fa-rss"></i>FASHION</a>
@@ -118,14 +118,19 @@
                     </div>
                 </div>
 
+                <%
+                    bio_paragraphs = [p.strip() for p in bio.split('|')]
+                %>
                 <div id="bio_${did}" class="left-if-mobile no-bottom">
-                    ${bio}
+                    % for para in bio_paragraphs:
+                        <p>${para}</p>
+                    % endfor
                 </div>
 
                 <div class="empty-space"></div>
                 <div class="decoration"></div>
 
-                <h4>全部作品浏览</h4>
+                <h4>作品浏览</h4>
                 <a id="next-staff-${did}" href="#" class="next-staff"></a>
                 <a id="prev-staff-${did}" href="#" class="prev-staff"></a>
 
@@ -145,19 +150,18 @@
                     </div>
                     % endfor
                 </div>
+                <div class="empty-space"></div>
 
                 % for index, video in enumerate(experience_content.get('videos')):
                 <video id="experience-video-${did}-${index}" poster="${video.get('poster')}" onclick="this.play();" width="100%" height="auto" controls preload="none">
                     <source src="${video.get('url')}" type="video/mp4">
                 </video>
+                <div style="text-align:right">资料均由设计师提供</div>
                 <div class="decoration"></div>
                 <div class="empty-space"></div>
                 % endfor
 
                 <div class="empty-space"></div>
-                <div class="decoration"></div>
-                <div class="empty-space"></div>
-
 
                 <h5>${exclusive_content.get('title')}</h5>
                 <div id="exclusive_${did}" class="exclusive-slider" data-snap-ignore="true">
@@ -286,7 +290,7 @@
                                     <h1>Coming Soon</h1>
                                     <!-- <h4>We're still working on this product!</h4> -->
                                     <p>
-                                        距设计师产品上线还有
+                                        距七月限量主题系列产品上线还有
                                     </p>
                                     <div id="countdown_${did}" class="countdown"></div><div style="display: none;" id="target_date_${did}">${pre_mkt_content.get('target_date')}</div>
                                 </div>
@@ -299,14 +303,15 @@
                 % endif
 
         </div>
+
         <!-- Page Footer-->
         <div class="footer">
             <p class="center-text">Copyright 2016. All rights reserved.</p>
             <div class="footer-socials half-bottom">
                 <a href="#" class="footer-facebook"><i class="fa fa-question"></i></a>
-                <a href="#" class="footer-twitter"><i class="fa fa-phone"></i></a>
+                <a href="#" class="footer-twitter"><i class="fa fa-envelope-o"></i></a>
                 <a href="#" class="footer-transparent"></a>
-                <a href="#" class="footer-share"><i class="fa fa-share-alt"></i></a>
+                <a href="#" class="footer-share show-share-bottom"><i class="fa fa-share-alt"></i></a>
                 <a href="#" class="footer-up"><i class="fa fa-angle-double-up"></i></a>
             </div>
         </div>
