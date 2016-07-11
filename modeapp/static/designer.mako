@@ -290,7 +290,7 @@
                                     <h1>Coming Soon</h1>
                                     <!-- <h4>We're still working on this product!</h4> -->
                                     <p>
-                                        距七月限量主题系列产品上线还有
+                                        距七月限量主题系列产品发售还有
                                     </p>
                                     <div id="countdown_${did}" class="countdown"></div><div style="display: none;" id="target_date_${did}">${pre_mkt_content.get('target_date')}</div>
                                 </div>

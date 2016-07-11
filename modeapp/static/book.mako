@@ -129,11 +129,11 @@
                 <div class="timeline-decoration" style="height:96%;"></div>
                 <div class="timeline-item">
                     <div class="timeline-icon">
-                        <i class="fa fa-camera"></i>
+                        <i class="fa fa-link"></i>
                     </div>
                     <div class="timeline-text">
                         <h3 class="title">Step 1</h3>
-                        <em class="subtitle">A timeline image post</em>
+                        <em class="subtitle">MODE 活页夹 【Book Binder】</em>
                         <img src="http://assets.modeflip.com/flipbook/steps/1.jpg" alt="img" class="responsive-image">
                         <p>
                             写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍
@@ -142,11 +142,11 @@
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-icon">
-                        <i class="fa fa-camera"></i>
+                        <i class="fa fa-files-o"></i>
                     </div>
                     <div class="timeline-text">
                         <h3 class="title">Step 2</h3>
-                        <em class="subtitle">A timeline image post</em>
+                        <em class="subtitle">FLIP BOOK 月刊 【Monthly Magazine】</em>
                         <img src="http://assets.modeflip.com/flipbook/steps/2.jpg" alt="img" class="responsive-image">
                         <p>
                             写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍
@@ -155,11 +155,11 @@
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-icon">
-                        <i class="fa fa-camera"></i>
+                        <i class="fa fa-file-image-o"></i>
                     </div>
                     <div class="timeline-text">
                         <h3 class="title">Step 3</h3>
-                        <em class="subtitle">A timeline image post</em>
+                        <em class="subtitle">FLIP BOOK 活页纸 【Leaf Paper】</em>
                         <img src="http://assets.modeflip.com/flipbook/steps/3.jpg" alt="img" class="responsive-image">
                         <p>
                             写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍
@@ -168,11 +168,11 @@
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-icon">
-                        <i class="fa fa-camera"></i>
+                        <i class="fa fa-paint-brush"></i>
                     </div>
                     <div class="timeline-text">
                         <h3 class="title">Step 4</h3>
-                        <em class="subtitle">A timeline image post</em>
+                        <em class="subtitle">“Do It Yourself” 【DIY】</em>
                         <img src="http://assets.modeflip.com/flipbook/steps/4.jpg" alt="img" class="responsive-image">
                         <p>
                             写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍
@@ -181,11 +181,11 @@
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-icon">
-                        <i class="fa fa-camera"></i>
+                        <i class="fa fa-clipboard"></i>
                     </div>
                     <div class="timeline-text">
                         <h3 class="title">Step 5</h3>
-                        <em class="subtitle">A timeline image post</em>
+                        <em class="subtitle">MODE 贴纸 【MODE Stickers】</em>
                         <img src="http://assets.modeflip.com/flipbook/steps/5.jpg" alt="img" class="responsive-image">
                         <p>
                             写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍
@@ -194,11 +194,11 @@
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-icon">
-                        <i class="fa fa-camera"></i>
+                        <i class="fa fa-eraser"></i>
                     </div>
                     <div class="timeline-text">
                         <h3 class="title">Step 6</h3>
-                        <em class="subtitle">A timeline image post</em>
+                        <em class="subtitle">FLIP BOOK 封套 【Book Cover】</em>
                         <img src="http://assets.modeflip.com/flipbook/steps/6.jpg" alt="img" class="responsive-image">
                         <p>
                             写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍
@@ -207,11 +207,11 @@
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-icon">
-                        <i class="fa fa-camera"></i>
+                        <i class="fa fa-book"></i>
                     </div>
                     <div class="timeline-text">
                         <h3 class="title">Step 7</h3>
-                        <em class="subtitle">A timeline image post</em>
+                        <em class="subtitle">MODE FLIP FASHION BOOK</em>
                         <img src="http://assets.modeflip.com/flipbook/steps/7.jpg" alt="img" class="responsive-image">
                         <p>
                             写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍
@@ -228,7 +228,7 @@
             <div class="container no-bottom">
                 <h3>Flipbook购买</h3>
                 <p>
-                    敬请关注产品上线时间
+                    敬请关注产品发售时间
                 </p>
             </div>
             <div class="portfolio-one">

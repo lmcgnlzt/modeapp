@@ -108,7 +108,7 @@
                 %>
                 <div id="designer${did}">
 
-                    <img src="${data.get('profile_images').get('image_url')}" alt="img" class="responsive-image">
+                    <a href="/designer_view?did=${did}"><img src="${data.get('profile_images').get('image_url')}" alt="img" class="responsive-image"></a>
 
                     <div class="one-half-responsive last-column">
                         <div id="experience_${did}">
@@ -207,7 +207,7 @@
                                     <div class="soon-page">
                                         <h1>Coming Soon</h1>
                                         <p>
-                                            距设计师产品上线还有
+                                            距设计师产品发售还有
                                         </p>
                                         <div id="countdown_${did}" class="countdown"></div><div style="display: none;" id="target_date_${did}">${data.get('pre_mkt_content').get('target_date')}</div>
                                     </div>
