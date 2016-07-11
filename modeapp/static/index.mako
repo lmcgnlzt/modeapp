@@ -57,7 +57,7 @@
             <a href="/homepage" class="selected-item"><i class="fa fa-home"></i>Home</a>
             <a href="/collections"><i class="fa fa-star"></i>Shop</a>
             <a href="/designer_list"><i class="fa fa-user"></i>Designer</a>
-            <a href="#"><i class="fa fa-book"></i>FLIP Book</a>
+            <a href="/flipbook_view"><i class="fa fa-book"></i>FLIP Book</a>
             <a href="#"><i class="fa fa-music"></i>3D Music</a>
             <a href="#"><i class="fa fa-shopping-cart"></i>Store</a>
             <a href="#"><i class="fa fa-rss"></i>FASHION</a>
@@ -120,7 +120,7 @@
                         </a>
                     </div>
                     <div class="shopbox">
-                        <a href="#">
+                        <a href="/flipbook_view">
                         <img src="http://assets.modeflip.com/index/book.jpg" alt="" />
                         <h3>FASHION BOOK</h3>
                         </a>

@@ -59,7 +59,7 @@
             <a href="/homepage" class="selected-item"><i class="fa fa-home"></i>Home</a>
             <a href="/collections"><i class="fa fa-star"></i>Shop</a>
             <a href="/designer_list"><i class="fa fa-user"></i>Designer</a>
-            <a href="#"><i class="fa fa-book"></i>FLIP Book</a>
+            <a href="/flipbook_view"><i class="fa fa-book"></i>FLIP Book</a>
             <a href="#"><i class="fa fa-music"></i>3D Music</a>
             <a href="#"><i class="fa fa-shopping-cart"></i>Store</a>
             <a href="#"><i class="fa fa-rss"></i>FASHION</a>
@@ -96,7 +96,7 @@
                     <a href="/designer_view?did=${designer.get('did')}"><img src="${designer.get('profile_images').get('icon_url')}" alt="img"></a>
                     <strong>${designer.get('name')}</strong>
                     <br>
-                    <em id="bio_${designer.get('did')}" class="more">来自 ${designer.get('origin')}。${designer.get('intro')}</em>
+                    <em id="bio_${designer.get('did')}" class="more">${designer.get('intro')}</em>
                 </p>
                 <div class="designer_experience">
                     % for brand in designer.get('experience_content').get('brands'):
@@ -110,12 +110,13 @@
 
 
         </div>
+
         <!-- Page Footer-->
         <div class="footer">
             <p class="center-text">Copyright 2016. All rights reserved.</p>
             <div class="footer-socials half-bottom">
                 <a href="#" class="footer-facebook"><i class="fa fa-question"></i></a>
-                <a href="#" class="footer-twitter"><i class="fa fa-phone"></i></a>
+                <a href="#" class="footer-twitter"><i class="fa fa-envelope-o"></i></a>
                 <a href="#" class="footer-transparent"></a>
                 <a href="#" class="footer-share show-share-bottom"><i class="fa fa-share-alt"></i></a>
                 <a href="#" class="footer-up"><i class="fa fa-angle-double-up"></i></a>

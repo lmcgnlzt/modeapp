@@ -2448,15 +2448,15 @@ table tr:hover td{
 	z-index:999;
 	color:#FFFFFF;
 	font-size:30px;
-	opacity:0;
+	opacity:1;
 	transition:all 200ms ease;
 }
 
-.portfolio-one-image a:hover{
+/*.portfolio-one-image a:hover{
 	opacity:1;
 	transition:all 200ms ease;
 	color:#FFFFFF;
-}
+}*/
 
 .portfolio-one-image a i{
 	width:30px;

@@ -29,52 +29,43 @@ var CONFIG = (function() {
         view_base_url: function() {
             return VIEW_BASE_URL;
         },
-        has_next_did: function() {
-        	return DIDS.length != 0;
-        },
-        set_dids: function(dids) {
-        	DIDS = dids;
-        },
-        get_next_did: function() {
-            return DIDS.shift();
-        },
-        set_did(did) {
-        	DID = did;
-        },
-        get_did() {
-        	return DID;
-        }
+        // set_did(did) {
+        // 	DID = did;
+        // },
+        // get_did() {
+        // 	return DID;
+        // }
     };
 })();
 
 
-function shortenText(did) {
-	var showChar = 55;
-    var ellipsestext = "....";
-    var moretext = "更多";
-    var lesstext = "收起";
-    $('#bio_'+did).each(function() {
-        var content = $(this).html();
-        if (content.length > showChar) {
-            var c = content.substr(0, showChar);
-            var h = content.substr(showChar, content.length - showChar);
-            var html = c + '<span>' + ellipsestext + '</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" id="morelink_' + did + '"" class="morelink">' + moretext + '</a></span>';
-            $(this).html(html);
-        }
-    });
-    $("#morelink_"+did).click(function() {
-        if ($(this).hasClass("less")) {
-            $(this).removeClass("less");
-            $(this).html(moretext);
-        } else {
-            $(this).addClass("less");
-            $(this).html(lesstext);
-        }
-        $(this).parent().prev().toggle();
-        $(this).prev().toggle();
-        return false;
-    });
-}
+// function shortenText(did) {
+// 	var showChar = 55;
+//     var ellipsestext = "....";
+//     var moretext = "更多";
+//     var lesstext = "收起";
+//     $('#bio_'+did).each(function() {
+//         var content = $(this).html();
+//         if (content.length > showChar) {
+//             var c = content.substr(0, showChar);
+//             var h = content.substr(showChar, content.length - showChar);
+//             var html = c + '<span>' + ellipsestext + '</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" id="morelink_' + did + '"" class="morelink">' + moretext + '</a></span>';
+//             $(this).html(html);
+//         }
+//     });
+//     $("#morelink_"+did).click(function() {
+//         if ($(this).hasClass("less")) {
+//             $(this).removeClass("less");
+//             $(this).html(moretext);
+//         } else {
+//             $(this).addClass("less");
+//             $(this).html(lesstext);
+//         }
+//         $(this).parent().prev().toggle();
+//         $(this).prev().toggle();
+//         return false;
+//     });
+// }
 
 
 function enable_widgets(did) {
@@ -163,25 +154,25 @@ function enable_widgets(did) {
 
 
 
-function load_more() {
-	var curr_did = CONFIG.get_did();
-	$.getJSON(CONFIG.api_base_url().concat('/next_collections/', curr_did), function(data) {
-	    var did = data['did'];
-	    $('#designer'+did).hide().html(data['designer']).fadeIn('slow').promise().done(function(){
-	    // $('#designer'+did).hide().html(data['designer']).promise().done(function(){
-	        enable_widgets(did); // activate js widgets
-	     });
+// function load_more() {
+// 	var curr_did = CONFIG.get_did();
+// 	$.getJSON(CONFIG.api_base_url().concat('/next_collections/', curr_did), function(data) {
+// 	    var did = data['did'];
+// 	    $('#designer'+did).hide().html(data['designer']).fadeIn('slow').promise().done(function(){
+// 	    // $('#designer'+did).hide().html(data['designer']).promise().done(function(){
+// 	        enable_widgets(did); // activate js widgets
+// 	     });
 
-	    CONFIG.set_did(did);
+// 	    CONFIG.set_did(did);
 
-	    if (data['has_next']) {
-	    	$('#loadgif').addClass('fa-arrow-down').removeClass('fa-spinner fa-spin fa-3x fa-fw');
-	    } else {
-	    	$('#loaderbtn').hide();
-	    }
+// 	    if (data['has_next']) {
+// 	    	$('#loadgif').addClass('fa-arrow-down').removeClass('fa-spinner fa-spin fa-3x fa-fw');
+// 	    } else {
+// 	    	$('#loaderbtn').hide();
+// 	    }
 
-	});
-}
+// 	});
+// }
 
 
 function load_gallery_content(el, did, cid, gid) {
@@ -239,7 +230,7 @@ function load_experience_content(el, did, index) {
 	        dynamic: true,
 	        download: false,
 	        closable: false,
-	        thumbWidth: 70,
+	        thumbWidth: 60,
 	        dynamicEl: elements,
 	        index: index,
 	    })
@@ -248,10 +239,13 @@ function load_experience_content(el, did, index) {
 
 
 $(document).ready(function() {
-	var did = $('#curr_did').text();
-	CONFIG.set_did(did);
+	// var did = $('#curr_did').text();
+	// CONFIG.set_did(did);
 
-	enable_widgets(did);
+	var dids = JSON.parse($('#dids').text());
+	for (var i=0; i<dids.length; i++) {
+		enable_widgets(dids[i]);
+	}
 
 
 	$('#loadmore').click(function(){
