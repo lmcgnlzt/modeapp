@@ -74,43 +74,45 @@
 
         <div class="slider-container">
             <div id="head-slider" class="homepage-slider" data-snap-ignore="true">
-                <img src="images/resources/book/flipbook/1-1.jpg" class="responsive-image" alt="img">
-                <img src="images/resources/book/flipbook/2-1.jpg" class="responsive-image" alt="img">
-                <img src="images/resources/book/flipbook/3-1.jpg" class="responsive-image" alt="img">
-                <img src="images/resources/book/flipbook/4-1.jpg" class="responsive-image" alt="img">
-                <img src="images/resources/book/flipbook/5-1.jpg" class="responsive-image" alt="img">
+                <div><img src="http://assets.modeflip.com/flipbook/sliders/1-1.jpg" class="responsive-image" alt="img"></div>
+                <div><img src="http://assets.modeflip.com/flipbook/sliders/2-1.jpg" class="responsive-image" alt="img"></div>
+                <div><img src="http://assets.modeflip.com/flipbook/sliders/3-1.jpg" class="responsive-image" alt="img"></div>
+                <div><img src="http://assets.modeflip.com/flipbook/sliders/4-1.jpg" class="responsive-image" alt="img"></div>
+                <div><img src="http://assets.modeflip.com/flipbook/sliders/5-1.jpg" class="responsive-image" alt="img"></div>
             </div>
         </div>
         <div class="slider-container">
             <div id="upper-slider" class="homepage-slider" data-snap-ignore="true">
-                <img src="images/resources/book/flipbook/1-2.jpg" class="responsive-image" alt="img">
-                <img src="images/resources/book/flipbook/2-2.jpg" class="responsive-image" alt="img">
-                <img src="images/resources/book/flipbook/3-2.jpg" class="responsive-image" alt="img">
-                <img src="images/resources/book/flipbook/4-2.jpg" class="responsive-image" alt="img">
-                <img src="images/resources/book/flipbook/5-2.jpg" class="responsive-image" alt="img">
+                <div><img src="http://assets.modeflip.com/flipbook/sliders/1-2.jpg" class="responsive-image" alt="img"></div>
+                <div><img src="http://assets.modeflip.com/flipbook/sliders/2-2.jpg" class="responsive-image" alt="img"></div>
+                <div><img src="http://assets.modeflip.com/flipbook/sliders/3-2.jpg" class="responsive-image" alt="img"></div>
+                <div><img src="http://assets.modeflip.com/flipbook/sliders/4-2.jpg" class="responsive-image" alt="img"></div>
+                <div><img src="http://assets.modeflip.com/flipbook/sliders/5-2.jpg" class="responsive-image" alt="img"></div>
             </div>
         </div>
         <div class="slider-container">
             <div id="lower-slider" class="homepage-slider" data-snap-ignore="true">
-                <img src="images/resources/book/flipbook/1-3.jpg" class="responsive-image" alt="img">
-                <img src="images/resources/book/flipbook/2-3.jpg" class="responsive-image" alt="img">
-                <img src="images/resources/book/flipbook/3-3.jpg" class="responsive-image" alt="img">
-                <img src="images/resources/book/flipbook/4-3.jpg" class="responsive-image" alt="img">
-                <img src="images/resources/book/flipbook/5-3.jpg" class="responsive-image" alt="img">
+                <div><img src="http://assets.modeflip.com/flipbook/sliders/1-3.jpg" class="responsive-image" alt="img"></div>
+                <div><img src="http://assets.modeflip.com/flipbook/sliders/2-3.jpg" class="responsive-image" alt="img"></div>
+                <div><img src="http://assets.modeflip.com/flipbook/sliders/3-3.jpg" class="responsive-image" alt="img"></div>
+                <div><img src="http://assets.modeflip.com/flipbook/sliders/4-3.jpg" class="responsive-image" alt="img"></div>
+                <div><img src="http://assets.modeflip.com/flipbook/sliders/5-3.jpg" class="responsive-image" alt="img"></div>
             </div>
         </div>
         <div class="slider-container">
             <div id="foot-slider" class="homepage-slider" data-snap-ignore="true">
-                <img src="images/resources/book/flipbook/1-4.jpg" class="responsive-image" alt="img">
-                <img src="images/resources/book/flipbook/2-4.jpg" class="responsive-image" alt="img">
-                <img src="images/resources/book/flipbook/3-4.jpg" class="responsive-image" alt="img">
-                <img src="images/resources/book/flipbook/4-4.jpg" class="responsive-image" alt="img">
-                <img src="images/resources/book/flipbook/5-4.jpg" class="responsive-image" alt="img">
+                <div><img src="http://assets.modeflip.com/flipbook/sliders/1-4.jpg" class="responsive-image" alt="img"></div>
+                <div><img src="http://assets.modeflip.com/flipbook/sliders/2-4.jpg" class="responsive-image" alt="img"></div>
+                <div><img src="http://assets.modeflip.com/flipbook/sliders/3-4.jpg" class="responsive-image" alt="img"></div>
+                <div><img src="http://assets.modeflip.com/flipbook/sliders/4-4.jpg" class="responsive-image" alt="img"></div>
+                <div><img src="http://assets.modeflip.com/flipbook/sliders/5-4.jpg" class="responsive-image" alt="img"></div>
             </div>
         </div>
         <div class="empty-space"></div>
+        <div class="empty-space"></div>
 
         <div class="content">
+
             <div class="empty-space"></div>
             <div class="empty-space"></div>
 
@@ -132,7 +134,7 @@
                     <div class="timeline-text">
                         <h3 class="title">Step 1</h3>
                         <em class="subtitle">A timeline image post</em>
-                        <img src="images/resources/book/book_timeline/1.jpg" alt="img" class="responsive-image">
+                        <img src="http://assets.modeflip.com/flipbook/steps/1.jpg" alt="img" class="responsive-image">
                         <p>
                             写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍
                         </p>
@@ -145,7 +147,7 @@
                     <div class="timeline-text">
                         <h3 class="title">Step 2</h3>
                         <em class="subtitle">A timeline image post</em>
-                        <img src="images/resources/book/book_timeline/2.jpg" alt="img" class="responsive-image">
+                        <img src="http://assets.modeflip.com/flipbook/steps/2.jpg" alt="img" class="responsive-image">
                         <p>
                             写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍
                         </p>
@@ -158,7 +160,7 @@
                     <div class="timeline-text">
                         <h3 class="title">Step 3</h3>
                         <em class="subtitle">A timeline image post</em>
-                        <img src="images/resources/book/book_timeline/3.jpg" alt="img" class="responsive-image">
+                        <img src="http://assets.modeflip.com/flipbook/steps/3.jpg" alt="img" class="responsive-image">
                         <p>
                             写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍
                         </p>
@@ -171,7 +173,7 @@
                     <div class="timeline-text">
                         <h3 class="title">Step 4</h3>
                         <em class="subtitle">A timeline image post</em>
-                        <img src="images/resources/book/book_timeline/4.jpg" alt="img" class="responsive-image">
+                        <img src="http://assets.modeflip.com/flipbook/steps/4.jpg" alt="img" class="responsive-image">
                         <p>
                             写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍
                         </p>
@@ -184,7 +186,7 @@
                     <div class="timeline-text">
                         <h3 class="title">Step 5</h3>
                         <em class="subtitle">A timeline image post</em>
-                        <img src="images/resources/book/book_timeline/5.jpg" alt="img" class="responsive-image">
+                        <img src="http://assets.modeflip.com/flipbook/steps/5.jpg" alt="img" class="responsive-image">
                         <p>
                             写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍
                         </p>
@@ -197,7 +199,7 @@
                     <div class="timeline-text">
                         <h3 class="title">Step 6</h3>
                         <em class="subtitle">A timeline image post</em>
-                        <img src="images/resources/book/book_timeline/6.jpg" alt="img" class="responsive-image">
+                        <img src="http://assets.modeflip.com/flipbook/steps/6.jpg" alt="img" class="responsive-image">
                         <p>
                             写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍
                         </p>
@@ -210,7 +212,7 @@
                     <div class="timeline-text">
                         <h3 class="title">Step 7</h3>
                         <em class="subtitle">A timeline image post</em>
-                        <img src="images/resources/book/book_timeline/7.jpg" alt="img" class="responsive-image">
+                        <img src="http://assets.modeflip.com/flipbook/steps/7.jpg" alt="img" class="responsive-image">
                         <p>
                             写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍
                         </p>
@@ -240,7 +242,7 @@
                             <div class="countdown"></div>
                         </div>
                         <a href="#"><i class="fa fa-clock-o"></i></a>
-                        <img src="images/resources/book/soon.jpg" class="responsive-image">
+                        <img src="http://assets.modeflip.com/flipbook/soon.jpg" class="responsive-image">
                     </div>
                 </div>
                 <div class="decoration"></div>
