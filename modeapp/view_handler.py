@@ -38,6 +38,9 @@ class RendersView(object):
 	def flipbook_view(self):
 		return {'success' : True}
 
+	def music_view(self):
+		return {'success' : True}
+
 
 def includeme(config):
 	config.add_route('collections', '/collections')
@@ -70,4 +73,12 @@ def includeme(config):
 		attr = 'flipbook_view',
 		route_name = 'flipbook',
 		renderer = 'modeapp:static/book.mako'
+	)
+
+	config.add_route('music', '/music_view')
+	config.add_view(
+		'modeapp.view_handler.RendersView',
+		attr = 'music_view',
+		route_name = 'music',
+		renderer = 'modeapp:static/soon.mako'
 	)
