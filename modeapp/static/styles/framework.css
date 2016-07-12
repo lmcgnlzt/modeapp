@@ -2468,6 +2468,16 @@ table tr:hover td{
 	margin-top:-13px;
 }
 
+.portfolio-one-image-soon a i{
+	width:30px;
+	height:30px;
+	position:absolute;
+	left:50%;
+	margin-left:-15px;
+	top:65%;
+	margin-top:-13px;
+}
+
 .portfolio-one-image img{
 	margin-bottom:0px;
 	padding-botom:0px;
@@ -4117,6 +4127,8 @@ table tr:hover td{
     line-height:40px;
     font-weight:300;
     margin-bottom:0px;
+    /*margin-top:25px;*/
+    margin-top:25%;
 }
 
 .soon-page h4{
