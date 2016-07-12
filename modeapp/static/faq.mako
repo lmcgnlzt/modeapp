@@ -37,7 +37,7 @@
 <script type="text/javascript" src="scripts/lightgallery.min.js"></script>
 <script type="text/javascript" src="scripts/lg-thumbnail.min.js"></script>
 
-<script type="text/javascript" src="scripts/index.js"></script>
+<script type="text/javascript" src="scripts/soon.js"></script>
 </head>
 <body>
 
@@ -70,73 +70,114 @@
 
     <!-- Page Content-->
     <div id="content" class="snap-content">
-        <div class="slider-container full-bottom">
-            <div class="homepage-slider" data-snap-ignore="true">
-                <div>
-                    <div class="overlay"></div>
-                    <div class="homepage-slider-caption homepage-left-caption">
-                        <h3>TOP Designers</h3>
-                        <p>独家定制</p>
-                    </div>
-                    <img src="http://assets.modeflip.com/index/header1.jpg" class="responsive-image" alt="img">
-                </div>
-                <div>
-                    <div class="overlay"></div>
-                    <div class="homepage-slider-caption homepage-center-caption">
-                        <h3>优质面料</h3>
-                        <p>精致纯手工制作工艺</p>
-                    </div>
-                    <img src="http://assets.modeflip.com/index/header4.jpg" class="responsive-image" alt="img">
-                </div>
-                <div>
-                    <div class="overlay"></div>
-                    <div class="homepage-slider-caption homepage-right-caption">
-                        <h3>限量主题系列</h3>
-                        <p>设计师来自美国、意大利、英国、法国</p>
-                    </div>
-                    <img src="http://assets.modeflip.com/index/header3.jpg" class="responsive-image" alt="img">
-                </div>
-            </div>
+        <div class="empty-space"></div>
+        <div class="empty-space"></div>
+
+
+        <div class="heading-style">
+            <h4 class="heading-title">FAQ's</h4>
+            <i class="fa fa-question heading-icon"></i>
+            <div class="line bg-black"></div>
+            <p class="heading-subtitle">
+                为了保证有些客户目前还没有微信的，我们有移动互联网上，PC端网上商城，保证您在各大入口都可以进行销售，这就是三网合一的优势，可以触及到各个平台下的客户。以下是关于微信城系统客户的常见问题FAQ列表
+            </p>
         </div>
 
-        <div class="content">
 
-            <div>
-                <div class="section-heading">
-                    <h3>SHOP AND DISCOVER</h3>
-                </div>
-                <div class="clear"></div>
-                <div class="row">
-                    <div class="shopbox">
-                        <a href="/collections">
-                            <img src="http://assets.modeflip.com/index/garment.jpg" alt="" />
-                            <h3>产品</h3>
-                        </a>
-                    </div>
-                    <div class="shopbox">
-                        <a href="/designer_list">
-                        <img src="http://assets.modeflip.com/index/designer.jpg" alt="" />
-                        <h3>设计师</h3>
-                        </a>
-                    </div>
-                    <div class="shopbox">
-                        <a href="/flipbook_view">
-                        <img src="http://assets.modeflip.com/index/book.jpg" alt="" />
-                        <h3>FASHION BOOK</h3>
-                        </a>
-                    </div>
-                    <div class="shopbox">
-                        <a href="/music_view">
-                        <img src="http://assets.modeflip.com/index/music.jpg" alt="" />
-                        <h3>3D 音乐</h3>
-                        </a>
+        <div class="one-half-responsive">
+            <div class="container">
+                <div class="toggle-1">
+                    <a href="#" class="deploy-toggle-1">三网合一的系统虽好，感觉太贵了？</a>
+                    <div class="toggle-content">
+                        <p>
+                            微商城系统这个套餐是三网合一的商城系统，可同时覆盖传统互联网，移动互联网，微信三大主流入口的商城系统。就目前而言，这是比较先进的系统，三个商城的后台都是同一个，只需要在一个后台录入资料，整理订单，与客户互动，这样省去管理时间。
+                        </p>
                     </div>
                 </div>
+                <div class="toggle-1">
+                    <a href="#" class="deploy-toggle-1">完成整微商城套系统需要多长时间？</a>
+                    <div class="toggle-content">
+                        <p>
+                            首先是签订协议，然后我们开始帮您：申请微信公众帐号（服务号），申请微信支付
+申请国际域名
+申请公户支付宝帐号
+
+处理网站备案
+
+等微信公众帐号认证通过后，我们就会将系统做接入，然后将测试地址和接入好的微信商城交付您使用。您录好资料，等网站备案通过了，就可以上线了
+                        </p>
+                    </div>
+                </div>
+                <div class="toggle-1">
+                    <a href="#" class="deploy-toggle-1">微信有些功能过一段时间就不流行了，怎么办？</a>
+                    <div class="toggle-content">
+                        <p>
+                            微信商城的功能模块，我们是不断在升级和更新中的，我们会不断推出新的功能，提供给客户免费的自动升级。
+                        </p>
+                    </div>
+                </div>
+                <div class="toggle-1">
+                    <a href="#" class="deploy-toggle-1">微信团购功能什么时候才能开放使用？</a>
+                    <div class="toggle-content">
+                        <p>
+                            团购功能我们暂时还没有开放到手机版和微信版中，但是以后会增加上去。
+                        </p>
+                    </div>
+                </div>
+                <div class="toggle-1">
+                    <a href="#" class="deploy-toggle-1">在申请公众微信时为什么要选择服务号？</a>
+                    <div class="toggle-content">
+                        <p>
+                            因为服务号可以在微信商城中生成自定义菜单，认证通过后可以开通微信支付，订阅号需要高级认证后才有自定义菜单并不可以申请微信支付。服务号有更多的接口权限。
+                        </p>
+                    </div>
+                </div>
+                <div class="toggle-1">
+                    <a href="#" class="deploy-toggle-1">微信服务号、订阅号的介绍和区别？</a>
+                    <div class="toggle-content">
+                        <p>
+                            微信公众平台现在已分成订阅公众号和服务公众号两种类型。
+                        </p>
+                    </div>
+                </div>
+                <div class="toggle-1">
+                    <a href="#" class="deploy-toggle-1">我购买了整套微商城系统，你们能提供源代码吗？</a>
+                    <div class="toggle-content">
+                        <p>
+                            我们是不提供源代码的，不过如果您有自己的服务器，也可以安装在您的服务器上面，也是一个属于你自己的系统。
+                        </p>
+                    </div>
+                </div>
+                <div class="toggle-1">
+                    <a href="#" class="deploy-toggle-1">购买微信商城系统之后我该怎么管理？</a>
+                    <div class="toggle-content">
+                        <p>
+                            购买微商城系统后，微信商城是由贵公司自行经营和管理，如果遇到有什么问题，我们还会提供技术服务。
+                        </p>
+                    </div>
+                </div>
+                <div class="toggle-1">
+                    <a href="#" class="deploy-toggle-1">微信公众平台支持哪些编程语言?应该如何选择?</a>
+                    <div class="toggle-content">
+                        <p>
+                            凡是支持动态Web开发的编程语言都能够用于微信公众平台开发,例如:Java、PHP、ASP.NET、Ruby、Python、Note.js等。
+                        </p>
+                    </div>
+                </div>
+                <div class="toggle-1">
+                    <a href="#" class="deploy-toggle-1">订阅号使用开发模式能够向用户回复图片、语音消息吗?</a>
+                    <div class="toggle-content">
+                        <p>
+                            可以,虽然订阅号没有多媒体文件上传接口权限,无法通过上传多媒体文件到微信服务器获取MediaId,但仍可以变相得到MediaId,同样可以实现回复多媒体消息。变相的实现方法是将用户发送给公众账号的多媒体消息的MediaId记录下来,给用户回复多媒体消息时可以使用。
+                        </p>
+                    </div>
+                </div>
+
+
             </div>
 
-            <div class="decoration"></div>
-
         </div>
+
 
         <!-- Page Footer-->
         <div class="footer">
@@ -151,7 +192,6 @@
         </div>
 
     </div>
-
 
     <div class="share-bottom">
         <h3>Share Page</h3>

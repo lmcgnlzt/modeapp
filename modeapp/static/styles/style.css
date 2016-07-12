@@ -1286,3 +1286,55 @@ span.old-price {
 #magazine .turn-page{
     background-color:#ccc;
 }
+
+
+
+/* FAQ page related */
+.heading-title{
+    text-align:center;
+    font-size:19px;
+    font-weight:650!important;
+    padding-bottom:10px;
+}
+
+.heading-style p{
+    width:90%!important;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.heading-style .line{
+    z-index:1;
+    width:280px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:25px;
+    margin-bottom:25px;
+    display:block;
+    height: 1px;
+    background: black;
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(#ececec), to(#ececec), color-stop(50%, rgba(0,0,0,0.2)));
+    background: gradient(linear, 0 0, 100% 0, from(#ececec), to(#ececec), color-stop(50%, rgba(0,0,0,0.2)));
+}
+
+.heading-style i{
+    background-color:#FFFFFF;
+    font-size:24px;
+    height:40px;
+    width:50px;
+    text-align:center;
+    line-height:40px;
+    color:#666666;
+    position:absolute;
+    top:38px;
+    left:50%;
+    margin-left:-25px;
+    z-index:2;
+}
+
+.heading-style p{
+    width:300px;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+}

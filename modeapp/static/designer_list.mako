@@ -61,9 +61,9 @@
             <a href="/designer_list"><i class="fa fa-user"></i>Designer</a>
             <a href="/flipbook_view"><i class="fa fa-book"></i>FLIP Book</a>
             <a href="/music_view"><i class="fa fa-music"></i>3D Music</a>
-            <a href="#"><i class="fa fa-shopping-cart"></i>Store</a>
-            <a href="#"><i class="fa fa-rss"></i>FASHION</a>
-            <a href="#"><i class="fa fa-info"></i>MODE FLIP</a>
+            <a href="https://kdt.im/HFYzTr"><i class="fa fa-shopping-cart"></i>Store</a>
+            <!-- <a href="#"><i class="fa fa-rss"></i>FASHION</a>
+            <a href="#"><i class="fa fa-info"></i>MODE FLIP</a> -->
             <a href="#" class="sidebar-close"><i class="fa fa-times"></i>Close</a>
         </div>
     </div>
@@ -115,10 +115,10 @@
         <div class="footer">
             <p class="center-text">Copyright 2016. All rights reserved.</p>
             <div class="footer-socials half-bottom">
-                <a href="#" class="footer-facebook"><i class="fa fa-question"></i></a>
-                <a href="#" class="footer-twitter"><i class="fa fa-envelope-o"></i></a>
+                <a href="https://kdt.im/HFYzTr" class="footer-facebook"><i class="fa fa-shopping-cart"></i></a>
+                <a href="/faq_view" class="footer-twitter"><i class="fa fa fa-question"></i></a>
                 <a href="#" class="footer-transparent"></a>
-                <a href="#" class="footer-share show-share-bottom"><i class="fa fa-share-alt"></i></a>
+                <a href="#" class="footer-share show-share-bottom"><i class="fa fa-envelope-o"></i></a>
                 <a href="#" class="footer-up"><i class="fa fa-angle-double-up"></i></a>
             </div>
         </div>

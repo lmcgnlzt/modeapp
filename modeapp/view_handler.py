@@ -41,6 +41,9 @@ class RendersView(object):
 	def music_view(self):
 		return {'success' : True}
 
+	def faq_view(self):
+		return {'success' : True}
+
 
 def includeme(config):
 	config.add_route('collections', '/collections')
@@ -81,4 +84,12 @@ def includeme(config):
 		attr = 'music_view',
 		route_name = 'music',
 		renderer = 'modeapp:static/soon.mako'
+	)
+
+	config.add_route('faq', '/faq_view')
+	config.add_view(
+		'modeapp.view_handler.RendersView',
+		attr = 'faq_view',
+		route_name = 'faq',
+		renderer = 'modeapp:static/faq.mako'
 	)
