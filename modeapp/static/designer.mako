@@ -285,7 +285,7 @@
                     <div class="portfolio-one">
 
                         <div class="portfolio-one-item full-bottom">
-                            <div class="portfolio-one-image">
+                            <div class="portfolio-one-image portfolio-one-image-soon">
                                 <div class="soon-page">
                                     <h1>Coming Soon</h1>
                                     <!-- <h4>We're still working on this product!</h4> -->
