@@ -1604,14 +1604,15 @@ table tr:hover td{
 }
 
 .toggle-content p{
-	border-top:solid 1px rgba(0,0,0,0.05);
+	/*border-top:solid 1px rgba(0,0,0,0.05);*/
 	margin-bottom:0px;
 	padding-top:10px;
 	padding:15px;
 }
 
 .toggle-1, .toggle-2, .toggle-3{
-	background-color:#eeeeee;
+	/*background-color:#eeeeee;*/
+	border-bottom:solid 1px rgba(0,0,0,0.1);
 }
 
 .toggle-3{
@@ -1619,11 +1620,15 @@ table tr:hover td{
 
 }
 
+
 .deploy-toggle-1{
 	padding:15px;
 	padding-left:50px;
-	font-size:13px;
-	color:#343434;
+	/*font-size:13px;*/
+	/*color:#343434;*/
+	font-weight:500;
+    font-size:14px;
+	color:#1f1f1f;
 	text-transform:uppercase;
 	background-image:url(../images/ui/plus.png);
 	background-repeat:no-repeat;
