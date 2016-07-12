@@ -17,7 +17,7 @@
 <link rel="apple-touch-startup-image" sizes="1536x2008" href="images/splash/splash-screen-ipad-portrait-retina.png"   media="(device-width: 768px)  and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)"/>
 <link rel="apple-touch-startup-image" sizes="1496x2048" href="images/splash/splash-screen-ipad-landscape-retina.png"   media="(device-width: 768px) and (orientation: landscape)    and (-webkit-device-pixel-ratio: 2)"/>
 
-<title>Top Designers x MODE FLIP</title>
+<title>MODE FLIP</title>
 
 <link href="styles/style.css"            rel="stylesheet" type="text/css">
 <link href="styles/framework.css"        rel="stylesheet" type="text/css">
@@ -37,9 +37,7 @@
 <script type="text/javascript" src="scripts/lightgallery.min.js"></script>
 <script type="text/javascript" src="scripts/lg-thumbnail.min.js"></script>
 
-<script type="text/javascript" src="scripts/designer_list.js"></script>
-
-
+<script type="text/javascript" src="scripts/soon.js"></script>
 </head>
 <body>
 
@@ -68,51 +66,27 @@
         </div>
     </div>
 
-
-    <a id="red-footer-ball" href="#" class="footer-ball"><i class="fa fa-navicon"></i></a>
-
-
+    <a href="#" class="footer-ball"><i class="fa fa-navicon"></i></a>
 
     <!-- Page Content-->
     <div id="content" class="snap-content">
 
-        <div id="designer_page" class="content">
-
-            <!-- <div class="content-heading">
-                <h1>Top Designers x MODEF LIP</h1>
-            </div> -->
-
-            <div class="decoration"></div>
-            <div style="display: none;" id="did_list">${dids}</div>
-
-            % for index, designer in enumerate(designers):
-            <div id="designer-${designer.get('did')}" class="one-half-responsive">
-                % if index % 2 == 0:
-                <p class="thumb-left no-bottom">
-                % else:
-                <p class="thumb-right no-bottom">
-                <!-- <p class="thumb-left no-bottom"> -->
-                % endif
-                    <a href="/designer_view?did=${designer.get('did')}"><img src="${designer.get('profile_images').get('icon_url')}" alt="img"></a>
-                    <strong>${designer.get('name')}</strong>
-                    <br>
-                    <em id="bio_${designer.get('did')}" class="more">${designer.get('intro')}</em>
+        <div class="soon-page-wrapper" style="background-image: url(http://assets.modeflip.com/music/FashionMusic.jpg)">
+            <div class="soon-page">
+                <h1>Coming Soon</h1>
+                <h4>敬请期待</h4>
+                <p>
+                    我们正在整合设计师音乐，距正式开放还有
                 </p>
-                <div class="designer_experience">
-                    % for brand in designer.get('experience_content').get('brands'):
-                    <div><img class="homescreen-responsive-image" src="${brand}"></div>
-                    % endfor
-                </div>
-                <div class="thumb-clear"></div>
+                <div class="countdown"></div>
+                <a href="/homepage" class="soon-button"><i class="fa fa-home"></i>Home</a>
             </div>
-            <div class="decoration"></div>
-            % endfor
-
-
+            <div class="overlay"></div>
         </div>
 
+
         <!-- Page Footer-->
-        <div class="footer">
+        <!-- <div class="footer">
             <p class="center-text">Copyright 2016. All rights reserved.</p>
             <div class="footer-socials half-bottom">
                 <a href="#" class="footer-facebook"><i class="fa fa-question"></i></a>
@@ -121,11 +95,11 @@
                 <a href="#" class="footer-share show-share-bottom"><i class="fa fa-share-alt"></i></a>
                 <a href="#" class="footer-up"><i class="fa fa-angle-double-up"></i></a>
             </div>
-        </div>
+        </div> -->
 
     </div>
 
-    <div class="share-bottom">
+    <!-- <div class="share-bottom">
         <h3>Share Page</h3>
         <div class="share-socials-bottom">
             <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.themeforest.net/">
@@ -155,7 +129,7 @@
             </a>
         </div>
         <a href="#" class="close-share-bottom">Close</a>
-    </div>
+    </div> -->
 
 </div>
 
