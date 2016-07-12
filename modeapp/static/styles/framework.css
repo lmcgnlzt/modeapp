@@ -4127,8 +4127,7 @@ table tr:hover td{
     line-height:40px;
     font-weight:300;
     margin-bottom:0px;
-    /*margin-top:25px;*/
-    margin-top:25%;
+    margin-top:20%;
 }
 
 .soon-page h4{
