@@ -102,7 +102,7 @@
                             <i class="fa fa-heart-o"></i>
                             <div id="wish_count">${likes_and_wishes.get('wishes')} Wishes</div>
                         </a>
-                        <a href="#" class="show-share-bottom">
+                        <a href="#" class="show-message-bottom">
                             <i class="fa fa-envelope-o"></i>
                             Text Me
                         </a>
@@ -311,25 +311,32 @@
                 <a href="https://kdt.im/HFYzTr" class="footer-facebook"><i class="fa fa-shopping-cart"></i></a>
                 <a href="/faq_view" class="footer-twitter"><i class="fa fa fa-question"></i></a>
                 <a href="#" class="footer-transparent"></a>
-                <a href="#" class="footer-share show-share-bottom"><i class="fa fa-envelope-o"></i></a>
+                <a href="#" class="footer-share show-share-bottom"><i class="fa fa-share-alt"></i></a>
                 <a href="#" class="footer-up"><i class="fa fa-angle-double-up"></i></a>
             </div>
         </div>
 
     </div>
 
-    <div class="share-bottom">
+    <div class="message-bottom">
         <h3>给设计师留言</h3>
         <div class="text-me-bottom">
             <a href="#">
                 <div class="formTextareaWrap">
-                    <textarea id="text_area" placeholder="我们会尽快审核并传达您的信息, 谢谢!" name="contactMessageTextarea" class="contactTextarea"></textarea>
+                    <textarea id="text_area" placeholder="我们会尽快审核并传递您的留言, 谢谢!" name="contactMessageTextarea" class="contactTextarea"></textarea>
                 </div>
                 <input id="submit_text" type="button" class="buttonWrap button button-green contactSubmitButton" value="发送"/>
             </a>
         </div>
+        <a href="#" class="close-message-bottom">Close</a>
+    </div>
+
+    <div class="share-bottom">
+        <h3>长按二维码分享MODEFLIP</h3>
+        <div class="share-qr"><img src="http://assets.modeflip.com/ui/qr.jpg" alt="img"></div>
         <a href="#" class="close-share-bottom">Close</a>
     </div>
+
 </div>
 
 </body>

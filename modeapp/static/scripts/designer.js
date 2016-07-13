@@ -281,20 +281,39 @@ $(document).ready(function() {
 		do_wish(el, did);
 	}
 
+
+	var snapper = new Snap({
+	  element: document.getElementById('content')
+	});
+
 	//Send Message Settings//
 	$('#submit_text').on('click',function() {
 		if ($('#text_area').val()) {
 			$(this).val('发送中 ....').attr('disabled','disabled');
 	    	setTimeout(function(){
 	    		$('#submit_text').val('发送成功');
-	    		setTimeout(function() {$('.share-bottom').removeClass('active-share-bottom');}, 600);
+	    		setTimeout(function() {$('.message-bottom').removeClass('active-message-bottom');}, 600);
 	    	}, 1000);
 		}
 	});
 
-    $('.show-share-bottom').click(function(){
+	$('.show-message-bottom').click(function(){
     	$('#submit_text').val('发送').removeAttr("disabled");
     	$('#text_area').val('');
+		$('.hide-content').fadeOut(250);
+       	$('.message-bottom').toggleClass('active-message-bottom');
+        $('.header, .footer-ball').removeClass('hide-header-left');
+        snapper.close();
+        return false;
+    });
+
+    $('.close-message-bottom, #content, .open-menu, .open-more').click(function(){
+       $('.message-bottom').removeClass('active-message-bottom');
+    });
+
+
+    // QR share widgets
+    $('.show-share-bottom').click(function(){
 		$('.hide-content').fadeOut(250);
        	$('.share-bottom').toggleClass('active-share-bottom');
         $('.header, .footer-ball').removeClass('hide-header-left');
