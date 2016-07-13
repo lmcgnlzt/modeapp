@@ -154,7 +154,7 @@
 
 
     <div class="share-bottom">
-        <h3>长按二维码分享MODEFLIP</h3>
+        <h3>长按二维码保存并分享</h3>
         <div class="share-qr"><img src="http://assets.modeflip.com/ui/qr.jpg" alt="img"></div>
         <a href="#" class="close-share-bottom">Close</a>
     </div>
