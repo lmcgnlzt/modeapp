@@ -32,7 +32,7 @@
 <script type="text/javascript" src="scripts/jqueryui.js"></script>
 <script type="text/javascript" src="scripts/framework.plugins.js"></script>
 <script type="text/javascript" src="scripts/plugins.js"></script>
-<script type="text/javascript" src="scripts/slick.js"></script>
+<script type="text/javascript" src="scripts/slick.min.js"></script>
 
 <script type="text/javascript" src="scripts/lightgallery.min.js"></script>
 <script type="text/javascript" src="scripts/lg-thumbnail.min.js"></script>

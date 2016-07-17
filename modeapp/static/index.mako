@@ -32,7 +32,7 @@
 <script type="text/javascript" src="scripts/jqueryui.js"></script>
 <script type="text/javascript" src="scripts/framework.plugins.js"></script>
 <script type="text/javascript" src="scripts/plugins.js"></script>
-<script type="text/javascript" src="scripts/slick.js"></script>
+<script type="text/javascript" src="scripts/slick.min.js"></script>
 
 <script type="text/javascript" src="scripts/lightgallery.min.js"></script>
 <script type="text/javascript" src="scripts/lg-thumbnail.min.js"></script>
@@ -69,38 +69,45 @@
     <a href="#" class="footer-ball"><i class="fa fa-navicon"></i></a>
 
     <!-- Page Content-->
-    <div id="content" class="snap-content">
-        <div class="slider-container full-bottom">
-            <div class="homepage-slider" data-snap-ignore="true">
-                <div>
-                    <div class="overlay"></div>
-                    <div class="homepage-slider-caption homepage-left-caption">
-                        <h3>TOP Designers</h3>
-                        <p>独家定制</p>
-                    </div>
-                    <img src="http://assets.modeflip.com/index/header1.jpg" class="responsive-image" alt="img">
+    <div id="content" class="page-content-scroll snap-content">
+
+        <div class="coverpage-slider" data-snap-ignore="true">
+            <div>
+                <div class="overlay dark-overlay"></div>
+                <div class="coverpage-image coverpage-style-2" style="background-image: url(http://assets.modeflip.com/ui/index/bg1.jpg)">
+                    <h3 style="height:180px; top:50%; margin-top:-180px;">
+                        TOP<br>
+                        FASHION<br>
+                        DESIGNERS<br>
+                    </h3>
+                    <p style="height:100px; top:50%; margin-top:-10px;">
+                        全球独家签约<br>
+                        顶级设计师平台<br>
+                        来自法国、意大利、英国、美国<br>
+                        定制限量主题系列<br>
+                        仅在 <b>MODE FLIP</b> 平价发售<br>
+                    </p>
                 </div>
-                <div>
-                    <div class="overlay"></div>
-                    <div class="homepage-slider-caption homepage-center-caption">
-                        <h3>优质面料</h3>
-                        <p>精致纯手工制作工艺</p>
-                    </div>
-                    <img src="http://assets.modeflip.com/index/header4.jpg" class="responsive-image" alt="img">
-                </div>
-                <div>
-                    <div class="overlay"></div>
-                    <div class="homepage-slider-caption homepage-right-caption">
-                        <h3>限量主题系列</h3>
-                        <p>设计师来自美国、意大利、英国、法国</p>
-                    </div>
-                    <img src="http://assets.modeflip.com/index/header3.jpg" class="responsive-image" alt="img">
+            </div>
+            <div>
+                <div class="overlay dark-overlay"></div>
+                <div class="coverpage-image coverpage-style-2" style="background-image: url(http://assets.modeflip.com/ui/index/bg2.jpg)">
+                    <h3 style="height:180px; top:50%; margin-top:-180px;">
+                        FIND<br>
+                        THE<br>
+                        PERFECT<br>
+                        DESIGN<br>
+                    </h3>
+                    <p style="height:100px; top:50%; margin-top:20px;">
+                        设计师亲自定制<br>
+                        精湛版型，优质面料<br>
+                        精致纯手工艺制作<br>
+                    </p>
                 </div>
             </div>
         </div>
 
         <div class="content">
-
             <div>
                 <div class="section-heading">
                     <h3>SHOP AND DISCOVER</h3>
@@ -109,33 +116,31 @@
                 <div class="row">
                     <div class="shopbox">
                         <a href="/collections">
-                            <img src="http://assets.modeflip.com/index/garment.jpg" alt="" />
-                            <h3>产品</h3>
+                            <img src="http://assets.modeflip.com/ui/index/shop.jpg" alt="" />
+                            <h3>Shop</h3>
                         </a>
                     </div>
                     <div class="shopbox">
                         <a href="/designer_list">
-                        <img src="http://assets.modeflip.com/index/designer.jpg" alt="" />
-                        <h3>设计师</h3>
+                            <img src="http://assets.modeflip.com/ui/index/designer.jpg" alt="" />
+                            <h3>Designer</h3>
                         </a>
                     </div>
                     <div class="shopbox">
                         <a href="/flipbook_view">
-                        <img src="http://assets.modeflip.com/index/book.jpg" alt="" />
-                        <h3>FASHION BOOK</h3>
+                            <img src="http://assets.modeflip.com/ui/index/book.jpg" alt="" />
+                            <h3>Flip Book</h3>
                         </a>
                     </div>
                     <div class="shopbox">
                         <a href="/music_view">
-                        <img src="http://assets.modeflip.com/index/music.jpg" alt="" />
-                        <h3>3D 音乐</h3>
+                            <img src="http://assets.modeflip.com/ui/index/music.jpg" alt="" />
+                            <h3>3D Music</h3>
                         </a>
                     </div>
                 </div>
             </div>
-
             <div class="decoration"></div>
-
         </div>
 
         <!-- Page Footer-->

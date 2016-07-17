@@ -9,6 +9,9 @@ $(window).load(function() {
 
 $(document).ready(function() {
 
+	$('.footer-ball').hide();
+
+
     //Remove 300ms lag set by -webkit-browsers
     window.addEventListener('load', function() {
 		FastClick.attach(document.body);
@@ -562,6 +565,32 @@ $(document).ready(function() {
 	$.scrollIt();
 
 
+
+
+	//Show Back To Home When Scrolling
+    $('.page-content-scroll').on('scroll', function () {
+        var total_scroll_height = $('.page-content-scroll')[0].scrollHeight
+        var inside_header = ($(this).scrollTop() <= 150);
+        var passed_header = ($(this).scrollTop() >= 0); //250
+        var footer_reached = ($(this).scrollTop() >= (total_scroll_height - ($(window).height() +100 )));
+
+        if (inside_header == true) {
+        	console.log('inside');
+        	$('.footer-ball').hide();
+        } else if (passed_header == true)  {
+        	console.log('passed_header == true');
+        	$('.footer-ball').fadeIn();
+        }
+        if (footer_reached == true){
+        	// console.log('footer_reached == true');
+            // $('.footer-ball').show();
+        }
+    });
+
+
+
+
+
     //Generate Fullscreen Elemeents
 
     var screen_width = 0;
@@ -571,7 +600,7 @@ $(document).ready(function() {
         screen_height = $(window).height();
 
          $('.coverpage-image').css({
-            height: screen_height -60,
+            height: screen_height-1,
             width: screen_width
         });
         $('.landing-page').css({
@@ -599,7 +628,7 @@ $(document).ready(function() {
 
 	$(".coverpage-slider").owlCarousel({
 		slideSpeed : 500,
-		paginationSpeed : 500,
+		paginationSpeed : 2500,
 		singleItem : true,
 		pagination:true,
 		afterInit : progressBar,

@@ -324,6 +324,17 @@ a{
 	margin-right:15px;
 }
 
+#page-content-scroll {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: -19px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch
+}
+
+
 @media (min-width:768px){
 	.content{
 		margin-left:70px;
@@ -3338,7 +3349,8 @@ table tr:hover td{
 
 .coverpage-slider{
     position:absolute;
-    margin-top:-28px;
+    /*margin-top:28px;*/
+    margin-bottom:15px;
 }
 
 .coverpage-slider img{
@@ -3346,7 +3358,9 @@ table tr:hover td{
     height:100%;
 }
 
-.coverpage-image{ background-size:cover; background-position: center center;}
+.coverpage-image{
+	background-size: cover;
+	background-position: center center;}
 
 .coverpage-style-1 p{
     display:block;

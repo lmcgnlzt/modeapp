@@ -7,15 +7,15 @@
 
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/splash/splash-icon.png">
 <link rel="apple-touch-icon-precomposed" sizes="180x180" href="images/splash/splash-icon-big.png">
-<link rel="apple-touch-startup-image" href="images/splash/splash-screen.png" 	media="screen and (max-device-width: 320px)" />
+<link rel="apple-touch-startup-image" href="images/splash/splash-screen.png"    media="screen and (max-device-width: 320px)" />
 <link rel="apple-touch-startup-image" href="images/splash/splash-screen@2x.png" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" />
 <link rel="apple-touch-startup-image" href="images/splash/splash-screen-six.png" media="(device-width: 375px)">
 <link rel="apple-touch-startup-image" href="images/splash/splash-screen-six-plus.png" media="(device-width: 414px)">
 <link rel="apple-touch-startup-image" sizes="640x1096" href="images/splash/splash-screen@3x.png" />
 <link rel="apple-touch-startup-image" sizes="1024x748" href="images/splash/splash-screen-ipad-landscape" media="screen and (min-device-width : 481px) and (max-device-width : 1024px) and (orientation : landscape)" />
 <link rel="apple-touch-startup-image" sizes="768x1004" href="images/splash/splash-screen-ipad-portrait.png" media="screen and (min-device-width : 481px) and (max-device-width : 1024px) and (orientation : portrait)" />
-<link rel="apple-touch-startup-image" sizes="1536x2008" href="images/splash/splash-screen-ipad-portrait-retina.png"   media="(device-width: 768px)	and (orientation: portrait)	and (-webkit-device-pixel-ratio: 2)"/>
-<link rel="apple-touch-startup-image" sizes="1496x2048" href="images/splash/splash-screen-ipad-landscape-retina.png"   media="(device-width: 768px)	and (orientation: landscape)	and (-webkit-device-pixel-ratio: 2)"/>
+<link rel="apple-touch-startup-image" sizes="1536x2008" href="images/splash/splash-screen-ipad-portrait-retina.png"   media="(device-width: 768px)  and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)"/>
+<link rel="apple-touch-startup-image" sizes="1496x2048" href="images/splash/splash-screen-ipad-landscape-retina.png"   media="(device-width: 768px) and (orientation: landscape)    and (-webkit-device-pixel-ratio: 2)"/>
 
 <title>MODE FLIP</title>
 
@@ -26,15 +26,16 @@
 <link href="styles/font-awesome.css"     rel="stylesheet" type="text/css">
 <link href="styles/animate.css"          rel="stylesheet" type="text/css">
 <link href="styles/slick.css"            rel="stylesheet" type="text/css">
-<link href="styles/jquery.videocontrols.css"   rel="stylesheet" type="text/css">
+<link href="styles/lightgallery.css"   rel="stylesheet" type="text/css">
 
 <script type="text/javascript" src="scripts/jquery.js"></script>
 <script type="text/javascript" src="scripts/jqueryui.js"></script>
 <script type="text/javascript" src="scripts/framework.plugins.js"></script>
 <script type="text/javascript" src="scripts/plugins.js"></script>
-<script type="text/javascript" src="scripts/mustache.js"></script>
-<script type="text/javascript" src="scripts/jquery.videocontrols.js"></script>
-<script type="text/javascript" src="scripts/slick.js"></script>
+<script type="text/javascript" src="scripts/slick.min.js"></script>
+
+<script type="text/javascript" src="scripts/lightgallery.min.js"></script>
+<script type="text/javascript" src="scripts/lg-thumbnail.min.js"></script>
 
 <script type="text/javascript" src="scripts/index.js"></script>
 </head>
@@ -68,35 +69,68 @@
     <a href="#" class="footer-ball"><i class="fa fa-navicon"></i></a>
 
     <!-- Page Content-->
-    <div id="content" class="snap-content">
-        <div class="slider-container full-bottom">
-            <div class="homepage-slider" data-snap-ignore="true">
-                <div>
-                    <div class="overlay"></div>
-                    <div class="homepage-slider-caption homepage-left-caption">
-                        <h3>TOP Designers</h3>
-                        <p>独家定制</p>
-                    </div>
-                    <img src="http://assets.modeflip.com/index/header1.jpg" class="responsive-image" alt="img">
+    <div id="content" class="page-content-scroll snap-content">
+
+        <div class="coverpage-slider" data-snap-ignore="true">
+            <!-- <div>
+                <div class="overlay dark-overlay"></div>
+                <div class="coverpage-image index_bg1 coverpage-style-1">
+                    <p style="top:50%; margin-top:-50px;">
+                        Create amazingly coverpage designs, with just a simple class.
+                    </p>
+
                 </div>
-                <div>
-                    <div class="overlay"></div>
-                    <div class="homepage-slider-caption homepage-center-caption">
-                        <h3>优质面料</h3>
-                        <p>精致纯手工制作工艺</p>
-                    </div>
-                    <img src="http://assets.modeflip.com/index/header4.jpg" class="responsive-image" alt="img">
+            </div> -->
+
+            <div>
+                <div class="overlay dark-overlay"></div>
+                <div class="coverpage-image index_bg1 coverpage-style-2">
+                    <h3 style="height:180px; top:50%; margin-top:-180px;">
+                        TOP<br>
+                        FASHION<br>
+                        DESIGNERS<br>
+                    </h3>
+                    <p style="height:100px; top:50%; margin-top:-10px;">
+                        全球独家签约<br>
+                        顶级设计师平台<br>
+                        来自法国，意大利，英国，美国<br>
+                        精心定制限量主题系列<br>
+                        仅在 <b>MODE FLIP</b> 发售<br>
+                    </p>
+
                 </div>
-                <div>
-                    <div class="overlay"></div>
-                    <div class="homepage-slider-caption homepage-right-caption">
-                        <h3>限量主题系列</h3>
-                        <p>设计师来自美国、意大利、英国、法国</p>
-                    </div>
-                    <img src="http://assets.modeflip.com/index/header3.jpg" class="responsive-image" alt="img">
+            </div>
+
+            <!-- <div>
+                <div class="overlay dark-overlay"></div>
+                <div class="coverpage-image index_bg2 coverpage-style-3">
+                    <i class="fa fa-clock-o" style="left:50%; top:50%; margin-top:-120px;"></i>
+                    <p style="left:50%; margin-left:-140px; top:50%; margin-top:-20px;">
+                        With simple classes, it will take you less than 10 minutes to setup the entire coverpage.
+                    </p>
+
+                </div>
+            </div> -->
+
+            <div>
+                <div class="overlay dark-overlay"></div>
+                <div class="coverpage-image index_bg3 coverpage-style-2">
+                    <h3 style="height:180px; top:50%; margin-top:-180px;">
+                        FIND<br>
+                        THE<br>
+                        PERFECT<br>
+                        DESIGN<br>
+                    </h3>
+                    <p style="height:100px; top:50%; margin-top:20px;">
+                        Play along with the coverpage and
+                        you'll find the perfect combination
+                        that fits your needs.
+                    </p>
+
                 </div>
             </div>
         </div>
+
 
         <div class="content">
 
