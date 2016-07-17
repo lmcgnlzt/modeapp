@@ -32,7 +32,7 @@
 <script type="text/javascript" src="scripts/jqueryui.js"></script>
 <script type="text/javascript" src="scripts/framework.plugins.js"></script>
 <script type="text/javascript" src="scripts/plugins.js"></script>
-<script type="text/javascript" src="scripts/slick.js"></script>
+<script type="text/javascript" src="scripts/slick.min.js"></script>
 
 <script type="text/javascript" src="scripts/lightgallery.min.js"></script>
 <script type="text/javascript" src="scripts/lg-thumbnail.min.js"></script>
@@ -77,26 +77,23 @@
                 <div>
                     <div class="overlay"></div>
                     <div class="homepage-slider-caption homepage-left-caption">
-                        <h3>Max Mara时尚概念</h3>
-                        <p>独家定制</p>
+                        <p>designed by <b>Sophia</b></p>
                     </div>
-                    <img src="http://assets.modeflip.com/collections/header1.jpg" class="responsive-image" alt="img">
+                    <img src="http://assets.modeflip.com/ui/header1.jpg" class="responsive-image" alt="img">
                 </div>
                 <div>
                     <div class="overlay"></div>
                     <div class="homepage-slider-caption homepage-center-caption">
-                        <h3>优质面料</h3>
-                        <p>精致纯手工制作工艺</p>
+                        <p>Ralph Lauren & <b>Eileen</b></p>
                     </div>
-                    <img src="http://assets.modeflip.com/collections/header2.jpg" class="responsive-image" alt="img">
+                    <img src="http://assets.modeflip.com/ui/header2.jpg" class="responsive-image" alt="img">
                 </div>
                 <div>
                     <div class="overlay"></div>
                     <div class="homepage-slider-caption homepage-right-caption">
-                        <h3>限量主题系列</h3>
-                        <p>来自纽约，米兰</p>
+                        <p>provided by <b>Gianni</b></p>
                     </div>
-                    <img src="http://assets.modeflip.com/collections/header3.jpg" class="responsive-image" alt="img">
+                    <img src="http://assets.modeflip.com/ui/header3.jpg" class="responsive-image" alt="img">
                 </div>
             </div>
         </div>
