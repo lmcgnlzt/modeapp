@@ -12,6 +12,7 @@ requires = [
     'gunicorn==19.3.0',
     'pyramid-mako==1.0.2',
     'wechat-sdk',
+    'pyramid_useragent',
     ]
 
 setup(name='modeapp',
