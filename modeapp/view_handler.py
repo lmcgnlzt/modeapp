@@ -1,5 +1,6 @@
 from pyramid.httpexceptions import exception_response
 from modeapp.utils.api_requests import ApiRequester
+from pyramid.renderers import render_to_response
 
 
 class RendersView(object):
@@ -8,7 +9,7 @@ class RendersView(object):
 		self.request = request
 		self.requester = ApiRequester('http://127.0.0.1:6543/modeapi')
 
-	def index_view(self):
+	def homepage_view(self):
 		return {'success' : True}
 
 	def _did_list(self):
@@ -46,6 +47,14 @@ class RendersView(object):
 
 
 def includeme(config):
+	config.add_route('homepage', '/homepage')
+	config.add_view(
+		'modeapp.view_handler.RendersView',
+		attr = 'homepage_view',
+		route_name = 'homepage',
+		renderer = 'modeapp:static/index.mako'
+	)
+
 	config.add_route('collections', '/collections')
 	config.add_view(
 		'modeapp.view_handler.RendersView',

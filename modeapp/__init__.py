@@ -1,59 +1,38 @@
 from pyramid.config import Configurator
 
-
-from pyramid.renderers import render_to_response # remove
-from pyramid.authentication import AuthTktAuthenticationPolicy # remove
-from pyramid.authorization import ACLAuthorizationPolicy # remove
-from pyramid.view import view_config # remove
+from pyramid.renderers import render_to_response
+from pyramid.authentication import AuthTktAuthenticationPolicy
+from pyramid.authorization import ACLAuthorizationPolicy
+from pyramid.view import view_config
 
 
 
 @view_config(route_name='auth', renderer='auth.mako')
-def login_view(request): # remove
+def auth_view(request):
+    client = request.user_agent_classified
+    if client.is_pc: # user_agent detect
+        return render_to_response('modeapp:static/block.mako', {}, request=request)
+    # return render_to_response('modeapp:static/index.mako', {}, request=request)
+
     password = request.params.get('password')
     if request.method == 'POST':
         if password == '2016':
             return render_to_response('modeapp:static/index.mako', {}, request=request)
     return {}
-    # return render_to_response('modeapp:static/index.mako', {}, request=request)
-
-
-# def index_routes(config):
-# 	config.add_route('index', '/')
-# 	config.add_view(
-# 		'modeapp.views.index',
-# 		route_name = 'index',
-# 		renderer = 'modeapp:static/index.mako'
-# 	)
-
-
-def home_routes(config): # remove
-	'''
-	This is temporary for redirecting to home page, remove after getting rid of auth and enable index_routes
-	'''
-	config.add_route('homepage', '/homepage')
-	config.add_view(
-		'modeapp.views.homepage',
-		route_name = 'homepage',
-		renderer = 'modeapp:static/index.mako'
-	)
-
 
 
 def main(global_config, **settings):
     config = Configurator(settings=settings)
     config.include('pyramid_mako')
+    config.include('pyramid_useragent')
 
 
-    authn_policy = AuthTktAuthenticationPolicy('sosecret', hashalg='sha512') # remove
-    authz_policy = ACLAuthorizationPolicy() # remove
-    config.set_authentication_policy(authn_policy) # remove
-    config.set_authorization_policy(authz_policy) # remove
-    config.add_route('auth', '/') # remove
+    authn_policy = AuthTktAuthenticationPolicy('sosecret', hashalg='sha512')
+    authz_policy = ACLAuthorizationPolicy()
+    config.set_authentication_policy(authn_policy)
+    config.set_authorization_policy(authz_policy)
+    config.add_route('auth', '/')
 
-
-    # config.include(index_routes)
-    config.include(home_routes) # remove
 
     config.include('modeapp.api_handler')
     config.include('modeapp.view_handler')
