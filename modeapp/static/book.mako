@@ -115,11 +115,13 @@
 
             <div class="empty-space"></div>
             <div class="empty-space"></div>
+            <div class="empty-space"></div>
+            <div class="empty-space"></div>
 
             <div class="container no-bottom">
-                <h3>Mode Flip Fashion Book</h3>
+                <h3 style="text-align:center;">MODE FLIP FASHION BOOK</h3>
                 <p>
-                    写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍，字数不少于800字
+                    一本充满时尚，设计感 ，环保，节约，便捷只属于你的时尚书
                 </p>
             </div>
 
@@ -136,7 +138,7 @@
                         <em class="subtitle">MODE 活页夹 【Book Binder】</em>
                         <img src="http://assets.modeflip.com/flipbook/steps/1.jpg" alt="img" class="responsive-image">
                         <p>
-                            写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍
+                            首先，拥有一本空白MODE活页夹，A4，A5，A6三种尺寸，不同场合方便使用，在里面填充你的时尚梦想，创造一本只属于你的MODE FLIP FASHION BOOK。
                         </p>
                     </div>
                 </div>
@@ -149,7 +151,8 @@
                         <em class="subtitle">FLIP BOOK 月刊 【Monthly Magazine】</em>
                         <img src="http://assets.modeflip.com/flipbook/steps/2.jpg" alt="img" class="responsive-image">
                         <p>
-                            写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍
+                            在MODE活页夹插入FLIP BOOK 月刊，一本可以尽情搭配，尽情“FLIP”，满足你任何成为设计师欲望的时尚期刊。每一页四条活页裁切设计可以任意从disco queen混搭成street style，当你早上不能下定决心穿什么？大胆的混搭一件酷酷的punk jacket 与一条时髦period dress，这绝对让你看起来与众不同！更酷的是，FLIP BOOK里面的空白设计稿，你可以随意涂鸦、设计、绘画，创造你所期待的时尚。
+ So，FLIP BOOK按月发行，每月均可以与其他月刊随意互搭，组装一本属于你的时尚杂志。
                         </p>
                     </div>
                 </div>
@@ -162,7 +165,7 @@
                         <em class="subtitle">FLIP BOOK 活页纸 【Leaf Paper】</em>
                         <img src="http://assets.modeflip.com/flipbook/steps/3.jpg" alt="img" class="responsive-image">
                         <p>
-                            写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍
+                            为你的FLIP BOOK月刊搭配leaf paper，用来设计，记笔记，涂鸦……whatever，任意组装，即是一本你随时随地翻阅的时尚杂志，又是一本你随身的note book，更环保，更节约，更方便。
                         </p>
                     </div>
                 </div>
@@ -175,7 +178,7 @@
                         <em class="subtitle">“Do It Yourself” 【DIY】</em>
                         <img src="http://assets.modeflip.com/flipbook/steps/4.jpg" alt="img" class="responsive-image">
                         <p>
-                            写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍
+                            天马行空DIY你的MODE FLIP FASHION BOOK，“Do it yourself！”。
                         </p>
                     </div>
                 </div>
@@ -188,7 +191,7 @@
                         <em class="subtitle">MODE 贴纸 【MODE Stickers】</em>
                         <img src="http://assets.modeflip.com/flipbook/steps/5.jpg" alt="img" class="responsive-image">
                         <p>
-                            写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍
+                            用MODE Stickers 装饰你的FASHION BOOK，另外，空白环保牛皮纸设计，为什么不试试在如此舒适的质感上面涂鸦呢？
                         </p>
                     </div>
                 </div>
@@ -201,7 +204,7 @@
                         <em class="subtitle">FLIP BOOK 封套 【Book Cover】</em>
                         <img src="http://assets.modeflip.com/flipbook/steps/6.jpg" alt="img" class="responsive-image">
                         <p>
-                            写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍
+                            为你厚厚的一本MODE FLIP FASHION BOOK加上个封套，拍成一排放在书架，为你自己的成就和创作力喝彩吧。
                         </p>
                     </div>
                 </div>
@@ -214,7 +217,7 @@
                         <em class="subtitle">MODE FLIP FASHION BOOK</em>
                         <img src="http://assets.modeflip.com/flipbook/steps/7.jpg" alt="img" class="responsive-image">
                         <p>
-                            写一段关于flipbook的介绍，字数不少于800字写一段关于flipbook的介绍
+                            你已经创造了一本属于你的MODE FLIP FASHION BOOK，国际设计师们与你们一样也在使用MODE FLIP FASHION BOOK，在MODE一起晒晒你们与众不同的本子。
                         </p>
                     </div>
                 </div>
@@ -226,7 +229,7 @@
 
 
             <div class="container no-bottom">
-                <h3>Flipbook购买</h3>
+                <h3>FLIP BOOK购买</h3>
                 <p>
                     敬请关注产品发售时间
                 </p>
