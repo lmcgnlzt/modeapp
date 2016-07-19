@@ -177,9 +177,8 @@ function enable_widgets(did) {
 function load_more(did) {
 	$.getJSON(CONFIG.api_base_url().concat('/next_collections/', did), function(data) {
 	    $('#designer'+did).hide().html(data['designer']).fadeIn('slow').promise().done(function(){
-	    // $('#designer'+did).hide().html(data['designer']).promise().done(function(){
 	        enable_widgets(did); // activate js widgets
-	        console.log('enable_widgets for did:' + did);
+	        // console.log('enable_widgets for did:' + did);
 	     });
 	});
 }
@@ -255,11 +254,11 @@ $(document).ready(function() {
 	// CONFIG.set_curr_did(curr_did);
 
 	var dids = JSON.parse($('#dids').text());
-	console.log('dids:'+dids);
+	// console.log('dids:'+dids);
 	first_did = dids.pop();
 	enable_widgets(first_did);
 
-	console.log('setting dids:'+dids);
+	// console.log('setting dids:'+dids);
 	CONFIG.set_dids(dids);
 
 	// for (var i=0; i<dids.length; i++) {
@@ -292,10 +291,10 @@ $(document).ready(function() {
 
 	//Show Back To Home When Scrolling
     $('.page-content-scroll').on('scroll', function () {
-        var total_scroll_height = $('.page-content-scroll')[0].scrollHeight
+        // var total_scroll_height = $('.page-content-scroll')[0].scrollHeight
         // var inside_header = ($(this).scrollTop() <= 150);
         // var passed_header = ($(this).scrollTop() >= 0); //250
-        var footer_reached = ($(this).scrollTop() >= (total_scroll_height - ($(window).height() + 100 )));
+        var footer_reached = ($(this).scrollTop() >= ($('.page-content-scroll')[0].scrollHeight - ($(window).height() + 100 )));
 
         // if (inside_header == true) {
         // 	console.log('inside');
@@ -306,7 +305,7 @@ $(document).ready(function() {
 
     		if (CONFIG.is_loadable()) {
     			next_did = CONFIG.get_next();
-    			console.log('request next block for did:'+next_did);
+    			// console.log('request next block for did:'+next_did);
     			CONFIG.flip();
     			load_more(next_did);
     			CONFIG.flip(); // loadable again
