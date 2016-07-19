@@ -1,6 +1,6 @@
 <%block name="collection_block">
 
-<img src="${data.get('profile_images').get('image_url')}" alt="img" class="responsive-image">
+<a href="/designer_view?did=${did}"><img src="${profile_images.get('image_url')}" alt="img" class="responsive-image"></a>
 
 
 <div class="one-half-responsive last-column">
@@ -97,7 +97,7 @@
 
     <div class="portfolio-one">
         <div class="portfolio-one-item full-bottom">
-            <div class="portfolio-one-image">
+            <div class="portfolio-one-image portfolio-one-image-soon">
                 <div class="soon-page">
                     <h1>Coming Soon</h1>
                     <p>

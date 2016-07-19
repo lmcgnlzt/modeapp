@@ -20,7 +20,8 @@ var CONFIG = (function() {
     var API_BASE_URL = '/api'; //shared variable available only inside module
     var VIEW_BASE_URL = '/collection_block'; //shared variable available only inside module
     var DIDS = [];
-    var DID = 0
+    var DID = 0;
+    var LOADABLE = true;
 
     return {
         api_base_url: function() {
@@ -29,12 +30,31 @@ var CONFIG = (function() {
         view_base_url: function() {
             return VIEW_BASE_URL;
         },
-        // set_did(did) {
+        set_dids(dids) {
+        	DIDS = dids;
+        },
+        get_dids(dids) {
+        	return DIDS;
+        },
+        // set_curr_did(did) {
         // 	DID = did;
         // },
-        // get_did() {
+        // get_curr_did(did) {
         // 	return DID;
-        // }
+        // },
+        has_next() {
+        	return DIDS.length > 0;
+        },
+        get_next() {
+        	return DIDS.pop();
+        },
+        is_loadable() {
+        	return LOADABLE && DIDS.length > 0;
+        },
+        flip() {
+        	LOADABLE = !LOADABLE;
+        }
+
     };
 })();
 
@@ -154,25 +174,15 @@ function enable_widgets(did) {
 
 
 
-// function load_more() {
-// 	var curr_did = CONFIG.get_did();
-// 	$.getJSON(CONFIG.api_base_url().concat('/next_collections/', curr_did), function(data) {
-// 	    var did = data['did'];
-// 	    $('#designer'+did).hide().html(data['designer']).fadeIn('slow').promise().done(function(){
-// 	    // $('#designer'+did).hide().html(data['designer']).promise().done(function(){
-// 	        enable_widgets(did); // activate js widgets
-// 	     });
-
-// 	    CONFIG.set_did(did);
-
-// 	    if (data['has_next']) {
-// 	    	$('#loadgif').addClass('fa-arrow-down').removeClass('fa-spinner fa-spin fa-3x fa-fw');
-// 	    } else {
-// 	    	$('#loaderbtn').hide();
-// 	    }
-
-// 	});
-// }
+function load_more(did) {
+	$.getJSON(CONFIG.api_base_url().concat('/next_collections/', did), function(data) {
+	    $('#designer'+did).hide().html(data['designer']).fadeIn('slow').promise().done(function(){
+	    // $('#designer'+did).hide().html(data['designer']).promise().done(function(){
+	        enable_widgets(did); // activate js widgets
+	        console.log('enable_widgets for did:' + did);
+	     });
+	});
+}
 
 
 function load_gallery_content(el, did, cid, gid) {
@@ -239,19 +249,28 @@ function load_experience_content(el, did, index) {
 
 
 $(document).ready(function() {
-	// var did = $('#curr_did').text();
-	// CONFIG.set_did(did);
+	// var curr_did = JSON.parse($('#curr_did').text());
+	// enable_widgets(curr_did);
+	// console.log('curr_did:'+curr_did);
+	// CONFIG.set_curr_did(curr_did);
 
 	var dids = JSON.parse($('#dids').text());
-	for (var i=0; i<dids.length; i++) {
-		enable_widgets(dids[i]);
-	}
+	console.log('dids:'+dids);
+	first_did = dids.pop();
+	enable_widgets(first_did);
+
+	console.log('setting dids:'+dids);
+	CONFIG.set_dids(dids);
+
+	// for (var i=0; i<dids.length; i++) {
+	// 	enable_widgets(dids[i]);
+	// }
 
 
-	$('#loadmore').click(function(){
-		$('#loadgif').addClass('fa-spinner fa-spin fa-3x fa-fw').removeClass('fa-arrow-down');
-		setTimeout(function() {load_more();}, 800);
-	});
+	// $('#loadmore').click(function(){
+	// 	$('#loadgif').addClass('fa-spinner fa-spin fa-3x fa-fw').removeClass('fa-arrow-down');
+	// 	setTimeout(function() {load_more();}, 800);
+	// });
 
 
 	window.load_works = function(el, did, index) {
@@ -267,6 +286,36 @@ $(document).ready(function() {
     window.addEventListener('load', function() {
 		FastClick.attach(document.body);
 	}, false);
+
+
+
+
+	//Show Back To Home When Scrolling
+    $('.page-content-scroll').on('scroll', function () {
+        var total_scroll_height = $('.page-content-scroll')[0].scrollHeight
+        // var inside_header = ($(this).scrollTop() <= 150);
+        // var passed_header = ($(this).scrollTop() >= 0); //250
+        var footer_reached = ($(this).scrollTop() >= (total_scroll_height - ($(window).height() + 100 )));
+
+        // if (inside_header == true) {
+        // 	console.log('inside');
+        // } else if (passed_header == true)  {
+        // 	console.log('passed_header == true');
+        // }
+        if (footer_reached == true){
+
+    		if (CONFIG.is_loadable()) {
+    			next_did = CONFIG.get_next();
+    			console.log('request next block for did:'+next_did);
+    			CONFIG.flip();
+    			load_more(next_did);
+    			CONFIG.flip(); // loadable again
+    		}
+        }
+    });
+
+
+
 
 
     $('.menu-wrapper').addClass('hide-menu-wrapper');

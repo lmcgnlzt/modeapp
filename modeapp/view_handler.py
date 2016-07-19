@@ -15,16 +15,18 @@ class RendersView(object):
 	def _did_list(self):
 		return self.requester.get('/dids').json()
 
-	# def collections_view(self): # lazy load implmentation
-	# 	r = self.requester.get('/portfolios/1')
-	# 	ret = r.json()
-	# 	ret['dids'] = self._did_list()
-	# 	return ret
-
-	def collections_view(self):
-		r = self.requester.get('/collections')
+	def collections_view(self): # lazy load implmentation
+		dids = self._did_list()
+		first_id = dids[0]
+		r = self.requester.get('/portfolios/{}'.format(first_id))
 		ret = r.json()
+		ret['dids'] = dids[::-1]
 		return ret
+
+	# def collections_view(self):
+	# 	r = self.requester.get('/collections')
+	# 	ret = r.json()
+	# 	return ret
 
 	def designer_list_view(self):
 		r = self.requester.get('/designers')
