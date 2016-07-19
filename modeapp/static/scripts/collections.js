@@ -179,6 +179,7 @@ function load_more(did) {
 	    $('#designer'+did).hide().html(data['designer']).fadeIn('slow').promise().done(function(){
 	        enable_widgets(did); // activate js widgets
 	        // console.log('enable_widgets for did:' + did);
+	        CONFIG.flip(); // loadable again
 	     });
 	});
 }
@@ -308,7 +309,6 @@ $(document).ready(function() {
     			// console.log('request next block for did:'+next_did);
     			CONFIG.flip();
     			load_more(next_did);
-    			CONFIG.flip(); // loadable again
     		}
         }
     });
