@@ -734,9 +734,10 @@ $(document).ready(function() {
 
 
 	//Init the carousel
-	$(".homepage-slider").owlCarousel({
-		slideSpeed : 500,
-		paginationSpeed : 500,
+	$("#collection-slider").owlCarousel({
+		// slideSpeed : 50,
+		// paginationSpeed : 50,
+		// rewindSpeed : 50,
 		singleItem : true,
 		pagination:false,
 		afterInit : progressBar,
@@ -769,7 +770,7 @@ $(document).ready(function() {
 		percentTime = 0;
 		isPause = false;
 		//run interval every 0.01 second
-		tick = setInterval(interval, 10);
+		tick = setInterval(interval, 2);
 	};
 
 	function interval() {

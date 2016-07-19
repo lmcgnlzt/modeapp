@@ -73,7 +73,7 @@
     <div id="content" class="page-content-scroll snap-content">
 
         <div class="slider-container full-bottom">
-            <div class="homepage-slider" data-snap-ignore="true">
+            <div id="collection-slider" class="homepage-slider" data-snap-ignore="true">
                 <div>
                     <div class="overlay"></div>
                     <div class="homepage-slider-caption homepage-left-caption">

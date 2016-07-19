@@ -79,7 +79,7 @@
             <i class="fa fa-question heading-icon"></i>
             <div class="line bg-black"></div>
             <p class="heading-subtitle">
-                为了保证有些客户目前还没有微信的，我们有移动互联网上，PC端网上商城，保证您在各大入口都可以进行销售，这就是三网合一的优势，可以触及到各个平台下的客户。以下是关于微信城系统客户的常见问题FAQ列表
+                为了保证您在MODE FLIP放心浏览购物，我们总结并归纳了以下常见问题。如有其他疑问，请通过公众号对话框进行沟通，我们会及时予以回复。
             </p>
         </div>
 
@@ -87,10 +87,10 @@
         <div class="one-half-responsive">
             <div class="container">
                 <div class="toggle-1">
-                    <a href="#" class="deploy-toggle-1">三网合一的系统虽好，感觉太贵了？</a>
+                    <a href="#" class="deploy-toggle-1">在MODE FLIP购物下单安全吗？</a>
                     <div class="toggle-content">
                         <p>
-                            微商城系统这个套餐是三网合一的商城系统，可同时覆盖传统互联网，移动互联网，微信三大主流入口的商城系统。就目前而言，这是比较先进的系统，三个商城的后台都是同一个，只需要在一个后台录入资料，整理订单，与客户互动，这样省去管理时间。
+                            MODE FLIP主页仅作为微信端主页商品展示及推广，一切与购物相关的操作均在有赞(原“口袋通”)完成，根据广大微商使用经验，整体系统流畅稳定；同时我们有专门的团队进行跟踪管理，安全放心。
                         </p>
                     </div>
                 </div>
