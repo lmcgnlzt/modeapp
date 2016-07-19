@@ -12,11 +12,19 @@ class APIView(object):
 	def get_dids(self):
 		return self.requester.get('/dids').json()
 
+	# def get_collections_data(self):
+	# 	curr_did = int(self.request.matchdict.get('curr_did'))
+	# 	res = self.requester.get('/portfolios/{}/next'.format(curr_did))
+	# 	data = res.json()
+	# 	html_content = render('modeapp:static/collection_block.mako', data['designer'], request=self.request)
+	# 	data['designer'] = html_content # update designer with rendered html view
+	# 	return data
+
 	def get_collections_data(self):
-		curr_did = int(self.request.matchdict.get('curr_did'))
-		res = self.requester.get('/portfolios/{}/next'.format(curr_did))
+		did = int(self.request.matchdict.get('did'))
+		res = self.requester.get('/portfolios/{}'.format(did))
 		data = res.json()
-		html_content = render('modeapp:static/collection_block.mako', data['designer'], request=self.request)
+		html_content = render('modeapp:static/collection_block.mako', data, request=self.request)
 		data['designer'] = html_content # update designer with rendered html view
 		return data
 
@@ -69,7 +77,7 @@ def includeme(config):
 	config.add_route('dids', '/api/dids')
 	add_view(config, 'dids', 'GET', 'get_dids')
 
-	config.add_route('next_collections', '/api/next_collections/{curr_did:\d+}')
+	config.add_route('next_collections', '/api/next_collections/{did:\d+}')
 	add_view(config, 'next_collections', 'GET', 'get_collections_data')
 
 	config.add_route('garments', '/api/garments')
