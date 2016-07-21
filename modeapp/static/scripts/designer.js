@@ -179,33 +179,43 @@ function enable_widgets(did) {
 
 
 function load_gallery_content(el, did, cid, gid) {
-	$.getJSON(CONFIG.api_base_url().concat('/garments'), {'did': did, 'cid': cid, 'gid': gid}, function(data) {
-	    $(el).on('onBeforeOpen.lg',function(event){
-			$('#red-footer-ball').hide();
-		});
-
-		$(el).on('onCloseAfter.lg',function(event){
-		    $('#red-footer-ball').show();
-		});
-
-		elements = [];
-		for (var i=0; i<data['details'].length; i++) {
-			item = {
-				'src': data['details'][i].image,
-				'thumb': data['details'][i].image,
-				'subHtml': '<p>'.concat(data['details'][i].title, '</p>'),
-			}
-			elements.push(item);
-		}
-
-	    $(el).lightGallery({
-	        dynamic: true,
-	        closable: false,
-	        download: false,
-	        thumbWidth: 70,
-	        dynamicEl: elements,
-	    })
+	var garment = '#garment-'.concat(did, '-', cid, '-', gid);
+	$(garment).lightGallery({
+	    selector: 'this',
+	    download: false,
+	    closable: false,
+	    counter: false,
 	});
+
+	$(garment).click();
+
+	// $.getJSON(CONFIG.api_base_url().concat('/garments'), {'did': did, 'cid': cid, 'gid': gid}, function(data) {
+	//     $(el).on('onBeforeOpen.lg',function(event){
+	// 		$('#red-footer-ball').hide();
+	// 	});
+
+	// 	$(el).on('onCloseAfter.lg',function(event){
+	// 	    $('#red-footer-ball').show();
+	// 	});
+
+	// 	elements = [];
+	// 	for (var i=0; i<data['details'].length; i++) {
+	// 		item = {
+	// 			'src': data['details'][i].image,
+	// 			'thumb': data['details'][i].image,
+	// 			'subHtml': '<p>'.concat(data['details'][i].title, '</p>'),
+	// 		}
+	// 		elements.push(item);
+	// 	}
+
+	//     $(el).lightGallery({
+	//         dynamic: true,
+	//         closable: false,
+	//         download: false,
+	//         thumbWidth: 70,
+	//         dynamicEl: elements,
+	//     })
+	// });
 }
 
 
@@ -280,6 +290,16 @@ $(document).ready(function() {
 	window.wish = function(el, did) {
 		do_wish(el, did);
 	}
+
+
+	$('.shop-garment').on('onBeforeOpen.lg',function(event){
+		$('#red-footer-ball').hide();
+	});
+
+	$('.shop-garment').on('onCloseAfter.lg',function(event){
+	    $('#red-footer-ball').show();
+	});
+
 
 
 	var snapper = new Snap({

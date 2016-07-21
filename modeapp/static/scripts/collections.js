@@ -186,33 +186,44 @@ function load_more(did) {
 
 
 function load_gallery_content(el, did, cid, gid) {
-	$.getJSON(CONFIG.api_base_url().concat('/garments'), {'did': did, 'cid': cid, 'gid': gid}, function(data) {
-	    $(el).on('onBeforeOpen.lg',function(event){
-			$('#red-footer-ball').hide();
-		});
-
-		$(el).on('onCloseAfter.lg',function(event){
-		    $('#red-footer-ball').show();
-		});
-
-		elements = [];
-		for (var i=0; i<data['details'].length; i++) {
-			item = {
-				'src': data['details'][i].image,
-				'thumb': data['details'][i].image,
-				'subHtml': '<p>'.concat(data['details'][i].title, '</p>'),
-			}
-			elements.push(item);
-		}
-
-	    $(el).lightGallery({
-	        dynamic: true,
-	        download: false,
-	        closable: false,
-	        thumbWidth: 70,
-	        dynamicEl: elements,
-	    })
+	var garment = '#garment-'.concat(did, '-', cid, '-', gid);
+	$(garment).lightGallery({
+	    selector: 'this',
+	    download: false,
+	    closable: false,
+	    counter: false,
 	});
+
+	$(garment).click();
+
+
+	// $.getJSON(CONFIG.api_base_url().concat('/garments'), {'did': did, 'cid': cid, 'gid': gid}, function(data) {
+	//     $(el).on('onBeforeOpen.lg',function(event){
+	// 		$('#red-footer-ball').hide();
+	// 	});
+
+	// 	$(el).on('onCloseAfter.lg',function(event){
+	// 	    $('#red-footer-ball').show();
+	// 	});
+
+	// 	elements = [];
+	// 	for (var i=0; i<data['details'].length; i++) {
+	// 		item = {
+	// 			'src': data['details'][i].image,
+	// 			'thumb': data['details'][i].image,
+	// 			'subHtml': '<p>'.concat(data['details'][i].title, '</p>'),
+	// 		}
+	// 		elements.push(item);
+	// 	}
+
+	//     $(el).lightGallery({
+	//         dynamic: true,
+	//         download: false,
+	//         closable: false,
+	//         thumbWidth: 70,
+	//         dynamicEl: elements,
+	//     })
+	// });
 }
 
 
@@ -272,6 +283,22 @@ $(document).ready(function() {
 	// 	setTimeout(function() {load_more();}, 800);
 	// });
 
+	// $('.shop-garment').lightGallery({
+	//     selector: 'this',
+	//     download: false,
+	//     closable: false,
+	//     counter: false,
+	// });
+
+	$('.shop-garment').on('onBeforeOpen.lg',function(event){
+		$('#red-footer-ball').hide();
+	});
+
+	$('.shop-garment').on('onCloseAfter.lg',function(event){
+	    $('#red-footer-ball').show();
+	});
+
+
 
 	window.load_works = function(el, did, index) {
 		load_experience_content(el, did, index);
@@ -295,7 +322,7 @@ $(document).ready(function() {
         // var total_scroll_height = $('.page-content-scroll')[0].scrollHeight
         // var inside_header = ($(this).scrollTop() <= 150);
         // var passed_header = ($(this).scrollTop() >= 0); //250
-        var footer_reached = ($(this).scrollTop() >= ($('.page-content-scroll')[0].scrollHeight - ($(window).height() + 100 )));
+        var footer_reached = ($(this).scrollTop() >= ($('.page-content-scroll')[0].scrollHeight - ($(window).height() + 300 )));
 
         // if (inside_header == true) {
         // 	console.log('inside');
