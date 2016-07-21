@@ -376,8 +376,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 
 .lg-outer .lg-iframe-cont {
   display: inline-block;
-  overflow:auto;
-  -webkit-overflow-scrolling:touch;
   vertical-align: middle;
   max-width: 100%;
   max-height: 100%;
@@ -395,9 +393,16 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 .lg-outer .lg-iframe {
-  width: 100%;
+  /*width: 100%;
   height: 100%;
+  position: relative;*/
   position: relative;
+  padding-bottom: 65.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling:touch; //<<--- THIS IS THE KEY
+  border: solid black 1px;
 }
 
 .lg-outer .lg-video .lg-object {
@@ -410,13 +415,21 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 .lg-outer .lg-iframe .lg-object {
-  display: inline-block;
+  /*display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;*/
+  /*width: 100% !important;
+  height: 100% !important;*/
   position: absolute;
   top: 0;
   left: 0;
-  width: 100% !important;
-  height: 100% !important;
+  width: 100%;
+  height: 100%;
 }
+
+
+
 
 .lg-outer .lg-video .lg-video-play {
   width: 84px;
