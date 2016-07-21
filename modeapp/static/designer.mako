@@ -214,14 +214,9 @@
                                 <a href="#" onclick="javascript:load_gallery(this, ${did}, ${collection.get('cid')}, ${garment.get('gid')});"><i class="fa fa-plus"></i></a>
                                 <img src="${garment.get('pic').get('image')}" class="responsive-image">
                             </div>
-                            <div class="portfolio-one-text">
-                                <div class="portfolio-one-details">
-                                    <a>${garment.get('pic').get('title')}</a>
-                                    <a><i class="fa fa-jpy"></i>&nbsp;${garment.get('price')}</a>
-                                    <div class="portfolio-two-links">
-                                        <a href="#"><i class="fa fa-shopping-cart"></i> 点击购买</a>
-                                    </div>
-                                </div>
+                            <button id="garment-${did}-${collection.get('cid')}-${garment.get('gid')}" class="shop-garment" style="display: none;" data-iframe="true" data-src="${garment.get('shop_link')}"></button>
+                            <div class="portfolio-one-details">
+                                <a>${garment.get('pic').get('title')}</a>
                             </div>
                         </div>
                         <div class="decoration"></div>
