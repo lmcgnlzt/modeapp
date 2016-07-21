@@ -104,13 +104,12 @@
                 <img src="${pre_mkt_content.get('target_pic')}" class="responsive-image">
             </div>
         </div>
-
+        <div class="decoration"></div>
     </div>
 % endif
 
 <div class="empty-space"></div>
 <div class="empty-space"></div>
-<div class="decoration"></div>
 <div class="empty-space"></div>
 
 </%block>
