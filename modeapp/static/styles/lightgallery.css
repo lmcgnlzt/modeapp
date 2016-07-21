@@ -397,9 +397,9 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   height: 100%;
   position: relative;*/
   position: relative;
-  padding-bottom: 65.25%;
-  padding-top: 30px;
-  height: 0;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  height: 100%;
   overflow: auto;
   -webkit-overflow-scrolling:touch; //<<--- THIS IS THE KEY
   border: solid black 1px;
