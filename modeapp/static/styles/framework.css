@@ -2411,7 +2411,14 @@ table tr:hover td{
 
 .portfolio-one-links a{
 	color:#666666;
-	opacity:0.6;
+	/*opacity:0.9;*/
+}
+
+.portfolio-one-shop-links {
+	color:#666666;
+	/*opacity:0.6;*/
+	float:right;
+	font-size:12px;
 }
 
 .portfolio-one-links a:first-child{
@@ -2453,9 +2460,9 @@ table tr:hover td{
 	padding-left:0px!important;
 }
 
-.portfolio-one-details a:nth-child(2){
+/*.portfolio-one-details a:nth-child(2){
 	border-left:solid 1px #cacaca;
-}
+}*/
 
 .portfolio-one-links a:last-child i{
 	padding-left:10px;
@@ -2469,7 +2476,19 @@ table tr:hover td{
 	z-index:999;
 	color:#FFFFFF;
 	font-size:30px;
-	opacity:0.5;
+	opacity:0;
+	transition:all 200ms ease;
+}
+
+.portfolio-one-image-soon a{
+	position:absolute;
+	width:100%;
+	height:100%;
+	background-color:rgba(0,0,0,0.6);
+	z-index:999;
+	color:#FFFFFF;
+	font-size:30px;
+	opacity:1.0;
 	transition:all 200ms ease;
 }
 
@@ -2500,6 +2519,11 @@ table tr:hover td{
 }
 
 .portfolio-one-image img{
+	margin-bottom:0px;
+	padding-botom:0px;
+}
+
+.portfolio-one-image-soon img{
 	margin-bottom:0px;
 	padding-botom:0px;
 }

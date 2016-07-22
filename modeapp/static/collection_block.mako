@@ -77,9 +77,9 @@
                 <a href="#" onclick="javascript:load_gallery(this, ${did}, ${collection.get('cid')}, ${garment.get('gid')});"><i class="fa fa-plus"></i></a>
                 <img src="${garment.get('pic').get('image')}" class="responsive-image">
             </div>
-            <button id="garment-${did}-${collection.get('cid')}-${garment.get('gid')}" class="shop-garment" style="display: none;" data-iframe="true" data-src="${garment.get('shop_link')}"></button>
             <div class="portfolio-one-details">
                 <a>${garment.get('pic').get('title')}</a>
+                <a href="${garment.get('shop_link')}" class="portfolio-one-shop-links"><i class="fa fa-shopping-cart"></i> 点击购买</a>
             </div>
         </div>
         <div class="decoration"></div>
@@ -92,7 +92,7 @@
 
     <div class="portfolio-one">
         <div class="portfolio-one-item full-bottom">
-            <div class="portfolio-one-image portfolio-one-image-soon">
+            <div class="portfolio-one-image-soon">
                 <div class="soon-page">
                     <h1>Coming Soon</h1>
                     <p>

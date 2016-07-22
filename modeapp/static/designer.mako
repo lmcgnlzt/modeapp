@@ -21,11 +21,9 @@
 
 <link href="styles/style.css"            rel="stylesheet" type="text/css">
 <link href="styles/framework.css"        rel="stylesheet" type="text/css">
-<link href="styles/owl.theme.css"        rel="stylesheet" type="text/css">
-<link href="styles/swipebox.css"         rel="stylesheet" type="text/css">
-<link href="styles/font-awesome.css"     rel="stylesheet" type="text/css">
-<link href="styles/animate.css"          rel="stylesheet" type="text/css">
-<link href="styles/slick.css"            rel="stylesheet" type="text/css">
+<link href="styles/owl.theme.min.css"        rel="stylesheet" type="text/css">
+<link href="styles/font-awesome.min.css"     rel="stylesheet" type="text/css">
+<link href="styles/slick.min.css"            rel="stylesheet" type="text/css">
 <link href="styles/lightgallery.css"   rel="stylesheet" type="text/css">
 
 <script type="text/javascript" src="scripts/jquery.js"></script>
@@ -214,9 +212,9 @@
                                 <a href="#" onclick="javascript:load_gallery(this, ${did}, ${collection.get('cid')}, ${garment.get('gid')});"><i class="fa fa-plus"></i></a>
                                 <img src="${garment.get('pic').get('image')}" class="responsive-image">
                             </div>
-                            <button id="garment-${did}-${collection.get('cid')}-${garment.get('gid')}" class="shop-garment" style="display: none;" data-iframe="true" data-src="${garment.get('shop_link')}"></button>
                             <div class="portfolio-one-details">
                                 <a>${garment.get('pic').get('title')}</a>
+                                <a href="${garment.get('shop_link')}" class="portfolio-one-shop-links"><i class="fa fa-shopping-cart"></i> 点击购买</a>
                             </div>
                         </div>
                         <div class="decoration"></div>
@@ -224,7 +222,7 @@
                     </div>
                     % endfor
 
-                    <a href="#" class="next-product"></a>
+                    <!-- <a href="#" class="next-product"></a>
                     <a href="#" class="prev-product"></a>
                     <div class="product-slider" data-snap-ignore="true">
                         % for product in signatrue_products:
@@ -240,7 +238,7 @@
                         % endfor
                     </div>
                     <p></p>
-                    <div class="decoration"></div>
+                    <div class="decoration"></div> -->
 
 
                     <!-- <div class="one-half-responsive">
@@ -280,7 +278,7 @@
                     <div class="portfolio-one">
 
                         <div class="portfolio-one-item full-bottom">
-                            <div class="portfolio-one-image portfolio-one-image-soon">
+                            <div class="portfolio-one-image-soon">
                                 <div class="soon-page">
                                     <h1>Coming Soon</h1>
                                     <!-- <h4>We're still working on this product!</h4> -->

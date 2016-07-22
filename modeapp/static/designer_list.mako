@@ -17,15 +17,13 @@
 <link rel="apple-touch-startup-image" sizes="1536x2008" href="images/splash/splash-screen-ipad-portrait-retina.png"   media="(device-width: 768px)  and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)"/>
 <link rel="apple-touch-startup-image" sizes="1496x2048" href="images/splash/splash-screen-ipad-landscape-retina.png"   media="(device-width: 768px) and (orientation: landscape)    and (-webkit-device-pixel-ratio: 2)"/>
 
-<title>Top Designers x MODE FLIP</title>
+<title>MODE FLIP</title>
 
 <link href="styles/style.css"            rel="stylesheet" type="text/css">
 <link href="styles/framework.css"        rel="stylesheet" type="text/css">
-<link href="styles/owl.theme.css"        rel="stylesheet" type="text/css">
-<link href="styles/swipebox.css"         rel="stylesheet" type="text/css">
-<link href="styles/font-awesome.css"     rel="stylesheet" type="text/css">
-<link href="styles/animate.css"          rel="stylesheet" type="text/css">
-<link href="styles/slick.css"            rel="stylesheet" type="text/css">
+<link href="styles/owl.theme.min.css"        rel="stylesheet" type="text/css">
+<link href="styles/font-awesome.min.css"     rel="stylesheet" type="text/css">
+<link href="styles/slick.min.css"            rel="stylesheet" type="text/css">
 <link href="styles/lightgallery.css"   rel="stylesheet" type="text/css">
 
 <script type="text/javascript" src="scripts/jquery.js"></script>

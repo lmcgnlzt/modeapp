@@ -175,7 +175,7 @@
         if (!l.$slide.eq(c).hasClass("lg-loaded")) {
             if (q) {
                 // l.$slide.eq(c).prepend('<div class="lg-video-cont" style="max-width:' + l.s.iframeMaxWidth + '"><div class="lg-video"><iframe class="lg-object" frameborder="0" src="' + g + '"  allowfullscreen="true"></iframe></div></div>');
-                l.$slide.eq(c).prepend('<div class="lg-iframe-cont" style="max-width:' + l.s.iframeMaxWidth + '"><div class="lg-iframe"><iframe class="lg-object" scrolling="yes" frameborder="0" src="' + g + '"  allowfullscreen="true"></iframe></div></div>');
+                l.$slide.eq(c).prepend('<div class="lg-iframe-cont" style="max-width:' + l.s.iframeMaxWidth + '"><div class="lg-frame"><iframe class="lg-object" scrolling="yes" frameborder="0" src="' + g + '"></iframe></div></div>');
             }
             else if (m) {
                 var s = "";

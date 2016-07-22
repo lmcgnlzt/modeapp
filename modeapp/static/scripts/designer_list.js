@@ -564,15 +564,15 @@ $(document).ready(function() {
 	/////////////////
 	//Image Gallery//
 	/////////////////
-	$(".swipebox").swipebox({
-		useCSS : true, // false will force the use of jQuery for animations
-		hideBarsDelay : 3000 // 0 to always show caption and action bar
-	});
+	// $(".swipebox").swipebox({
+	// 	useCSS : true, // false will force the use of jQuery for animations
+	// 	hideBarsDelay : 3000 // 0 to always show caption and action bar
+	// });
 
-	$(".wide-gallery-item").swipebox({
-		useCSS : true, // false will force the use of jQuery for animations
-		hideBarsDelay : 3000 // 0 to always show caption and action bar
-	});
+	// $(".wide-gallery-item").swipebox({
+	// 	useCSS : true, // false will force the use of jQuery for animations
+	// 	hideBarsDelay : 3000 // 0 to always show caption and action bar
+	// });
 
 	var time = 7; // time in seconds
 
@@ -678,7 +678,7 @@ $(document).ready(function() {
 		initiate_coverpages();
 	});
 
-	$.scrollIt();
+	// $.scrollIt();
 
 
     //Generate Fullscreen Elemeents

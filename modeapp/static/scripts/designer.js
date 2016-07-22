@@ -179,43 +179,43 @@ function enable_widgets(did) {
 
 
 function load_gallery_content(el, did, cid, gid) {
-	var garment = '#garment-'.concat(did, '-', cid, '-', gid);
-	$(garment).lightGallery({
-	    selector: 'this',
-	    download: false,
-	    closable: false,
-	    counter: false,
-	});
-
-	$(garment).click();
-
-	// $.getJSON(CONFIG.api_base_url().concat('/garments'), {'did': did, 'cid': cid, 'gid': gid}, function(data) {
-	//     $(el).on('onBeforeOpen.lg',function(event){
-	// 		$('#red-footer-ball').hide();
-	// 	});
-
-	// 	$(el).on('onCloseAfter.lg',function(event){
-	// 	    $('#red-footer-ball').show();
-	// 	});
-
-	// 	elements = [];
-	// 	for (var i=0; i<data['details'].length; i++) {
-	// 		item = {
-	// 			'src': data['details'][i].image,
-	// 			'thumb': data['details'][i].image,
-	// 			'subHtml': '<p>'.concat(data['details'][i].title, '</p>'),
-	// 		}
-	// 		elements.push(item);
-	// 	}
-
-	//     $(el).lightGallery({
-	//         dynamic: true,
-	//         closable: false,
-	//         download: false,
-	//         thumbWidth: 70,
-	//         dynamicEl: elements,
-	//     })
+	// var garment = '#garment-'.concat(did, '-', cid, '-', gid);
+	// $(garment).lightGallery({
+	//     selector: 'this',
+	//     download: false,
+	//     closable: false,
+	//     counter: false,
 	// });
+	// $(garment).click();
+
+	$.getJSON(CONFIG.api_base_url().concat('/garments'), {'did': did, 'cid': cid, 'gid': gid}, function(data) {
+	    $(el).on('onBeforeOpen.lg',function(event){
+			$('#red-footer-ball').hide();
+		});
+
+		$(el).on('onCloseAfter.lg',function(event){
+		    $('#red-footer-ball').show();
+		});
+
+		elements = [];
+		for (var i=0; i<data['details'].length; i++) {
+			item = {
+				'src': data['details'][i].image,
+				'thumb': data['details'][i].image,
+				'subHtml': '<p>'.concat(data['details'][i].title, '</p>'),
+			}
+			elements.push(item);
+		}
+
+	    $(el).lightGallery({
+	        dynamic: true,
+	        closable: false,
+	        download: false,
+	        thumbnail: false,
+	        thumbWidth: 70,
+	        dynamicEl: elements,
+	    })
+	});
 }
 
 
@@ -243,6 +243,7 @@ function load_experience_content(el, did, index) {
 	        dynamic: true,
 	        closable: false,
 	        download: false,
+	        thumbnail: true,
 	        thumbWidth: 70,
 	        dynamicEl: elements,
 	        index: index,
@@ -292,13 +293,13 @@ $(document).ready(function() {
 	}
 
 
-	$('.shop-garment').on('onBeforeOpen.lg',function(event){
-		$('#red-footer-ball').hide();
-	});
+	// $('.shop-garment').on('onBeforeOpen.lg',function(event){
+	// 	$('#red-footer-ball').hide();
+	// });
 
-	$('.shop-garment').on('onCloseAfter.lg',function(event){
-	    $('#red-footer-ball').show();
-	});
+	// $('.shop-garment').on('onCloseAfter.lg',function(event){
+	//     $('#red-footer-ball').show();
+	// });
 
 
 
@@ -394,10 +395,10 @@ $(document).ready(function() {
 
 
 
-	$('.swipebox').click(function(){
-		$('.gallery').hide(0);
-		$('.portfolio-wide').hide(0);
-	});
+	// $('.swipebox').click(function(){
+	// 	$('.gallery').hide(0);
+	// 	$('.portfolio-wide').hide(0);
+	// });
 
 	$('.open-menu, .footer-ball').click(function() {
 		$('.hide-content').fadeIn(250);
@@ -806,15 +807,15 @@ $(document).ready(function() {
 	/////////////////
 	//Image Gallery//
 	/////////////////
-	$(".swipebox").swipebox({
-		useCSS : true, // false will force the use of jQuery for animations
-		hideBarsDelay : 3000 // 0 to always show caption and action bar
-	});
+	// $(".swipebox").swipebox({
+	// 	useCSS : true, // false will force the use of jQuery for animations
+	// 	hideBarsDelay : 3000 // 0 to always show caption and action bar
+	// });
 
-	$(".wide-gallery-item").swipebox({
-		useCSS : true, // false will force the use of jQuery for animations
-		hideBarsDelay : 3000 // 0 to always show caption and action bar
-	});
+	// $(".wide-gallery-item").swipebox({
+	// 	useCSS : true, // false will force the use of jQuery for animations
+	// 	hideBarsDelay : 3000 // 0 to always show caption and action bar
+	// });
 
 	var time = 7; // time in seconds
 
@@ -920,7 +921,7 @@ $(document).ready(function() {
 		initiate_coverpages();
 	});
 
-	$.scrollIt();
+	// $.scrollIt();
 
 
     //Generate Fullscreen Elemeents

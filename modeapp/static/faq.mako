@@ -21,11 +21,9 @@
 
 <link href="styles/style.css"            rel="stylesheet" type="text/css">
 <link href="styles/framework.css"        rel="stylesheet" type="text/css">
-<link href="styles/owl.theme.css"        rel="stylesheet" type="text/css">
-<link href="styles/swipebox.css"         rel="stylesheet" type="text/css">
-<link href="styles/font-awesome.css"     rel="stylesheet" type="text/css">
-<link href="styles/animate.css"          rel="stylesheet" type="text/css">
-<link href="styles/slick.css"            rel="stylesheet" type="text/css">
+<link href="styles/owl.theme.min.css"        rel="stylesheet" type="text/css">
+<link href="styles/font-awesome.min.css"     rel="stylesheet" type="text/css">
+<link href="styles/slick.min.css"            rel="stylesheet" type="text/css">
 <link href="styles/lightgallery.css"   rel="stylesheet" type="text/css">
 
 <script type="text/javascript" src="scripts/jquery.js"></script>
