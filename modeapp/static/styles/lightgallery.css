@@ -399,7 +399,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   position: relative;
   padding-bottom: 10px;
   padding-top: 10px;
-  height: 100%;
+  height: 600px;
   overflow: auto;
   -webkit-overflow-scrolling:touch; //<<--- THIS IS THE KEY
   border: solid black 1px;
@@ -425,8 +425,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   top: 0;
   left: 0;
   width: 100%;
-  /*height: 100%;*/
-  height: 600px;
+  height: 100%;
 }
 
 
