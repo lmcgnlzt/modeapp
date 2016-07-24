@@ -65,6 +65,7 @@
     </div>
 
     <a href="#" class="footer-ball"><i class="fa fa-navicon"></i></a>
+    <a href="#" class="footer-arrow"><i class="fa fa-angle-double-down"></i></a>
 
     <!-- Page Content-->
     <div id="content" class="page-content-scroll snap-content">
