@@ -93,83 +93,30 @@
                     </div>
                 </div>
                 <div class="toggle-1">
-                    <a href="#" class="deploy-toggle-1">完成整微商城套系统需要多长时间？</a>
+                    <a href="#" class="deploy-toggle-1">关于物流配送？</a>
                     <div class="toggle-content">
                         <p>
-                            首先是签订协议，然后我们开始帮您：申请微信公众帐号（服务号），申请微信支付
-申请国际域名
-申请公户支付宝帐号
+                            MODE FLIP在中国大陆范围内，采用顺丰快递免费送达您手中。
+                        </p>
+                    </div>
+                </div>
+                <div class="toggle-1">
+                    <a href="#" class="deploy-toggle-1">如何退换货？</a>
+                    <div class="toggle-content">
+                        <p>
+                            MODE FLIP国际标准服务，您收到商品后，保证商品吊牌齐全，包装完整，无人为损坏情况下，3天内无理由退换货。
+                        </p>
+                    </div>
+                </div>
+                <div class="toggle-1">
+                    <a href="#" class="deploy-toggle-1">关于发货时间？</a>
+                    <div class="toggle-content">
+                        <p>
+                            因MODE FLIP服装商品采用纯手工制作工艺，当您下单后会在7到15天快递送达您手中。
+                        </p>
+                    </div>
+                </div>
 
-处理网站备案
-
-等微信公众帐号认证通过后，我们就会将系统做接入，然后将测试地址和接入好的微信商城交付您使用。您录好资料，等网站备案通过了，就可以上线了
-                        </p>
-                    </div>
-                </div>
-                <div class="toggle-1">
-                    <a href="#" class="deploy-toggle-1">微信有些功能过一段时间就不流行了，怎么办？</a>
-                    <div class="toggle-content">
-                        <p>
-                            微信商城的功能模块，我们是不断在升级和更新中的，我们会不断推出新的功能，提供给客户免费的自动升级。
-                        </p>
-                    </div>
-                </div>
-                <div class="toggle-1">
-                    <a href="#" class="deploy-toggle-1">微信团购功能什么时候才能开放使用？</a>
-                    <div class="toggle-content">
-                        <p>
-                            团购功能我们暂时还没有开放到手机版和微信版中，但是以后会增加上去。
-                        </p>
-                    </div>
-                </div>
-                <div class="toggle-1">
-                    <a href="#" class="deploy-toggle-1">在申请公众微信时为什么要选择服务号？</a>
-                    <div class="toggle-content">
-                        <p>
-                            因为服务号可以在微信商城中生成自定义菜单，认证通过后可以开通微信支付，订阅号需要高级认证后才有自定义菜单并不可以申请微信支付。服务号有更多的接口权限。
-                        </p>
-                    </div>
-                </div>
-                <div class="toggle-1">
-                    <a href="#" class="deploy-toggle-1">微信服务号、订阅号的介绍和区别？</a>
-                    <div class="toggle-content">
-                        <p>
-                            微信公众平台现在已分成订阅公众号和服务公众号两种类型。
-                        </p>
-                    </div>
-                </div>
-                <div class="toggle-1">
-                    <a href="#" class="deploy-toggle-1">我购买了整套微商城系统，你们能提供源代码吗？</a>
-                    <div class="toggle-content">
-                        <p>
-                            我们是不提供源代码的，不过如果您有自己的服务器，也可以安装在您的服务器上面，也是一个属于你自己的系统。
-                        </p>
-                    </div>
-                </div>
-                <div class="toggle-1">
-                    <a href="#" class="deploy-toggle-1">购买微信商城系统之后我该怎么管理？</a>
-                    <div class="toggle-content">
-                        <p>
-                            购买微商城系统后，微信商城是由贵公司自行经营和管理，如果遇到有什么问题，我们还会提供技术服务。
-                        </p>
-                    </div>
-                </div>
-                <div class="toggle-1">
-                    <a href="#" class="deploy-toggle-1">微信公众平台支持哪些编程语言?应该如何选择?</a>
-                    <div class="toggle-content">
-                        <p>
-                            凡是支持动态Web开发的编程语言都能够用于微信公众平台开发,例如:Java、PHP、ASP.NET、Ruby、Python、Note.js等。
-                        </p>
-                    </div>
-                </div>
-                <div class="toggle-1">
-                    <a href="#" class="deploy-toggle-1">订阅号使用开发模式能够向用户回复图片、语音消息吗?</a>
-                    <div class="toggle-content">
-                        <p>
-                            可以,虽然订阅号没有多媒体文件上传接口权限,无法通过上传多媒体文件到微信服务器获取MediaId,但仍可以变相得到MediaId,同样可以实现回复多媒体消息。变相的实现方法是将用户发送给公众账号的多媒体消息的MediaId记录下来,给用户回复多媒体消息时可以使用。
-                        </p>
-                    </div>
-                </div>
 
 
             </div>
