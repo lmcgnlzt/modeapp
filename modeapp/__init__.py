@@ -9,16 +9,16 @@ from pyramid.view import view_config
 
 @view_config(route_name='auth', renderer='auth.mako')
 def auth_view(request):
-    # client = request.user_agent_classified
-    # if client.is_pc: # user_agent detect
-    #     return render_to_response('modeapp:static/block.mako', {}, request=request)
-    # return render_to_response('modeapp:static/index.mako', {}, request=request)
+    client = request.user_agent_classified
+    if client.is_pc: # user_agent detect
+        return render_to_response('modeapp:static/block.mako', {}, request=request)
+    return render_to_response('modeapp:static/index.mako', {}, request=request)
 
-    password = request.params.get('password')
-    if request.method == 'POST':
-        if password == '12345':
-            return render_to_response('modeapp:static/index.mako', {}, request=request)
-    return {}
+    # password = request.params.get('password')
+    # if request.method == 'POST':
+    #     if password == '12345':
+    #         return render_to_response('modeapp:static/index.mako', {}, request=request)
+    # return {}
 
 
 def main(global_config, **settings):
