@@ -61,7 +61,7 @@
             <a href="/music_view"><i class="fa fa-music"></i>3D Music</a>
             <a href="https://kdt.im/HFYzTr"><i class="fa fa-shopping-cart"></i>Store</a>
             <!-- <a href="#"><i class="fa fa-rss"></i>FASHION</a> -->
-            <a href="/about_view"><i class="fa fa-info"></i>About Us</a>
+            <!-- <a href="/about_view"><i class="fa fa-info"></i>About Us</a> -->
             <a href="#" class="sidebar-close"><i class="fa fa-times"></i>Close</a>
         </div>
     </div>
