@@ -47,6 +47,9 @@ class RendersView(object):
 	def faq_view(self):
 		return {'success' : True}
 
+	def about_view(self):
+		return {'success' : True}
+
 
 def includeme(config):
 	config.add_route('homepage', '/homepage')
@@ -103,4 +106,12 @@ def includeme(config):
 		attr = 'faq_view',
 		route_name = 'faq',
 		renderer = 'modeapp:static/faq.mako'
+	)
+
+	config.add_route('about', '/about_view')
+	config.add_view(
+		'modeapp.view_handler.RendersView',
+		attr = 'about_view',
+		route_name = 'about',
+		renderer = 'modeapp:static/about.mako'
 	)

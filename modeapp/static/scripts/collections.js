@@ -91,12 +91,13 @@ function enable_widgets(did) {
 	  return false;
 	});
 
-	// // signature video
-	// var collection_video_prefix = 'collection-video-'.concat(did, '-');
-	// $("ul[id^='" + collection_video_prefix + "']").each(function(i, el) {
-	// 	$(el).on('onBeforeOpen.lg',function(event){
-	// 		$('#red-footer-ball').hide();
-	// 	});
+	// signature picture
+	$(".col_sig_pic_"+did).slick({
+	  	slidesToShow: 2,
+	  	slidesToScroll: 1,
+	  	autoplay: true,
+	  	autoplaySpeed: 2500,
+	});
 
 
 	//Countdown timer
@@ -307,22 +308,7 @@ $(document).ready(function() {
        $('.share-bottom').removeClass('active-share-bottom');
     });
 
-
-
-	//Animate.css scroll to begin animation //
-
-	// var wow = new WOW(
-	//   {
-	// 	boxClass:     'animate',      // animated element css class (default is wow)
-	// 	animateClass: 'animated',     // animation css class (default is animated)
-	// 	offset:       0,              // distance to the element when triggering the animation (default is 0)
-	// 	mobile:       true,           // trigger animations on mobile devices (true is default)
-	//   }
-	// );
-	// wow.init();
-
 	//Go up
-
 	$('.footer-up').click(function() {
 		$('#content').animate({
 			scrollTop:0

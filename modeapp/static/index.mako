@@ -20,7 +20,7 @@
 <title>MODE FLIP</title>
 
 <link href="styles/style.css"            rel="stylesheet" type="text/css">
-<link href="styles/framework.css"        rel="stylesheet" type="text/css">
+<link href="styles/framework.min.css"        rel="stylesheet" type="text/css">
 <link href="styles/owl.theme.min.css"        rel="stylesheet" type="text/css">
 <link href="styles/font-awesome.min.css"     rel="stylesheet" type="text/css">
 <link href="styles/slick.min.css"            rel="stylesheet" type="text/css">
@@ -58,8 +58,8 @@
             <a href="/flipbook_view"><i class="fa fa-book"></i>FLIP Book</a>
             <a href="/music_view"><i class="fa fa-music"></i>3D Music</a>
             <a href="https://kdt.im/HFYzTr"><i class="fa fa-shopping-cart"></i>Store</a>
-            <!-- <a href="#"><i class="fa fa-rss"></i>FASHION</a>
-            <a href="#"><i class="fa fa-info"></i>MODE FLIP</a> -->
+            <!-- <a href="#"><i class="fa fa-rss"></i>FASHION</a> -->
+            <a href="/about_view"><i class="fa fa-info"></i>About Us</a>
             <a href="#" class="sidebar-close"><i class="fa fa-times"></i>Close</a>
         </div>
     </div>

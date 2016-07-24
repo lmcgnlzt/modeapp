@@ -73,21 +73,7 @@ $(document).ready(function() {
     });
 
 
-
-	//Animate.css scroll to begin animation //
-
-	// var wow = new WOW(
-	//   {
-	// 	boxClass:     'animate',      // animated element css class (default is wow)
-	// 	animateClass: 'animated',     // animation css class (default is animated)
-	// 	offset:       0,              // distance to the element when triggering the animation (default is 0)
-	// 	mobile:       true,           // trigger animations on mobile devices (true is default)
-	//   }
-	// );
-	// wow.init();
-
 	//Go up
-
 	$('.footer-up').click(function() {
 		$('#content').animate({
 			scrollTop:0
