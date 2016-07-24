@@ -55,6 +55,7 @@
     % endfor
 </div>
 <div class="empty-space"></div>
+<div class="empty-space"></div>
 
 % if on_market:
 
@@ -62,13 +63,25 @@
     <div class="staff-item">
         <h4>${collection.get('title')}</h4>
     </div>
-    % for index, video in enumerate(collection.get('signatrue_videos')):
-    <video id="collection-video-${did}-${index}" poster="${video.get('poster')}" onclick="this.play();" width="100%" height="auto" controls preload="none">
-        <source src="${video.get('url')}" type="video/mp4">
-    </video>
+
+    % if bool(collection.get('desc')):
+    <div class="left-if-mobile no-bottom">
+        <p>${collection.get('desc')}</p>
+    </div>
+    % endif
+
+    % if bool(collection.get('signatrue_pics')):
+    <div class="col_sig_pic_${did} exclusive-slider" data-snap-ignore="true">
+        % for pic in collection.get('signatrue_pics'):
+        <div>
+            <img style="padding: 0px 0px 0px 3px;" src="${pic}" class="responsive-image" alt="img">
+        </div>
+        % endfor
+    </div>
+    % endif
+
     <div class="decoration"></div>
     <div class="empty-space"></div>
-    % endfor
 
     <div class="portfolio-one">
         % for garment in collection.get('garments'):
@@ -79,7 +92,7 @@
             </div>
             <div class="portfolio-one-details">
                 <a>${garment.get('pic').get('title')}</a>
-                <a href="${garment.get('shop_link')}" class="portfolio-one-shop-links"><i class="fa fa-shopping-cart"></i> 点击购买</a>
+                <a href="${garment.get('shop_link')}" class="portfolio-one-shop-links"><i class="fa fa-shopping-cart"></i>&nbsp;SHOP NOW</a>
             </div>
         </div>
         <div class="decoration"></div>

@@ -16,7 +16,7 @@ def auth_view(request):
 
     password = request.params.get('password')
     if request.method == 'POST':
-        if password == '2016':
+        if password == '12345':
             return render_to_response('modeapp:static/index.mako', {}, request=request)
     return {}
 

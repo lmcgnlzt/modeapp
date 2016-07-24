@@ -20,7 +20,7 @@
 <title>MODE FLIP</title>
 
 <link href="styles/style.css"            rel="stylesheet" type="text/css">
-<link href="styles/framework.css"        rel="stylesheet" type="text/css">
+<link href="styles/framework.min.css"        rel="stylesheet" type="text/css">
 <link href="styles/owl.theme.min.css"        rel="stylesheet" type="text/css">
 <link href="styles/font-awesome.min.css"     rel="stylesheet" type="text/css">
 <link href="styles/slick.min.css"            rel="stylesheet" type="text/css">
@@ -60,8 +60,8 @@
             <a href="/flipbook_view"><i class="fa fa-book"></i>FLIP Book</a>
             <a href="/music_view"><i class="fa fa-music"></i>3D Music</a>
             <a href="https://kdt.im/HFYzTr"><i class="fa fa-shopping-cart"></i>Store</a>
-            <!-- <a href="#"><i class="fa fa-rss"></i>FASHION</a>
-            <a href="#"><i class="fa fa-info"></i>MODE FLIP</a> -->
+            <!-- <a href="#"><i class="fa fa-rss"></i>FASHION</a> -->
+            <a href="/about_view"><i class="fa fa-info"></i>About Us</a>
             <a href="#" class="sidebar-close"><i class="fa fa-times"></i>Close</a>
         </div>
     </div>
@@ -148,20 +148,11 @@
                     </div>
                     % endfor
                 </div>
-                <div class="empty-space"></div>
-
-                % for index, video in enumerate(experience_content.get('videos')):
-                <video id="experience-video-${did}-${index}" poster="${video.get('poster')}" onclick="this.play();" width="100%" height="auto" controls preload="none">
-                    <source src="${video.get('url')}" type="video/mp4">
-                </video>
                 <div style="text-align:right">资料均由设计师提供</div>
-                <div class="decoration"></div>
                 <div class="empty-space"></div>
-                % endfor
-
                 <div class="empty-space"></div>
 
-                <h5>${exclusive_content.get('title')}</h5>
+
                 <div id="exclusive_${did}" class="exclusive-slider" data-snap-ignore="true">
                     % for pic_url in exclusive_content.get('pics'):
                     <div>
@@ -170,40 +161,42 @@
                     % endfor
                 </div>
                 <div class="empty-space"></div>
+                <div class="empty-space"></div>
 
 
                 % if on_market:
-
-                    % for index, video in enumerate(exclusive_content.get('videos')):
-                    <h5>${video.get('title')}</h5>
-                    <video id="exclusive-video-${did}-${index}" poster="${video.get('poster')}" onclick="this.play();" width="100%" height="auto" controls preload="none">
-                        <source src="${video.get('url')}" type="video/mp4">
-                    </video>
-                    % endfor
-                    <div class="decoration"></div>
-                    <div class="empty-space"></div>
-
 
                     % for collection in collections:
                     <div class="staff-item">
                         <h4>${collection.get('title')}</h4>
                     </div>
-                    % if collection.get('new_arrival'):
-                    <div id="sig_pic_${did}" class="exclusive-slider" data-snap-ignore="true">
+
+                    % if bool(collection.get('desc')):
+                    <div class="left-if-mobile no-bottom">
+                        <p>${collection.get('desc')}</p>
+                    </div>
+                    % endif
+
+                    % if bool(collection.get('signatrue_pics')):
+                    <div class="col_sig_pic_${did} exclusive-slider" data-snap-ignore="true">
                         % for pic in collection.get('signatrue_pics'):
                         <div>
-                            <img src="${pic}" class="responsive-image" alt="img">
+                            <img style="padding: 0px 0px 0px 3px;" src="${pic}" class="responsive-image" alt="img">
                         </div>
                         % endfor
                     </div>
-                    % for index, video in enumerate(collection.get('signatrue_videos')):
-                    <video id="collection-video-${did}-${index}" poster="${video.get('poster')}" onclick="this.play();" width="100%" height="auto" controls preload="none">
-                        <source src="${video.get('url')}" type="video/mp4">
-                    </video>
+                    % endif
+
+                    % if bool(collection.get('signatrue_videos')):
+                        % for video in collection.get('signatrue_videos'):
+                        <video class="col_sig_video_${did}" poster="${video.get('poster')}" onclick="this.play();" width="100%" height="auto" controls preload="none">
+                            <source src="${video.get('url')}" type="video/mp4">
+                        </video>
+                        % endfor
+
+                    % endif
                     <div class="decoration"></div>
                     <div class="empty-space"></div>
-                    % endfor
-                    % endif
 
                     <div class="portfolio-one">
                         % for garment in collection.get('garments'):

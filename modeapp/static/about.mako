@@ -36,6 +36,7 @@
 <script type="text/javascript" src="scripts/lg-thumbnail.min.js"></script>
 
 <script type="text/javascript" src="scripts/soon.js"></script>
+
 </head>
 <body>
 
@@ -68,42 +69,84 @@
 
     <!-- Page Content-->
     <div id="content" class="snap-content">
+        <div class="header-clear"></div>
+        <div class="content">
+            <div class="empty-space"></div>
 
-        <div class="soon-page-wrapper" style="background-image: url(http://assets.modeflip.com/music/FashionMusic.jpg)">
-            <div class="soon-page">
-                <h1>Coming Soon</h1>
-                <h4>敬请期待</h4>
-                <p>
-                    我们正在整合设计师音乐，距正式开放还有
-                </p>
-                <div class="countdown"></div>
-                <a href="/homepage" class="soon-button"><i class="fa fa-home"></i>Home</a>
+            <div class="blog-posts">
+
+                <div class="blog-post">
+                    <h3 class="blog-post-title">"Hello" from our Designers</h3>
+                    <p class="blog-post-text">
+                        MODE FLIP已正式上线，感谢您的浏览，期待您的持续关注。与此同时，我们准备了一段精简视频，聆听来自设计师的问候。<br>
+                        Meet the top fashion designers! Find the perfect design!
+                    </p>
+                    <video poster="http://assets.modeflip.com/ui/about/hellomode.jpg" onclick="this.play();" width="100%" height="auto" controls preload="none">
+                        <source src="http://assets.modeflip.com/ui/about/hellomode.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="empty-space"></div>
+                <div class="decoration"></div>
+                <div class="empty-space"></div>
+
+
+                <div class="blog-post">
+                    <h3 class="blog-post-title">关于我们</h3>
+                    <p class="blog-post-text">
+                        MODE FLIP，位于北京，纽约。<br>
+                        拥有丰富顶尖的时尚资源。致力于搭建顶级设计师平台，独家签约设计师亲自定制，精选优质面料，搭配精湛版型，打造属于你的时尚帝国！
+                    </p>
+                    <a class="blog-post-image"><img src="http://assets.modeflip.com/ui/about/map.jpg" alt="img"></a>
+                    <p class="blog-post-date"></p>
+                    <p class="blog-post-more"></p>
+                </div>
+
+                <div class="decoration"></div>
+
+
+                <div class="blog-post">
+
+                    <h3 class="blog-post-title">时尚，是一种文化</h3>
+                    <p class="blog-post-text">
+                        MODE FLIP，集时尚，音乐，艺术于一体，这里有你最喜欢的文化。
+                    </p>
+                    <a class="blog-post-image"><img src="http://assets.modeflip.com/ui/about/hello.gif" alt="img"></a>
+
+                    <h3 class="blog-post-title">心系环保</h3>
+                    <p class="blog-post-text">
+                        MODE FLIP与设计师共同建立BPP环保基金(blue planet plan，蓝色行星计划)，每件销售商品其中的1元钱，我们将捐给cold blue世界海洋保护组织，呼吁健康的生命。
+                    </p>
+                    <a class="blog-post-image"><img src="http://assets.modeflip.com/ui/about/codeblue.png" alt="img"></a>
+                    <div class="decoration"></div>
+
+                    <a class="blog-post-image"><img src="http://assets.modeflip.com/ui/about/qr.gif" alt="img"></a>
+                </div>
             </div>
-            <div class="overlay"></div>
+
+
+            <div class="decoration"></div>
+
         </div>
-
-
         <!-- Page Footer-->
-        <!-- <div class="footer">
+        <div class="footer">
             <p class="center-text">Copyright 2016. All rights reserved.</p>
             <div class="footer-socials half-bottom">
-                <a href="#" class="footer-facebook"><i class="fa fa-question"></i></a>
-                <a href="#" class="footer-twitter"><i class="fa fa-envelope-o"></i></a>
+                <a href="https://kdt.im/HFYzTr" class="footer-facebook"><i class="fa fa-shopping-cart"></i></a>
+                <a href="/faq_view" class="footer-twitter"><i class="fa fa fa-question"></i></a>
                 <a href="#" class="footer-transparent"></a>
                 <a href="#" class="footer-share show-share-bottom"><i class="fa fa-share-alt"></i></a>
                 <a href="#" class="footer-up"><i class="fa fa-angle-double-up"></i></a>
             </div>
-        </div> -->
+        </div>
 
     </div>
 
-    <!-- <div class="share-bottom">
+    <div class="share-bottom">
         <h3>长按二维码保存并分享</h3>
         <div class="share-qr"><img src="http://assets.modeflip.com/ui/qr.jpg" alt="img"></div>
         <a href="#" class="close-share-bottom">Close</a>
-    </div> -->
+    </div>
 
 </div>
-
 </body>
-
