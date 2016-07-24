@@ -106,6 +106,7 @@
                 <div><img src="http://assets.modeflip.com/flipbook/sliders/5-4.jpg" class="responsive-image" alt="img"></div>
             </div>
         </div>
+        <div style="text-align:right">滑动图片 -- flip it for fun&nbsp;&nbsp;</div>
         <div class="empty-space"></div>
         <div class="empty-space"></div>
 
