@@ -65,31 +65,31 @@ function enable_widgets(did) {
 	(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")
 
 	// experience gallery
-	var owlStaffControls = $("#staff-slider-"+did);
-	owlStaffControls.owlCarousel({
-		items : 1,
-		itemsDesktop : [1199,1],
-		itemsDesktopSmall : [980,1],
-		itemsTablet: [768,1],
-		itemsTabletSmall: [480,1],
-		itemsMobile : [370,1],
-		singleItem : false,
-		itemsScaleUp : false,
-		slideSpeed : 250,
-		paginationSpeed : 250,
-		rewindSpeed : 250,
-		pagination:false,
-		autoPlay : false,
-		autoHeight: false,
-	});
-	$("#next-staff-"+did).click(function(){
-	  owlStaffControls.trigger('owl.next');
-	  return false;
-	});
-	$("#prev-staff-"+did).click(function(){
-	  owlStaffControls.trigger('owl.prev');
-	  return false;
-	});
+	// var owlStaffControls = $("#staff-slider-"+did);
+	// owlStaffControls.owlCarousel({
+	// 	items : 1,
+	// 	itemsDesktop : [1199,1],
+	// 	itemsDesktopSmall : [980,1],
+	// 	itemsTablet: [768,1],
+	// 	itemsTabletSmall: [480,1],
+	// 	itemsMobile : [370,1],
+	// 	singleItem : false,
+	// 	itemsScaleUp : false,
+	// 	slideSpeed : 250,
+	// 	paginationSpeed : 250,
+	// 	rewindSpeed : 250,
+	// 	pagination:false,
+	// 	autoPlay : false,
+	// 	autoHeight: false,
+	// });
+	// $("#next-staff-"+did).click(function(){
+	//   owlStaffControls.trigger('owl.next');
+	//   return false;
+	// });
+	// $("#prev-staff-"+did).click(function(){
+	//   owlStaffControls.trigger('owl.prev');
+	//   return false;
+	// });
 
 	// signature picture
 	$(".col_sig_pic_"+did).slick({
@@ -170,7 +170,7 @@ function load_gallery_content(el, did, cid, gid) {
 
 
 function load_experience_content(el, did, index) {
-	$.getJSON(CONFIG.api_base_url().concat('/experience/sig_pics'), {'did': did}, function(data) {
+	$.getJSON(CONFIG.api_base_url().concat('/experience/pics'), {'did': did}, function(data) {
 	    $(el).on('onBeforeOpen.lg',function(event){
 			$('#red-footer-ball').hide();
 		});
