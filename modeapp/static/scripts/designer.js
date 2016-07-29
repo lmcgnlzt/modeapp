@@ -76,31 +76,31 @@ function enable_widgets(did) {
  	shortenText(did);
 
 	// experience gallery
-	var owlStaffControls = $("#staff-slider-"+did);
-	owlStaffControls.owlCarousel({
-		items : 3,
-		itemsDesktop : [1199,3],
-		itemsDesktopSmall : [980,3],
-		itemsTablet: [768,2],
-		itemsTabletSmall: [480,1],
-		itemsMobile : [370,1],
-		singleItem : false,
-		itemsScaleUp : false,
-		slideSpeed : 250,
-		paginationSpeed : 250,
-		rewindSpeed : 250,
-		pagination:false,
-		autoPlay : false,
-		autoHeight: false,
-	});
-	$("#next-staff-"+did).click(function(){
-	  owlStaffControls.trigger('owl.next');
-	  return false;
-	});
-	$("#prev-staff-"+did).click(function(){
-	  owlStaffControls.trigger('owl.prev');
-	  return false;
-	});
+	// var owlStaffControls = $("#staff-slider-"+did);
+	// owlStaffControls.owlCarousel({
+	// 	items : 3,
+	// 	itemsDesktop : [1199,3],
+	// 	itemsDesktopSmall : [980,3],
+	// 	itemsTablet: [768,2],
+	// 	itemsTabletSmall: [480,1],
+	// 	itemsMobile : [370,1],
+	// 	singleItem : false,
+	// 	itemsScaleUp : false,
+	// 	slideSpeed : 250,
+	// 	paginationSpeed : 250,
+	// 	rewindSpeed : 250,
+	// 	pagination:false,
+	// 	autoPlay : false,
+	// 	autoHeight: false,
+	// });
+	// $("#next-staff-"+did).click(function(){
+	//   owlStaffControls.trigger('owl.next');
+	//   return false;
+	// });
+	// $("#prev-staff-"+did).click(function(){
+	//   owlStaffControls.trigger('owl.prev');
+	//   return false;
+	// });
 
 	// // exclusive video
 	// var exclusive_video_prefix = 'exclusive-video-'.concat(did, '-');

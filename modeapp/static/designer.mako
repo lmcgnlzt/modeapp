@@ -128,25 +128,21 @@
                 <div class="empty-space"></div>
                 <div class="decoration"></div>
 
-                <h4>作品浏览</h4>
-                <a id="next-staff-${did}" href="#" class="next-staff"></a>
-                <a id="prev-staff-${did}" href="#" class="prev-staff"></a>
+                <div><h4 class="experience-header">设计师作品浏览</h4><em class="experience-header">&nbsp;(点击浏览更多)</em></div>
 
                 <div id="staff-slider-${did}" class="staff-slider" data-snap-ignore="true">
                     <%
-                        pics = experience_content.get('pics')
+                        thumbnails_pics = experience_content.get('thumbnails')
                     %>
-                    % for page_index in range(0, len(pics), 8):
                     <div class="staff-item">
                         <div class="homescreen-gallery square-thumbs" data-snap-ignore="true">
-                            % for index, pic in enumerate(pics[page_index : page_index + 8]):
-                            <a href="#" onclick="javascript:load_works(this, ${did}, ${page_index} + ${index});" class="homescreen-scale-hover experience-gallery" title="${pic.get('title')}">
-                                <img class="homescreen-responsive-image" src="${pic.get('thumbnail')}" alt="img">
+                            % for index, pic_url in enumerate(thumbnails_pics):
+                            <a href="#" onclick="javascript:load_works(this, ${did}, ${index});" class="homescreen-scale-hover experience-gallery">
+                                <img class="homescreen-responsive-image" src="${pic_url}" alt="img">
                             </a>
                             % endfor
                         </div>
                     </div>
-                    % endfor
                 </div>
                 <div style="text-align:right">资料均由设计师提供</div>
                 <div class="empty-space"></div>
