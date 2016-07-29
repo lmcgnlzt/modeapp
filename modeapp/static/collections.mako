@@ -26,14 +26,14 @@
 <link href="styles/slick.min.css"            rel="stylesheet" type="text/css">
 <link href="styles/lightgallery.css"   rel="stylesheet" type="text/css">
 
-<script type="text/javascript" src="scripts/jquery.js"></script>
-<script type="text/javascript" src="scripts/jqueryui.js"></script>
-<script type="text/javascript" src="scripts/framework.plugins.js"></script>
-<script type="text/javascript" src="scripts/plugins.js"></script>
-<script type="text/javascript" src="scripts/slick.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.js?729"></script>
+<script type="text/javascript" src="scripts/jqueryui.js?729"></script>
+<script type="text/javascript" src="scripts/framework.plugins.js?729"></script>
+<script type="text/javascript" src="scripts/plugins.js?729"></script>
+<script type="text/javascript" src="scripts/slick.min.js?729"></script>
 
-<script type="text/javascript" src="scripts/lightgallery.min.js"></script>
-<script type="text/javascript" src="scripts/lg-thumbnail.min.js"></script>
+<script type="text/javascript" src="scripts/lightgallery.min.js?729"></script>
+<script type="text/javascript" src="scripts/lg-thumbnail.min.js?729"></script>
 
 <script type="text/javascript" src="scripts/collections.js"></script>
 
