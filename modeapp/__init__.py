@@ -1,3 +1,6 @@
+import requests
+import logging
+
 from pyramid.config import Configurator
 
 from pyramid.renderers import render_to_response
@@ -5,6 +8,11 @@ from pyramid.authentication import AuthTktAuthenticationPolicy
 from pyramid.authorization import ACLAuthorizationPolicy
 from pyramid.view import view_config
 
+LOGGER = logging.getLogger(__name__)
+
+
+APPID = 'wx007c42b9e3f7413d'
+APPSECRET = '015cc6487b24128615e2ed395f04de52'
 
 
 @view_config(route_name='auth', renderer='auth.mako')
@@ -12,6 +20,11 @@ def auth_view(request):
     # client = request.user_agent_classified
     # if client.is_pc: # user_agent detect
     #     return render_to_response('modeapp:static/block.mako', {}, request=request)
+    CODE = request.params.get('code')
+    LOGGER.info('CODE: {}'.format(CODE))
+    # user_info_url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid={}&secret={}&code={}&grant_type=authorization_code'.format(APPID, APPSECRET, CODE)
+    # print user_info_url
+
     return render_to_response('modeapp:static/index.mako', {}, request=request)
 
     # password = request.params.get('password')
