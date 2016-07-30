@@ -1,5 +1,7 @@
 import requests
+import urllib
 import logging
+import json
 
 from pyramid.config import Configurator
 
@@ -17,13 +19,20 @@ APPSECRET = '015cc6487b24128615e2ed395f04de52'
 
 @view_config(route_name='auth', renderer='auth.mako')
 def auth_view(request):
-    # client = request.user_agent_classified
-    # if client.is_pc: # user_agent detect
-    #     return render_to_response('modeapp:static/block.mako', {}, request=request)
-    CODE = request.params.get('code')
-    LOGGER.warning('CODE: {}'.format(CODE))
-    # user_info_url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid={}&secret={}&code={}&grant_type=authorization_code'.format(APPID, APPSECRET, CODE)
-    # print user_info_url
+    client = request.user_agent_classified
+    if client.is_pc: # user_agent detect
+        # return render_to_response('modeapp:static/block.mako', {}, request=request)
+        LOGGER.error('Blocked requests from PC')
+
+    try:
+        CODE = request.params.get('code')
+        data = requests.get('https://api.weixin.qq.com/sns/oauth2/access_token?appid={}&secret={}&code={}&grant_type=authorization_code'.format(APPID, APPSECRET, CODE)).json()
+        openid = data.get('openid')
+        LOGGER.warning('CODE: {}, openid: {}'.format(CODE, openid))
+    except requests.exceptions.Timeout:
+        LOGGER.error('Timeout from weixin api')
+    except requests.exceptions.RequestException as e:
+        LOGGER.exception(e)
 
     return render_to_response('modeapp:static/index.mako', {}, request=request)
 
