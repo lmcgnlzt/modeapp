@@ -1,5 +1,4 @@
 import requests
-import urllib
 import logging
 import json
 
@@ -21,8 +20,7 @@ APPSECRET = '015cc6487b24128615e2ed395f04de52'
 def auth_view(request):
     client = request.user_agent_classified
     if client.is_pc: # user_agent detect
-        # return render_to_response('modeapp:static/block.mako', {}, request=request)
-        LOGGER.error('Blocked requests from PC')
+        return render_to_response('modeapp:static/block.mako', {}, request=request)
 
     try:
         CODE = request.params.get('code')
