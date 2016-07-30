@@ -21,7 +21,7 @@ def auth_view(request):
     # if client.is_pc: # user_agent detect
     #     return render_to_response('modeapp:static/block.mako', {}, request=request)
     CODE = request.params.get('code')
-    LOGGER.info('CODE: {}'.format(CODE))
+    LOGGER.warning('CODE: {}'.format(CODE))
     # user_info_url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid={}&secret={}&code={}&grant_type=authorization_code'.format(APPID, APPSECRET, CODE)
     # print user_info_url
 
