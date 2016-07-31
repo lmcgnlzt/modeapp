@@ -56,6 +56,7 @@ def main(global_config, **settings):
 
     config.include('modeapp.api_handler')
     config.include('modeapp.view_handler')
+    config.include('modeapp.wechat_handler')
 
 
     static_dir = settings.get('static_directory')
