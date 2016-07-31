@@ -11,7 +11,7 @@ LOGGER = logging.getLogger(__name__)
 
 APPID = 'wx007c42b9e3f7413d'
 APPSECRET = '015cc6487b24128615e2ed395f04de52'
-ENCODING_AES_KEY = 'UNippv5nGwtw0zgeSROQ82qzDhFcFfCdpGTkZ9nEbBn'
+ENCODING_AES_KEY = 'fLRkv4uRIGFZUTtKbe5xy55jKhFJhwVA5IezXd0nqT6'
 
 
 class WechatView(object):
