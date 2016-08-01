@@ -33,11 +33,14 @@ class WechatView(object):
 		return WechatBasic(conf=conf)
 
 	def auth(self):
-		LOGGER.warning('Authorizing .....')
 		signature = self.request.params.get('signature')
 		timestamp = self.request.params.get('timestamp')
 		nonce = self.request.params.get('nonce')
 		echostr = self.request.params.get('echostr', '')
+		LOGGER.warning('signature: {}'.format(signature))
+		LOGGER.warning('timestamp: {}'.format(timestamp))
+		LOGGER.warning('nonce: {}'.format(nonce))
+		LOGGER.warning('echostr: {}'.format(echostr))
 		if self.wechat.check_signature(signature, timestamp, nonce):
 			LOGGER.warning('Accept')
 			LOGGER.warning(echostr)
