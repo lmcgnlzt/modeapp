@@ -27,7 +27,7 @@ class WechatView(object):
 		    token='modefliptwentysixteen',
 		    appid=APPID,
 		    appsecret=APPSECRET,
-		    encrypt_mode='safe',
+		    encrypt_mode='normal',
 		    encoding_aes_key=ENCODING_AES_KEY
 		)
 		return WechatBasic(conf=conf)
