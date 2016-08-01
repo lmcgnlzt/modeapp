@@ -91,7 +91,6 @@ def includeme(config):
 		'modeapp.wechat_handler.WechatView',
 		attr = 'auth',
 		route_name = 'wechat_view',
-		request_method = 'GET',
 		renderer='string'
 	)
 
