@@ -53,5 +53,6 @@ def includeme(config):
 		'modeapp.wechat_handler.WechatView',
 		attr = 'wechat_view',
 		route_name = 'wechat',
-		renderer='string'
+		renderer='string',
+		request_method='GET'
 	)
