@@ -46,24 +46,24 @@ class WechatView(object):
 			LOGGER.warning('Something gone wrong')
 			return 'Access verification fail'
 
-	def process(self):
-		LOGGER.warning('Processing POST request .....')
-		data = self.request.json_body
-		try:
-		    self.wechat.parse_data(data)
+	# def process(self):
+	# 	LOGGER.warning('Processing POST request .....')
+	# 	data = self.request.json_body
+	# 	try:
+	# 	    self.wechat.parse_data(data)
 
-		    msg = self.wechat.message
-		    mid = msg.id
-		    target = msg.target
-		    source = msg.source
-		    time = msg.time
-		    mtype = msg.type
-		    raw = msg.raw
+	# 	    msg = self.wechat.message
+	# 	    mid = msg.id
+	# 	    target = msg.target
+	# 	    source = msg.source
+	# 	    time = msg.time
+	# 	    mtype = msg.type
+	# 	    raw = msg.raw
 
-		    LOGGER.warning('{} {} {} {} {} {}'.format(mid, target, source, time, mtype, raw))
-		except ParseError:
-			LOGGER.error('Invalid Body Text')
-		return 'OK'
+	# 	    LOGGER.warning('{} {} {} {} {} {}'.format(mid, target, source, time, mtype, raw))
+	# 	except ParseError:
+	# 		LOGGER.error('Invalid Body Text')
+	# 	return 'OK'
 
 
 # def add_view(config, route_name, method, attr):
@@ -79,7 +79,7 @@ class WechatView(object):
 
 
 def includeme(config):
-	config.add_route('wechat', '/wechat')
+	config.add_route('wechat_view', '/wechat')
 	# add_view(config, 'process', 'GET', 'auth')
 	# add_view(config, 'process', 'POST', 'process')
 
@@ -87,17 +87,17 @@ def includeme(config):
 	config.add_view(
 		'modeapp.wechat_handler.WechatView',
 		attr = 'auth',
-		route_name = 'wechat',
+		route_name = 'wechat_view',
 		request_method = 'GET',
 		xhr=True,
 		renderer='string'
 	)
 
-	config.add_view(
-		'modeapp.wechat_handler.WechatView',
-		attr = 'wechat_view',
-		route_name = 'wechat',
-		request_method = 'POST',
-		xhr=True,
-		renderer='string'
-	)
+	# config.add_view(
+	# 	'modeapp.wechat_handler.WechatView',
+	# 	attr = 'wechat_view',
+	# 	route_name = 'wechat_view',
+	# 	request_method = 'POST',
+	# 	xhr=True,
+	# 	renderer='string'
+	# )
