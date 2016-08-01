@@ -5,6 +5,7 @@ from pyramid.renderers import render_to_response
 
 from wechat_sdk import WechatConf
 from wechat_sdk import WechatBasic
+from wechat_sdk.exceptions import ParseError
 
 LOGGER = logging.getLogger(__name__)
 
@@ -31,7 +32,7 @@ class WechatView(object):
 		)
 		return WechatBasic(conf=conf)
 
-	def wechat_view(self):
+	def auth(self):
 		signature = self.request.params.get('signature')
 		timestamp = self.request.params.get('timestamp')
 		nonce = self.request.params.get('nonce')
@@ -42,12 +43,53 @@ class WechatView(object):
 			LOGGER.warning('Something gone wrong')
 		return echostr
 
+	def process(self):
+		data = self.request.json_body
+		try:
+		    self.wechat.parse_data(data)
+
+		    msg = self.wechat.message
+		    mid = msg.id
+		    target = msg.target
+		    source = msg.source
+		    time = msg.time
+		    mtype = msg.type
+		    raw = msg.raw
+
+		    LOGGER.warning('{} {} {} {} {} {}'.format(mid, target, source, time, mtype, raw))
+		except ParseError:
+			LOGGER.error('Invalid Body Text')
+		return 'OK'
+
+def add_view(config, route_name, method, attr):
+	handler = 'modeapp.wechat_handler.WechatView'
+	config.add_view(
+		handler,
+		attr=attr,
+		route_name=route_name,
+		request_method=method,
+		renderer='string'
+	)
+
 
 def includeme(config):
 	config.add_route('wechat', '/wechat')
-	config.add_view(
-		'modeapp.wechat_handler.WechatView',
-		attr = 'wechat_view',
-		route_name = 'wechat',
-		renderer='string'
-	)
+	add_view(config, 'wechat', 'GET', 'auth')
+	add_view(config, 'wechat', 'POST', 'process')
+
+
+	# config.add_view(
+	# 	'modeapp.wechat_handler.WechatView',
+	# 	attr = 'auth',
+	# 	route_name = 'wechat',
+	# 	request_method = 'GET',
+	# 	renderer='string'
+	# )
+
+	# config.add_view(
+	# 	'modeapp.wechat_handler.WechatView',
+	# 	attr = 'wechat_view',
+	# 	route_name = 'wechat',
+	# 	request_method = 'POST',
+	# 	renderer='string'
+	# )
