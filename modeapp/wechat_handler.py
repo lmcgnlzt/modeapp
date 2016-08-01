@@ -5,6 +5,7 @@ from pyramid.renderers import render_to_response
 
 from wechat_sdk import WechatConf
 from wechat_sdk import WechatBasic
+from wechat_sdk.exceptions import ParseError
 
 LOGGER = logging.getLogger(__name__)
 
@@ -46,6 +47,15 @@ class WechatView(object):
 			LOGGER.warning('Something gone wrong')
 		return echostr
 
+	def post_view(self):
+		body = self.request.body
+		try:
+			self.wechat.parse_data(body)
+			msg = self.wechat.message
+			LOGGER.warning('raw: {}'.format(msg.raw))
+		except ParseError as e:
+			LOGGER.exception(e)
+
 
 def includeme(config):
 	config.add_route('wechat', '/wechat')
@@ -55,4 +65,12 @@ def includeme(config):
 		route_name = 'wechat',
 		renderer='string',
 		request_method='GET'
+	)
+
+	config.add_view(
+		'modeapp.wechat_handler.WechatView',
+		attr = 'post_view',
+		route_name = 'wechat',
+		renderer='string',
+		request_method='POST'
 	)
