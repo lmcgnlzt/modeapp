@@ -73,9 +73,13 @@ def add_view(config, route_name, method, attr):
 
 
 def includeme(config):
-	config.add_route('wechat', '/wechat')
-	add_view(config, 'wechat', 'GET', 'auth')
-	add_view(config, 'wechat', 'POST', 'process')
+	config.add_route('authorize', '/wechat')
+	add_view(config, 'authorize', 'GET', 'auth')
+
+	config.add_route('process', '/wechat')
+	add_view(config, 'process', 'POST', 'process')
+
+
 
 
 	# config.add_view(
