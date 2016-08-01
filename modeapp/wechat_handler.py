@@ -89,7 +89,6 @@ def includeme(config):
 		attr = 'auth',
 		route_name = 'wechat_view',
 		request_method = 'GET',
-		xhr=True,
 		renderer='string'
 	)
 
