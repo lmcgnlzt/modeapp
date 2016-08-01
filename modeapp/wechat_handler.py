@@ -5,7 +5,6 @@ from pyramid.renderers import render_to_response
 
 from wechat_sdk import WechatConf
 from wechat_sdk import WechatBasic
-from wechat_sdk.exceptions import ParseError
 
 LOGGER = logging.getLogger(__name__)
 
@@ -32,7 +31,7 @@ class WechatView(object):
 		)
 		return WechatBasic(conf=conf)
 
-	def auth(self):
+	def wechat_view(self):
 		signature = self.request.params.get('signature')
 		timestamp = self.request.params.get('timestamp')
 		nonce = self.request.params.get('nonce')
@@ -43,62 +42,16 @@ class WechatView(object):
 		LOGGER.warning('echostr: {}'.format(echostr))
 		if self.wechat.check_signature(signature, timestamp, nonce):
 			LOGGER.warning('Accept')
-			LOGGER.warning(echostr)
-			return echostr
 		else:
 			LOGGER.warning('Something gone wrong')
-			return 'Access verification fail'
-
-	# def process(self):
-	# 	LOGGER.warning('Processing POST request .....')
-	# 	data = self.request.json_body
-	# 	try:
-	# 	    self.wechat.parse_data(data)
-
-	# 	    msg = self.wechat.message
-	# 	    mid = msg.id
-	# 	    target = msg.target
-	# 	    source = msg.source
-	# 	    time = msg.time
-	# 	    mtype = msg.type
-	# 	    raw = msg.raw
-
-	# 	    LOGGER.warning('{} {} {} {} {} {}'.format(mid, target, source, time, mtype, raw))
-	# 	except ParseError:
-	# 		LOGGER.error('Invalid Body Text')
-	# 	return 'OK'
-
-
-# def add_view(config, route_name, method, attr):
-# 	handler = 'modeapp.wechat_handler.WechatView'
-# 	config.add_view(
-# 		handler,
-# 		attr=attr,
-# 		route_name=route_name,
-# 		request_method=method,
-# 		xhr=True,
-# 		renderer='string'
-# 	)
+		return echostr
 
 
 def includeme(config):
-	config.add_route('wechat_view', '/wechat')
-	# add_view(config, 'process', 'GET', 'auth')
-	# add_view(config, 'process', 'POST', 'process')
-
-
+	config.add_route('wechat', '/wechat')
 	config.add_view(
 		'modeapp.wechat_handler.WechatView',
-		attr = 'auth',
-		route_name = 'wechat_view',
+		attr = 'wechat_view',
+		route_name = 'wechat',
 		renderer='string'
 	)
-
-	# config.add_view(
-	# 	'modeapp.wechat_handler.WechatView',
-	# 	attr = 'wechat_view',
-	# 	route_name = 'wechat_view',
-	# 	request_method = 'POST',
-	# 	xhr=True,
-	# 	renderer='string'
-	# )
