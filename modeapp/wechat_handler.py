@@ -66,19 +66,38 @@ class WechatView(object):
 		return 'OK'
 
 
-def add_view(config, route_name, method, attr):
-	handler = 'modeapp.wechat_handler.WechatView'
+# def add_view(config, route_name, method, attr):
+# 	handler = 'modeapp.wechat_handler.WechatView'
+# 	config.add_view(
+# 		handler,
+# 		attr=attr,
+# 		route_name=route_name,
+# 		request_method=method,
+# 		xhr=True,
+# 		renderer='string'
+# 	)
+
+
+def includeme(config):
+	config.add_route('wechat', '/wechat')
+	# add_view(config, 'process', 'GET', 'auth')
+	# add_view(config, 'process', 'POST', 'process')
+
+
 	config.add_view(
-		handler,
-		attr=attr,
-		route_name=route_name,
-		request_method=method,
+		'modeapp.wechat_handler.WechatView',
+		attr = 'auth',
+		route_name = 'wechat',
+		request_method = 'GET',
 		xhr=True,
 		renderer='string'
 	)
 
-
-def includeme(config):
-	config.add_route('process', '/wechat')
-	add_view(config, 'process', 'GET', 'auth')
-	add_view(config, 'process', 'POST', 'process')
+	config.add_view(
+		'modeapp.wechat_handler.WechatView',
+		attr = 'wechat_view',
+		route_name = 'wechat',
+		request_method = 'POST',
+		xhr=True,
+		renderer='string'
+	)
