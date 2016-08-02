@@ -33,6 +33,12 @@ class WechatView(object):
 		return WechatBasic(conf=conf)
 
 	def wechat_view(self):
+		"""
+		signature: 812f66bf7d8921fa88074df318fe87b8e5d330f4
+		timestamp: 1470026375
+		nonce: 1073925489
+		echostr: 5192829631555622807
+		"""
 		signature = self.request.params.get('signature')
 		timestamp = self.request.params.get('timestamp')
 		nonce = self.request.params.get('nonce')
@@ -52,7 +58,23 @@ class WechatView(object):
 		try:
 			self.wechat.parse_data(body)
 			msg = self.wechat.message
-			LOGGER.warning('raw: {}'.format(msg.raw))
+
+			mtype = msg.type
+			target = msg.target
+			source = msg.source
+			raw = msg.raw
+
+			LOGGER.warning('mtype: {}'.format(mtype))
+			LOGGER.warning('target: {}'.format(target))
+			LOGGER.warning('source: {}'.format(source))
+
+			if mtype == 'scan':
+				key = msg.key
+				ticket = msg.ticket
+
+				LOGGER.warning('key: {}'.format(key))
+				LOGGER.warning('ticket: {}'.format(ticket))
+
 		except ParseError as e:
 			LOGGER.exception(e)
 
