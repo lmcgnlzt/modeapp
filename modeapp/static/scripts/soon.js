@@ -14,7 +14,6 @@ $(document).ready(function() {
 		FastClick.attach(document.body);
 	}, false);
 
-
     $('.menu-wrapper').addClass('hide-menu-wrapper');
     var menu_slider = $(".menu");
     menu_slider.owlCarousel({

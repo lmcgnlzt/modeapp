@@ -9,17 +9,10 @@ $(window).load(function() {
 
 $(document).ready(function() {
 
-
-    $('#head-slider').slick({slidesToShow: 1});
-    $('#upper-slider').slick({slidesToShow: 1});
-    $('#lower-slider').slick({slidesToShow: 1});
-    $('#foot-slider').slick({slidesToShow: 1});
-
     //Remove 300ms lag set by -webkit-browsers
     window.addEventListener('load', function() {
         FastClick.attach(document.body);
     }, false);
-
 
     $('.menu-wrapper').addClass('hide-menu-wrapper');
     var menu_slider = $(".menu");
@@ -37,6 +30,12 @@ $(document).ready(function() {
         //     this.jumpTo(0); //for 4th slide
         //}
     });
+
+
+    $('#head-slider').slick({slidesToShow: 1});
+    $('#upper-slider').slick({slidesToShow: 1});
+    $('#lower-slider').slick({slidesToShow: 1});
+    $('#foot-slider').slick({slidesToShow: 1});
 
 
     $('.open-menu, .footer-ball').click(function() {

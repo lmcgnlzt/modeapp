@@ -254,6 +254,29 @@ function do_wish(el, did) {
 
 $(document).ready(function() {
 
+	//Remove 300ms lag set by -webkit-browsers
+    window.addEventListener('load', function() {
+		FastClick.attach(document.body);
+	}, false);
+
+    $('.menu-wrapper').addClass('hide-menu-wrapper');
+    var menu_slider = $(".menu");
+    menu_slider.owlCarousel({
+        autoPlay: false, //Set AutoPlay to 3 seconds
+        scrollPerPage:true,
+        pagination:false,
+        rewindSpeed:0,
+        items : 15,
+        itemsDesktop : [1199,6],
+        itemsDesktopSmall : [979,5],
+        itemsTablet:	[768,4],
+        itemsMobile:	[560,3]//,
+        //afterInit : function(elem){
+        //     this.jumpTo(0); //for 4th slide
+        //}
+    });
+
+
 	var did = $('#curr_did').text();
 	// CONFIG.set_did(did);
 	enable_widgets(did);
@@ -331,29 +354,6 @@ $(document).ready(function() {
 
     //Detect if iOS WebApp Engaged and permit navigation without deploying Safari
 	(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")
-
-    //Remove 300ms lag set by -webkit-browsers
-    window.addEventListener('load', function() {
-		FastClick.attach(document.body);
-	}, false);
-
-    $('.menu-wrapper').addClass('hide-menu-wrapper');
-    var menu_slider = $(".menu");
-    menu_slider.owlCarousel({
-        autoPlay: false, //Set AutoPlay to 3 seconds
-        scrollPerPage:true,
-        pagination:false,
-        rewindSpeed:0,
-        items : 15,
-        itemsDesktop : [1199,6],
-        itemsDesktopSmall : [979,5],
-        itemsTablet:	[768,4],
-        itemsMobile:	[560,3]//,
-        //afterInit : function(elem){
-        //     this.jumpTo(0); //for 4th slide
-        //}
-    });
-
 
 	$('.open-menu, .footer-ball').click(function() {
 		$('.hide-content').fadeIn(250);

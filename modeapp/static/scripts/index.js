@@ -9,11 +9,7 @@ $(window).load(function() {
 
 $(document).ready(function() {
 
-	$('.footer-ball').hide();
-	$('.footer-arrow').show();
-
-
-    //Remove 300ms lag set by -webkit-browsers
+	//Remove 300ms lag set by -webkit-browsers
     window.addEventListener('load', function() {
 		FastClick.attach(document.body);
 	}, false);
@@ -34,6 +30,9 @@ $(document).ready(function() {
         //     this.jumpTo(0); //for 4th slide
         //}
     });
+
+	$('.footer-ball').hide();
+	$('.footer-arrow').show();
 
     var snapper = new Snap({
     	element: document.getElementById('content')
