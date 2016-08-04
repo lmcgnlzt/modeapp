@@ -204,6 +204,28 @@ function load_experience_content(el, did, index) {
 
 $(document).ready(function() {
 
+	//Remove 300ms lag set by -webkit-browsers
+    window.addEventListener('load', function() {
+		FastClick.attach(document.body);
+	}, false);
+
+	$('.menu-wrapper').addClass('hide-menu-wrapper');
+    var menu_slider = $(".menu");
+    menu_slider.owlCarousel({
+        autoPlay: false, //Set AutoPlay to 3 seconds
+        scrollPerPage:true,
+        pagination:false,
+        rewindSpeed:0,
+        items : 15,
+        itemsDesktop : [1199,6],
+        itemsDesktopSmall : [979,5],
+        itemsTablet:	[768,4],
+        itemsMobile:	[560,3]//,
+        //afterInit : function(elem){
+        //     this.jumpTo(0); //for 4th slide
+        //}
+    });
+
 	window.load_works = function(el, did, index) {
 		load_experience_content(el, did, index);
 	}
@@ -211,11 +233,6 @@ $(document).ready(function() {
 	window.load_images = function(el, did, cid, gid) {
 		load_gallery_content(el, did, cid, gid);
 	}
-
-    //Remove 300ms lag set by -webkit-browsers
-    window.addEventListener('load', function() {
-		FastClick.attach(document.body);
-	}, false);
 
 
 	var dids = JSON.parse($('#dids').text());
@@ -246,24 +263,6 @@ $(document).ready(function() {
     			load_more(next_did);
     		}
         }
-    });
-
-
-    $('.menu-wrapper').addClass('hide-menu-wrapper');
-    var menu_slider = $(".menu");
-    menu_slider.owlCarousel({
-        autoPlay: false, //Set AutoPlay to 3 seconds
-        scrollPerPage:true,
-        pagination:false,
-        rewindSpeed:0,
-        items : 15,
-        itemsDesktop : [1199,6],
-        itemsDesktopSmall : [979,5],
-        itemsTablet:	[768,4],
-        itemsMobile:	[560,3]//,
-        //afterInit : function(elem){
-        //     this.jumpTo(0); //for 4th slide
-        //}
     });
 
 

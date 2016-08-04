@@ -42,15 +42,6 @@ $(document).ready(function() {
 		FastClick.attach(document.body);
 	}, false);
 
-    $.each(JSON.parse($('#did_list').text()), function(i, did) {
-        shortenText(did);
-    });
-
-    $('.designer_experience').slick({
-    	slidesToShow: 4,
-	});
-
-
     $('.menu-wrapper').addClass('hide-menu-wrapper');
     var menu_slider = $(".menu");
     menu_slider.owlCarousel({
@@ -61,13 +52,21 @@ $(document).ready(function() {
         items : 15,
         itemsDesktop : [1199,6],
         itemsDesktopSmall : [979,5],
-        itemsTablet:	[768,4],
-        itemsMobile:	[560,3]//,
+        itemsTablet:    [768,4],
+        itemsMobile:    [560,3]//,
         //afterInit : function(elem){
         //     this.jumpTo(0); //for 4th slide
         //}
     });
 
+
+    $.each(JSON.parse($('#did_list').text()), function(i, did) {
+        shortenText(did);
+    });
+
+    $('.designer_experience').slick({
+    	slidesToShow: 4,
+	});
 
 	$('.open-menu, .footer-ball').click(function() {
 		$('.hide-content').fadeIn(250);
