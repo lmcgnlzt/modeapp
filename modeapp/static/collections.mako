@@ -26,16 +26,16 @@
 <link href="styles/slick.min.css"            rel="stylesheet" type="text/css">
 <link href="styles/lightgallery.css"   rel="stylesheet" type="text/css">
 
-<script type="text/javascript" src="scripts/jquery.js?803"></script>
-<script type="text/javascript" src="scripts/jqueryui.js?803"></script>
-<script type="text/javascript" src="scripts/framework.plugins.js?803"></script>
-<script type="text/javascript" src="scripts/plugins.js?803"></script>
-<script type="text/javascript" src="scripts/slick.min.js?803"></script>
+<script type="text/javascript" src="scripts/jquery.js?911"></script>
+<script type="text/javascript" src="scripts/jqueryui.js?911"></script>
+<script type="text/javascript" src="scripts/framework.plugins.js?911"></script>
+<script type="text/javascript" src="scripts/plugins.js?911"></script>
+<script type="text/javascript" src="scripts/slick.min.js?911"></script>
 
-<script type="text/javascript" src="scripts/lightgallery.min.js?803"></script>
-<script type="text/javascript" src="scripts/lg-thumbnail.min.js?803"></script>
+<script type="text/javascript" src="scripts/lightgallery.min.js?911"></script>
+<script type="text/javascript" src="scripts/lg-thumbnail.min.js?911"></script>
 
-<script type="text/javascript" src="scripts/collections.js?803"></script>
+<script type="text/javascript" src="scripts/collections.js?911"></script>
 
 </head>
 <body>
