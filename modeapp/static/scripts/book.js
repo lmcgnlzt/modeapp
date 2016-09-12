@@ -79,7 +79,7 @@ $(document).ready(function() {
     });
 
     //Countdown timer
-    var endDate = "August 15, 2016 12:00:00";
+    var endDate = "September 30, 2016 12:00:00";
     $('.countdown').countdown({
       date: endDate,
       render: function(data) {
