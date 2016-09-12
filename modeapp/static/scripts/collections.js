@@ -161,8 +161,8 @@ function load_gallery_content(el, did, cid, gid) {
 	        dynamic: true,
 	        download: false,
 	        closable: false,
-	        thumbnail:false,
-	        thumbWidth: 70,
+	        thumbnail: true,
+	        thumbWidth: 60,
 	        dynamicEl: elements,
 	    })
 	});
