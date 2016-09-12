@@ -74,7 +74,7 @@ $(document).ready(function() {
 
     //Countdown timer
 
-	var endDate = "August 1, 2016 12:00:00";
+	var endDate = "October 15, 2016 12:00:00";
 
 	$('.countdown').countdown({
 	  date: endDate,
