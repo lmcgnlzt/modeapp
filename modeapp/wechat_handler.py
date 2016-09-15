@@ -77,6 +77,7 @@ class WechatView(object):
 
 		except ParseError as e:
 			LOGGER.exception(e)
+		return ''
 
 
 def includeme(config):
