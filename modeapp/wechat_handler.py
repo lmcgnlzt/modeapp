@@ -82,7 +82,7 @@ class WechatView(object):
 				# send message back to scanner
 				ACCESS_TOKEN = 'N_KqqIhlHaszelmT2VBLLwoQfikwdv2j8hSnzVm_NDDsPEzwezuJhxGyOwE6IRh0DtLeU0YYTFs-6PMvZZQowpqSFdhxaBp8APhU7PmVlCOrjUJGq-BFJtHrByI_nA9YVRDeAFAJFR'
 				send_url = 'https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=%s'%ACCESS_TOKEN
-				content = "恭喜您获得积分".encode('utf-8')
+				content = u"恭喜您获得积分".encode('utf-8')
 				data = {
 				    "touser":source,
 				    "msgtype":"text",
