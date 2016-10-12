@@ -80,18 +80,18 @@ class WechatView(object):
 				LOGGER.warning('ticket: {}'.format(ticket))
 
 				# send message back to scanner
-				ACCESS_TOKEN = 'zftwG1TEvnNCOF5RhbG1Qc-8uwUCWMDU1l5z5_FfQkAcBXWeEuUX0kGMGy8ei8Lwr6-xLxaabiUBLxXxeE18bYfYHxcfoe3WJLbFB3ZDlHoBKCTc4DCKbKICHQfn1Dr1NVAfAIAJRW'
-				send_url = 'https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=%s'%ACCESS_TOKEN
-				body = {
-				    "touser":source,
-				    "msgtype":"text",
-				    "text":
-				    {
-				         "content":u"恭喜获得积分"
-				    }
-				}
-				res = requests.post(send_url, data=json.dumps(body, ensure_ascii=False).encode('utf8'))
-				LOGGER.warning('Message sent back to scanner %s [%s]', source, res.status_code)
+				# ACCESS_TOKEN = 'zftwG1TEvnNCOF5RhbG1Qc-8uwUCWMDU1l5z5_FfQkAcBXWeEuUX0kGMGy8ei8Lwr6-xLxaabiUBLxXxeE18bYfYHxcfoe3WJLbFB3ZDlHoBKCTc4DCKbKICHQfn1Dr1NVAfAIAJRW'
+				# send_url = 'https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=%s'%ACCESS_TOKEN
+				# body = {
+				#     "touser":source,
+				#     "msgtype":"text",
+				#     "text":
+				#     {
+				#          "content":u"恭喜获得积分"
+				#     }
+				# }
+				# res = requests.post(send_url, data=json.dumps(body, ensure_ascii=False).encode('utf8'))
+				# LOGGER.warning('Message sent back to scanner %s [%s]', source, res.status_code)
 
 		except ParseError as e:
 			LOGGER.exception(e)
@@ -141,5 +141,5 @@ def generate_code():
 
 
 
-update_access_token()
+# update_access_token()
 # generate_code()
