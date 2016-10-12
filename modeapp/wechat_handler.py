@@ -1,4 +1,8 @@
+#coding=utf-8
+
 import logging
+import requests
+import json
 
 from pyramid.httpexceptions import exception_response
 from pyramid.renderers import render_to_response
@@ -75,6 +79,20 @@ class WechatView(object):
 				LOGGER.warning('key: {}'.format(key))
 				LOGGER.warning('ticket: {}'.format(ticket))
 
+				# send message back to scanner
+				ACCESS_TOKEN = 'N_KqqIhlHaszelmT2VBLLwoQfikwdv2j8hSnzVm_NDDsPEzwezuJhxGyOwE6IRh0DtLeU0YYTFs-6PMvZZQowpqSFdhxaBp8APhU7PmVlCOrjUJGq-BFJtHrByI_nA9YVRDeAFAJFR'
+				send_url = 'https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=%s'%ACCESS_TOKEN
+				data = {
+				    "touser":source,
+				    "msgtype":"text",
+				    "text":
+				    {
+				         "content":"恭喜您获得积分"
+				    }
+				}
+				res = requests.post(send_url, data=json.dumps(data))
+				LOGGER.warning('Message sent back to scanner %s [%s]', source, res.status_code)
+
 		except ParseError as e:
 			LOGGER.exception(e)
 		return ''
@@ -97,3 +115,31 @@ def includeme(config):
 		renderer='string',
 		request_method='POST'
 	)
+
+
+
+
+import json
+import requests
+ACCESS_TOKEN = 'N_KqqIhlHaszelmT2VBLLwoQfikwdv2j8hSnzVm_NDDsPEzwezuJhxGyOwE6IRh0DtLeU0YYTFs-6PMvZZQowpqSFdhxaBp8APhU7PmVlCOrjUJGq-BFJtHrByI_nA9YVRDeAFAJFR'
+
+def update_access_token():
+	url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s'%(APPID, APPSECRET)
+	res = requests.get(url)
+	data = json.loads(res.text)
+	print data['access_token']
+
+
+def generate_code():
+	ticket_url = 'https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=%s' % ACCESS_TOKEN
+	body = {"expire_seconds": 604800, "action_name": "QR_SCENE", "action_info": {"scene": {"scene_id": 123}}}
+	res = requests.post(ticket_url, data=json.dumps(body))
+	print res
+	data = json.loads(res.text)
+	print data
+
+
+
+
+# update_access_token()
+# generate_code()
