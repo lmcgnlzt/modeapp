@@ -80,18 +80,17 @@ class WechatView(object):
 				LOGGER.warning('ticket: {}'.format(ticket))
 
 				# send message back to scanner
-				ACCESS_TOKEN = 'N_KqqIhlHaszelmT2VBLLwoQfikwdv2j8hSnzVm_NDDsPEzwezuJhxGyOwE6IRh0DtLeU0YYTFs-6PMvZZQowpqSFdhxaBp8APhU7PmVlCOrjUJGq-BFJtHrByI_nA9YVRDeAFAJFR'
+				ACCESS_TOKEN = 'zftwG1TEvnNCOF5RhbG1Qc-8uwUCWMDU1l5z5_FfQkAcBXWeEuUX0kGMGy8ei8Lwr6-xLxaabiUBLxXxeE18bYfYHxcfoe3WJLbFB3ZDlHoBKCTc4DCKbKICHQfn1Dr1NVAfAIAJRW'
 				send_url = 'https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=%s'%ACCESS_TOKEN
-				content = u"恭喜您获得积分"
-				data = {
+				body = {
 				    "touser":source,
 				    "msgtype":"text",
 				    "text":
 				    {
-				         "content":content
+				         "content":u"恭喜获得积分"
 				    }
 				}
-				res = requests.post(send_url, data=json.dumps(content, ensure_ascii=False).encode('utf8'))
+				res = requests.post(send_url, data=json.dumps(body, ensure_ascii=False).encode('utf8'))
 				LOGGER.warning('Message sent back to scanner %s [%s]', source, res.status_code)
 
 		except ParseError as e:
@@ -122,7 +121,7 @@ def includeme(config):
 
 import json
 import requests
-ACCESS_TOKEN = 'N_KqqIhlHaszelmT2VBLLwoQfikwdv2j8hSnzVm_NDDsPEzwezuJhxGyOwE6IRh0DtLeU0YYTFs-6PMvZZQowpqSFdhxaBp8APhU7PmVlCOrjUJGq-BFJtHrByI_nA9YVRDeAFAJFR'
+ACCESS_TOKEN = 'zftwG1TEvnNCOF5RhbG1Qc-8uwUCWMDU1l5z5_FfQkAcBXWeEuUX0kGMGy8ei8Lwr6-xLxaabiUBLxXxeE18bYfYHxcfoe3WJLbFB3ZDlHoBKCTc4DCKbKICHQfn1Dr1NVAfAIAJRW'
 
 def update_access_token():
 	url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s'%(APPID, APPSECRET)
@@ -142,5 +141,5 @@ def generate_code():
 
 
 
-# update_access_token()
+update_access_token()
 # generate_code()
