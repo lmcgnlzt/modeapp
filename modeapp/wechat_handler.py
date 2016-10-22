@@ -76,10 +76,11 @@ class WechatView(object):
 			if mtype == 'view':
 				key = msg.key
 				parsed_url_info = urlparse.urlparse(key)
-				LOGGER.warning('parsed_url_info: {}'.format(parsed_url_info))
+				# LOGGER.warning('parsed_url_info: {}'.format(parsed_url_info))
 				state = urlparse.parse_qs(parsed_url_info.query).get('state', None)
 				if state == 'merchant_login':
 					open_id = source
+					LOGGER.warning('open_id: {}'.format(open_id))
 					'''
 					if open_id authorised: # call /merchant/{open_id}/authorized
 						directly show enter page
@@ -89,7 +90,7 @@ class WechatView(object):
 
 					'''
 
-					return render_to_response('modeapp:static/auth.mako', {}, request=self.request)
+					# return render_to_response('modeapp:static/auth.mako', {}, request=self.request)
 
 
 			elif mtype == 'scan':
@@ -125,7 +126,8 @@ class WechatView(object):
 	    username = self.request.params.get('username')
 	    password = self.request.params.get('password')
 	    if self.request.method == 'POST':
-	    	print username, password
+	    	LOGGER.warning('username: {}'.format(username))
+	    	LOGGER.warning('password: {}'.format(password))
 	        if password == '123':
 	            return render_to_response('modeapp:static/index.mako', {}, request=self.request)
 	    return {}
