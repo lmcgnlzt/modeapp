@@ -3,6 +3,8 @@
 import logging
 import requests
 import json
+import urlparse
+from datetime import datetime
 
 from pyramid.httpexceptions import exception_response
 from pyramid.renderers import render_to_response
@@ -66,13 +68,30 @@ class WechatView(object):
 			mtype = msg.type
 			target = msg.target
 			source = msg.source
-			raw = msg.raw
 
 			LOGGER.warning('mtype: {}'.format(mtype))
 			LOGGER.warning('target: {}'.format(target))
 			LOGGER.warning('source: {}'.format(source))
 
-			if mtype == 'scan':
+			if mtype == 'view':
+				key = msg.key
+				parsed_url_info = urlparse.urlparse(key)
+				state = urlparse.parse_qs(parsed.query)['state']
+				if state == 'merchant_login':
+					open_id = source
+					'''
+					if open_id authorised: # call /merchant/{open_id}/authorized
+						directly show enter page
+					else:
+						show login page
+
+
+					'''
+
+					return render_to_response('modeapp:static/auth.mako', {}, request=self.request)
+
+
+			elif mtype == 'scan':
 				key = msg.key
 				ticket = msg.ticket
 
@@ -97,8 +116,30 @@ class WechatView(object):
 			LOGGER.exception(e)
 		return ''
 
+	def merchant_auth_view(self):
+	    client = self.request.user_agent_classified
+	    # if client.is_pc: # user_agent detect
+	    #     return render_to_response('modeapp:static/block.mako', {}, request=request)
+
+	    username = self.request.params.get('username')
+	    password = self.request.params.get('password')
+	    if self.request.method == 'POST':
+	    	print username, password
+	        if password == '123':
+	            return render_to_response('modeapp:static/index.mako', {}, request=self.request)
+	    return {}
+
+
 
 def includeme(config):
+	config.add_route('merchant_auth', '/merchantlogin')
+	config.add_view(
+		'modeapp.wechat_handler.WechatView',
+		attr = 'merchant_auth_view',
+		route_name = 'merchant_auth',
+		renderer='auth.mako',
+	)
+
 	config.add_route('wechat', '/wechat')
 	config.add_view(
 		'modeapp.wechat_handler.WechatView',
@@ -121,12 +162,13 @@ def includeme(config):
 
 import json
 import requests
-ACCESS_TOKEN = 'zftwG1TEvnNCOF5RhbG1Qc-8uwUCWMDU1l5z5_FfQkAcBXWeEuUX0kGMGy8ei8Lwr6-xLxaabiUBLxXxeE18bYfYHxcfoe3WJLbFB3ZDlHoBKCTc4DCKbKICHQfn1Dr1NVAfAIAJRW'
+ACCESS_TOKEN = 'okhveeR9k8rCGyLjWrxf8vclQ__B8eSMfOWq1AMm2mEkG8qYkZzTK-xr2X3wh2qI1267yzPq3g_0BLdakcF2CcHwk-oNWm8scFQ7Cvd9Qa_Snlhp1hi0apyBw2f8GoSSPKBgADAZUL'
 
 def update_access_token():
 	url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s'%(APPID, APPSECRET)
 	res = requests.get(url)
 	data = json.loads(res.text)
+	print data
 	print data['access_token']
 
 
