@@ -134,14 +134,14 @@ class WechatView(object):
 
 	    LOGGER.warning('self.request.method: {}'.format(self.request.method))
 
-	    CODE = self.request.params.get('code')
-	    data = requests.get('https://api.weixin.qq.com/sns/oauth2/access_token?appid={}&secret={}&code={}&grant_type=authorization_code'.format(APPID, APPSECRET, CODE)).json()
-	    open_id = data.get('openid')
-	    access_token = data.get('access_token')
-	    LOGGER.warning('[wechat] CODE: {}, openid: {}, access_token: {}'.format(CODE, open_id, access_token))
+	    if self.request.method == 'GET':
+		    CODE = self.request.params.get('code')
+		    data = requests.get('https://api.weixin.qq.com/sns/oauth2/access_token?appid={}&secret={}&code={}&grant_type=authorization_code'.format(APPID, APPSECRET, CODE)).json()
+		    open_id = data.get('openid')
+		    access_token = data.get('access_token')
+		    LOGGER.warning('[wechat] CODE: {}, openid: {}, access_token: {}'.format(CODE, open_id, access_token))
 
-
-	    if self.request.method == 'POST':
+	    elif self.request.method == 'POST':
 	    	username = self.request.params.get('username')
 	    	password = self.request.params.get('password')
 	    	open_id = self.request.params.get('open_id')
