@@ -8,6 +8,7 @@ from datetime import datetime
 
 from pyramid.httpexceptions import exception_response
 from pyramid.renderers import render_to_response
+from pyramid.request import Request
 
 from wechat_sdk import WechatConf
 from wechat_sdk import WechatBasic
@@ -82,6 +83,8 @@ class WechatView(object):
 				if 'merchant_login' in state:
 					open_id = source
 					LOGGER.warning('open_id: {}'.format(open_id))
+					self.request.invoke_subrequest(Request.blank('/open_id/{}'.format(open_id)))
+					LOGGER.warning('Subrequest sent')
 					'''
 					if open_id authorised: # call /merchant/{open_id}/authorized
 						directly show enter page
@@ -91,7 +94,7 @@ class WechatView(object):
 
 					'''
 
-					# return render_to_response('modeapp:static/auth.mako', {}, request=self.request)
+					# return render_to_response('modeapp:static/auth.mako', {'open_id':open_id}, request=self.request)
 
 
 			elif mtype == 'scan':
@@ -133,6 +136,11 @@ class WechatView(object):
 	            return render_to_response('modeapp:static/index.mako', {}, request=self.request)
 	    return {}
 
+	def auth_by_open_id_view(self):
+		open_id = self.request.matchdict['open_id']
+		LOGGER.warning('open_id: {} ??????????'.format(open_id))
+		return render_to_response('modeapp:static/index.mako', {}, request=self.request)
+
 
 
 def includeme(config):
@@ -142,6 +150,15 @@ def includeme(config):
 		attr = 'merchant_auth_view',
 		route_name = 'merchant_auth',
 		renderer='auth.mako',
+	)
+
+	config.add_route('auth_by_open_id', '/open_id/{open_id}')
+	config.add_view(
+		'modeapp.wechat_handler.WechatView',
+		attr = 'auth_by_open_id_view',
+		route_name = 'auth_by_open_id',
+		# renderer='auth.mako',
+		request_method='GET'
 	)
 
 	config.add_route('wechat', '/wechat')
