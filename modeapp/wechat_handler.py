@@ -84,8 +84,7 @@ class WechatView(object):
 					open_id = source
 					LOGGER.warning('open_id: {}'.format(open_id))
 					# self.request.invoke_subrequest(Request.blank('/open_id/{}'.format(open_id)))
-					self.request.invoke_subrequest(Request.blank('/merchantlogin?open_id={}'.format(open_id)))
-					LOGGER.warning('Subrequest sent')
+					# LOGGER.warning('Subrequest sent')
 					'''
 					if open_id authorised: # call /merchant/{open_id}/authorized
 						directly show enter page
@@ -129,14 +128,17 @@ class WechatView(object):
 		return render_to_response('modeapp:static/index.mako', {}, request=self.request)
 
 	def merchant_auth_view(self):
-	    client = self.request.user_agent_classified
+	    # client = self.request.user_agent_classified
 	    # if client.is_pc: # user_agent detect
 	    #     return render_to_response('modeapp:static/block.mako', {}, request=request)
 
 
 	    # open_id = self.request.matchdict.get('open_id')
-	    open_id = self.request.params.get('open_id')
-	    LOGGER.warning('open_id: {} ??????????'.format(open_id))
+	    CODE = self.request.params.get('code')
+	    data = requests.get('https://api.weixin.qq.com/sns/oauth2/access_token?appid={}&secret={}&code={}&grant_type=authorization_code'.format(APPID, APPSECRET, CODE)).json()
+	    openid = data.get('openid')
+	    access_token = data.get('access_token')
+	    LOGGER.warning('[wechat] CODE: {}, openid: {}, access_token: {}'.format(CODE, openid, access_token))
 
 	    username = self.request.params.get('username')
 	    password = self.request.params.get('password')
