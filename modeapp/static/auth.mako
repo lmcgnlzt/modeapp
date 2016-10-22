@@ -49,8 +49,9 @@
 
                 <%block name="content">
                 % if request.authenticated_userid is None:
-                <form action="${request.route_path('auth')}" method="POST">
-                    <input type="password" name="password" class="login-password" placeholder="请输入验证码">
+                <form action="${request.route_path('merchant_auth')}" method="POST">
+                    <input type="username" name="username" class="login-username" placeholder="用户名">
+                    <input type="password" name="password" class="login-password" placeholder="密码">
                     <button type="submit" class="button button-blue">提交</button>
                 </form>
                 % else:
