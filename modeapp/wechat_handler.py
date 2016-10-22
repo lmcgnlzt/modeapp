@@ -77,9 +77,9 @@ class WechatView(object):
 				key = msg.key
 				parsed_url_info = urlparse.urlparse(key)
 				LOGGER.warning('parsed_url_info: {}'.format(parsed_url_info))
-				state = urlparse.parse_qs(parsed_url_info.query).get('state', None)
+				state = urlparse.parse_qs(parsed_url_info.query).get('state', [])
 				LOGGER.warning('state: {}'.format(state))
-				if state == 'merchant_login':
+				if 'merchant_login' in state:
 					open_id = source
 					LOGGER.warning('open_id: {}'.format(open_id))
 					'''
