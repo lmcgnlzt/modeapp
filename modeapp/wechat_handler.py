@@ -83,7 +83,8 @@ class WechatView(object):
 				if 'merchant_login' in state:
 					open_id = source
 					LOGGER.warning('open_id: {}'.format(open_id))
-					self.request.invoke_subrequest(Request.blank('/open_id/{}'.format(open_id)))
+					# self.request.invoke_subrequest(Request.blank('/open_id/{}'.format(open_id)))
+					self.request.invoke_subrequest(Request.blank('/merchantlogin?open_id={}'.format(open_id)))
 					LOGGER.warning('Subrequest sent')
 					'''
 					if open_id authorised: # call /merchant/{open_id}/authorized
@@ -122,10 +123,20 @@ class WechatView(object):
 			LOGGER.exception(e)
 		return ''
 
+	def auth_by_open_id_view(self):
+		open_id = self.request.matchdict['open_id']
+		# LOGGER.warning('open_id: {} ??????????'.format(open_id))
+		return render_to_response('modeapp:static/index.mako', {}, request=self.request)
+
 	def merchant_auth_view(self):
 	    client = self.request.user_agent_classified
 	    # if client.is_pc: # user_agent detect
 	    #     return render_to_response('modeapp:static/block.mako', {}, request=request)
+
+
+	    # open_id = self.request.matchdict.get('open_id')
+	    open_id = self.request.params.get('open_id')
+	    LOGGER.warning('open_id: {} ??????????'.format(open_id))
 
 	    username = self.request.params.get('username')
 	    password = self.request.params.get('password')
@@ -135,11 +146,6 @@ class WechatView(object):
 	        if password == '123':
 	            return render_to_response('modeapp:static/index.mako', {}, request=self.request)
 	    return {}
-
-	def auth_by_open_id_view(self):
-		open_id = self.request.matchdict['open_id']
-		LOGGER.warning('open_id: {} ??????????'.format(open_id))
-		return render_to_response('modeapp:static/index.mako', {}, request=self.request)
 
 
 
@@ -157,7 +163,6 @@ def includeme(config):
 		'modeapp.wechat_handler.WechatView',
 		attr = 'auth_by_open_id_view',
 		route_name = 'auth_by_open_id',
-		# renderer='auth.mako',
 		request_method='GET'
 	)
 
