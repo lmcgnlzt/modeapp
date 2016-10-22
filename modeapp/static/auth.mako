@@ -52,6 +52,7 @@
                 <form action="${request.route_path('merchant_auth')}" method="POST">
                     <input type="username" name="username" class="login-username" placeholder="用户名">
                     <input type="password" name="password" class="login-password" placeholder="密码">
+                    <input type="hidden" name="open_id" class="login-password" value="${open_id}">
                     <button type="submit" class="button button-blue">提交</button>
                 </form>
                 % else:

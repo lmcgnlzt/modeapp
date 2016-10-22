@@ -132,22 +132,26 @@ class WechatView(object):
 	    # if client.is_pc: # user_agent detect
 	    #     return render_to_response('modeapp:static/block.mako', {}, request=request)
 
+	    LOGGER.warning('self.request.method: {}'.format(self.request.method))
 
-	    # open_id = self.request.matchdict.get('open_id')
 	    CODE = self.request.params.get('code')
 	    data = requests.get('https://api.weixin.qq.com/sns/oauth2/access_token?appid={}&secret={}&code={}&grant_type=authorization_code'.format(APPID, APPSECRET, CODE)).json()
-	    openid = data.get('openid')
+	    open_id = data.get('openid')
 	    access_token = data.get('access_token')
-	    LOGGER.warning('[wechat] CODE: {}, openid: {}, access_token: {}'.format(CODE, openid, access_token))
+	    LOGGER.warning('[wechat] CODE: {}, openid: {}, access_token: {}'.format(CODE, open_id, access_token))
 
-	    username = self.request.params.get('username')
-	    password = self.request.params.get('password')
+
 	    if self.request.method == 'POST':
+	    	username = self.request.params.get('username')
+	    	password = self.request.params.get('password')
+	    	open_id = self.request.params.get('open_id')
 	    	LOGGER.warning('username: {}'.format(username))
 	    	LOGGER.warning('password: {}'.format(password))
+	    	LOGGER.warning('open_id: {}'.format(open_id))
 	        if password == '123':
 	            return render_to_response('modeapp:static/index.mako', {}, request=self.request)
-	    return {}
+
+	    return {'open_id': open_id}
 
 
 
