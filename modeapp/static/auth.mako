@@ -44,7 +44,7 @@
             <div class="login-page-wrapper">
                 <a href="#" class="login-logo"></a>
                 <p>
-                    请输入内测验证码
+                    商家登录
                 </p>
 
                 <%block name="content">

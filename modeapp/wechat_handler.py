@@ -8,7 +8,7 @@ from datetime import datetime
 
 from pyramid.httpexceptions import exception_response
 from pyramid.renderers import render_to_response
-from pyramid.request import Request
+from modeapp.utils.api_requests import ApiRequester
 
 from wechat_sdk import WechatConf
 from wechat_sdk import WechatBasic
@@ -27,6 +27,7 @@ class WechatView(object):
 	def __init__(self, context, request):
 		self.request = request
 		self.wechat = WechatView._handshake()
+		self.requester = ApiRequester('http://127.0.0.1:6543/membership_api')
 
 	@staticmethod
 	def _handshake():
@@ -83,40 +84,15 @@ class WechatView(object):
 				if 'merchant_login' in state:
 					open_id = source
 					LOGGER.warning('open_id: {}'.format(open_id))
-					# self.request.invoke_subrequest(Request.blank('/open_id/{}'.format(open_id)))
-					# LOGGER.warning('Subrequest sent')
-					'''
-					if open_id authorised: # call /merchant/{open_id}/authorized
-						directly show enter page
-					else:
-						show login page
-
-
-					'''
-
-					# return render_to_response('modeapp:static/auth.mako', {'open_id':open_id}, request=self.request)
-
 
 			elif mtype == 'scan':
 				key = msg.key
-				ticket = msg.ticket
+				LOGGER.warning('[Scan event captured] from [%s], scene_id: %s', source, key)
 
-				LOGGER.warning('key: {}'.format(key))
-				LOGGER.warning('ticket: {}'.format(ticket))
-
-				# send message back to scanner
-				# ACCESS_TOKEN = 'zftwG1TEvnNCOF5RhbG1Qc-8uwUCWMDU1l5z5_FfQkAcBXWeEuUX0kGMGy8ei8Lwr6-xLxaabiUBLxXxeE18bYfYHxcfoe3WJLbFB3ZDlHoBKCTc4DCKbKICHQfn1Dr1NVAfAIAJRW'
-				# send_url = 'https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=%s'%ACCESS_TOKEN
-				# body = {
-				#     "touser":source,
-				#     "msgtype":"text",
-				#     "text":
-				#     {
-				#          "content":u"恭喜获得积分"
-				#     }
-				# }
-				# res = requests.post(send_url, data=json.dumps(body, ensure_ascii=False).encode('utf8'))
-				# LOGGER.warning('Message sent back to scanner %s [%s]', source, res.status_code)
+				if bool(key) and key.startswith('TRANSACTION-'):
+					payload = {'scene_id': key, 'scanner_open_id': source}
+					self.requester.post('/member/scan', json=payload)
+					LOGGER.warning('Processing transaction scan....')
 
 		except ParseError as e:
 			LOGGER.exception(e)
@@ -124,7 +100,6 @@ class WechatView(object):
 
 	def auth_by_open_id_view(self):
 		open_id = self.request.matchdict['open_id']
-		# LOGGER.warning('open_id: {} ??????????'.format(open_id))
 		return render_to_response('modeapp:static/index.mako', {}, request=self.request)
 
 	def merchant_auth_view(self):
@@ -132,24 +107,34 @@ class WechatView(object):
 	    # if client.is_pc: # user_agent detect
 	    #     return render_to_response('modeapp:static/block.mako', {}, request=request)
 
-	    LOGGER.warning('self.request.method: {}'.format(self.request.method))
-
 	    if self.request.method == 'GET':
 		    CODE = self.request.params.get('code')
 		    data = requests.get('https://api.weixin.qq.com/sns/oauth2/access_token?appid={}&secret={}&code={}&grant_type=authorization_code'.format(APPID, APPSECRET, CODE)).json()
-		    open_id = data.get('openid')
+		    open_id = data.get('openid', '')
 		    access_token = data.get('access_token')
-		    LOGGER.warning('[wechat] CODE: {}, openid: {}, access_token: {}'.format(CODE, open_id, access_token))
+		    LOGGER.warning('[Wechat oauth] CODE: {}, openid: {}, access_token: {}'.format(CODE, open_id, access_token))
+		    if bool(open_id):
+			    authorized = self.requester.get('/merchant/{}/authorized'.format(open_id)).json()
+			    if authorized:
+			    	return render_to_response('modeapp:static/about.mako', {}, request=self.request)
 
 	    elif self.request.method == 'POST':
-	    	username = self.request.params.get('username')
-	    	password = self.request.params.get('password')
-	    	open_id = self.request.params.get('open_id')
-	    	LOGGER.warning('username: {}'.format(username))
-	    	LOGGER.warning('password: {}'.format(password))
-	    	LOGGER.warning('open_id: {}'.format(open_id))
-	        if password == '123':
-	            return render_to_response('modeapp:static/index.mako', {}, request=self.request)
+	    	username = self.request.params.get('username', '')
+	    	password = self.request.params.get('password', '')
+	    	open_id = self.request.params.get('open_id', '')
+
+
+	    	open_id = 'olBwZt_NW0IBseUIa5fImCCj_dn4'
+
+
+
+	    	LOGGER.warning('[Login attempted] username: {}, password: {}, open_id: {}'.format(username, password, open_id))
+	    	if all([username.strip(), password.strip(), open_id.strip()]):
+	    		payload = {'user_name': username, 'plaintext_passwd': password, 'open_id': open_id}
+	    		LOGGER.warning('[Merchant login] payload: {%s}', payload)
+		    	verified = self.requester.post('/merchant/login', json=payload).json()
+		        if verified:
+		            return render_to_response('modeapp:static/index.mako', {}, request=self.request)
 
 	    return {'open_id': open_id}
 
@@ -192,27 +177,26 @@ def includeme(config):
 
 
 
-import json
-import requests
-ACCESS_TOKEN = 'okhveeR9k8rCGyLjWrxf8vclQ__B8eSMfOWq1AMm2mEkG8qYkZzTK-xr2X3wh2qI1267yzPq3g_0BLdakcF2CcHwk-oNWm8scFQ7Cvd9Qa_Snlhp1hi0apyBw2f8GoSSPKBgADAZUL'
+# import json
+# import requests
+# ACCESS_TOKEN = 'nsWvMgHjwUl0B6hYCHt_ig7c_L4FLseQ-PNmz3eezRFsnXY5kexov7GbI41IV66Lriw4x0AjrBd6C_uIbjWufBwO9d3NSP1bOZu7hBqy0tUQzVIQZfQxTxFH9QBovvZFHHWgAIAMMB'
 
-def update_access_token():
-	url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s'%(APPID, APPSECRET)
-	res = requests.get(url)
-	data = json.loads(res.text)
-	print data
-	print data['access_token']
-
-
-def generate_code():
-	ticket_url = 'https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=%s' % ACCESS_TOKEN
-	body = {"expire_seconds": 604800, "action_name": "QR_SCENE", "action_info": {"scene": {"scene_id": 123}}}
-	res = requests.post(ticket_url, data=json.dumps(body))
-	print res
-	data = json.loads(res.text)
-	print data
+# def update_access_token():
+# 	url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s'%(APPID, APPSECRET)
+# 	res = requests.get(url)
+# 	data = json.loads(res.text)
+# 	print data
+# 	print data['access_token']
 
 
+# def generate_code():
+# 	ticket_url = 'https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=%s' % ACCESS_TOKEN
+# 	# body = {"expire_seconds": 3600, "action_name": "QR_SCENE", "action_info": {"scene": {"scene_id": 777}}}
+# 	body = {"expire_seconds": 60, "action_name": "QR_LIMIT_STR_SCENE", "action_info": {"scene": {"scene_str": 'TRANSACTION-444'}}}
+# 	res = requests.post(ticket_url, data=json.dumps(body))
+# 	print res
+# 	data = json.loads(res.text)
+# 	print data
 
 
 # update_access_token()

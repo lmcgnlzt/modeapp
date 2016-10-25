@@ -18,15 +18,19 @@ APPSECRET = '015cc6487b24128615e2ed395f04de52'
 
 @view_config(route_name='auth', renderer='auth.mako')
 def auth_view(request):
-    client = request.user_agent_classified
-    if client.is_pc: # user_agent detect
-        return render_to_response('modeapp:static/block.mako', {}, request=request)
+    try:
+        client = request.user_agent_classified
+        if client.is_pc: # user_agent detect
+            return render_to_response('modeapp:static/block.mako', {}, request=request)
+    except Exception as e:
+        LOGGER.exception('Failed to parse request user agent')
 
     try:
         CODE = request.params.get('code')
         data = requests.get('https://api.weixin.qq.com/sns/oauth2/access_token?appid={}&secret={}&code={}&grant_type=authorization_code'.format(APPID, APPSECRET, CODE)).json()
         openid = data.get('openid')
-        LOGGER.warning('CODE: {}, openid: {}'.format(CODE, openid))
+        access_token = data.get('access_token')
+        LOGGER.warning('CODE: {}, openid: {}, access_token: {}'.format(CODE, openid, access_token))
     except requests.exceptions.Timeout:
         LOGGER.error('Timeout from weixin api')
     except requests.exceptions.RequestException as e:
