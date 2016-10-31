@@ -87,12 +87,11 @@ class WechatView(object):
 
 			elif mtype == 'scan':
 				key = msg.key
-				LOGGER.warning('[Scan event captured] from [%s], scene_id: %s', source, key)
+				LOGGER.warning('[Scan event captured] from [%s], scene_key: %s', source, key)
 
-				if bool(key) and key.startswith('TRANSACTION-'):
-					payload = {'scene_id': key, 'scanner_open_id': source}
-					self.requester.post('/member/scan', json=payload)
-					LOGGER.warning('Processing transaction scan....')
+				if bool(key):
+					payload = {'scene_key': key, 'scanner_open_id': source}
+					self.requester.post('/member/scan', json=payload) # this can be refactored later to accept all kinds of scan
 
 		except ParseError as e:
 			LOGGER.exception(e)
@@ -103,9 +102,9 @@ class WechatView(object):
 		return render_to_response('modeapp:static/index.mako', {}, request=self.request)
 
 	def merchant_auth_view(self):
-	    # client = self.request.user_agent_classified
-	    # if client.is_pc: # user_agent detect
-	    #     return render_to_response('modeapp:static/block.mako', {}, request=request)
+	    client = self.request.user_agent_classified
+	    if client.is_pc: # user_agent detect
+	        return render_to_response('modeapp:static/block.mako', {}, request=self.request)
 
 	    if self.request.method == 'GET':
 		    CODE = self.request.params.get('code')
@@ -124,8 +123,7 @@ class WechatView(object):
 	    	open_id = self.request.params.get('open_id', '')
 
 
-	    	open_id = 'olBwZt_NW0IBseUIa5fImCCj_dn4'
-
+	    	# open_id = 'olBwZt_NW0IBseUIa5fImCCj_dn4'
 
 
 	    	LOGGER.warning('[Login attempted] username: {}, password: {}, open_id: {}'.format(username, password, open_id))
@@ -134,9 +132,28 @@ class WechatView(object):
 	    		LOGGER.warning('[Merchant login] payload: {%s}', payload)
 		    	verified = self.requester.post('/merchant/login', json=payload).json()
 		        if verified:
-		            return render_to_response('modeapp:static/index.mako', {}, request=self.request)
+		        	return render_to_response('modeapp:static/sales.mako', {'merchant_name': username}, request=self.request)
 
 	    return {'open_id': open_id}
+
+	def member_view(self):
+		client = self.request.user_agent_classified
+		if client.is_pc: # user_agent detect
+			return render_to_response('modeapp:static/block.mako', {}, request=self.request)
+		CODE = self.request.params.get('code')
+		data = requests.get('https://api.weixin.qq.com/sns/oauth2/access_token?appid={}&secret={}&code={}&grant_type=authorization_code'.format(APPID, APPSECRET, CODE)).json()
+		open_id = data.get('openid', '')
+		access_token = data.get('access_token')
+		LOGGER.warning('[Member View] CODE: {}, openid: {}, access_token: {}'.format(CODE, open_id, access_token))
+
+		# open_id = 'olBwZt_NW0IBseUIa5fImCCj_dn4'
+
+		if bool(open_id):
+			info_dict = self.requester.get('/member/{}'.format(open_id)).json()
+			if info_dict is not None:
+				return {'total_points': info_dict['total_points'], 'last_updated_on': info_dict['last_updated_on']}
+			else:
+				return {'total_points': 0, 'last_updated_on': None}
 
 
 
@@ -175,11 +192,20 @@ def includeme(config):
 	)
 
 
+	config.add_route('member_page', '/member')
+	config.add_view(
+		'modeapp.wechat_handler.WechatView',
+		attr = 'member_view',
+		route_name = 'member_page',
+		renderer='points.mako',
+	)
+
+
 
 
 # import json
 # import requests
-# ACCESS_TOKEN = 'nsWvMgHjwUl0B6hYCHt_ig7c_L4FLseQ-PNmz3eezRFsnXY5kexov7GbI41IV66Lriw4x0AjrBd6C_uIbjWufBwO9d3NSP1bOZu7hBqy0tUQzVIQZfQxTxFH9QBovvZFHHWgAIAMMB'
+# ACCESS_TOKEN = 'kRRRHEkTbvGOi8IvwM_miEyirmpktwVBAa0LkP3tCwWDIz1fTxfLGv19zDlh9pCfci0GSTgica3XIz7qBCqZo698jmF_-Bfg2m3tG4LidbVQemcr5daq2AvrImSBn9cpOPQfAAAFGH'
 
 # def update_access_token():
 # 	url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s'%(APPID, APPSECRET)

@@ -1,3 +1,4 @@
+import json
 from pyramid.httpexceptions import exception_response
 from modeapp.utils.api_requests import ApiRequester
 from pyramid.renderers import render
@@ -7,14 +8,15 @@ class APIView(object):
 
 	def __init__(self, context, request):
 		self.request = request
-		self.requester = ApiRequester('http://127.0.0.1:6543/modeapi')
+		self.modeapi_requester = ApiRequester('http://127.0.0.1:6543/modeapi')
+		self.membershipapi_requester = ApiRequester('http://127.0.0.1:6543/membership_api')
 
 	def get_dids(self):
-		return self.requester.get('/dids').json()
+		return self.modeapi_requester.get('/dids').json()
 
 	# def get_collections_data(self):
 	# 	curr_did = int(self.request.matchdict.get('curr_did'))
-	# 	res = self.requester.get('/portfolios/{}/next'.format(curr_did))
+	# 	res = self.modeapi_requester.get('/portfolios/{}/next'.format(curr_did))
 	# 	data = res.json()
 	# 	html_content = render('modeapp:static/collection_block.mako', data['designer'], request=self.request)
 	# 	data['designer'] = html_content # update designer with rendered html view
@@ -22,7 +24,7 @@ class APIView(object):
 
 	def get_collections_data(self):
 		did = int(self.request.matchdict.get('did'))
-		res = self.requester.get('/portfolios/{}'.format(did))
+		res = self.modeapi_requester.get('/portfolios/{}'.format(did))
 		data = res.json()
 		html_content = render('modeapp:static/collection_block.mako', data, request=self.request)
 		data['designer'] = html_content # update designer with rendered html view
@@ -32,33 +34,48 @@ class APIView(object):
 		did = int(self.request.GET.get('did'))
 		cid = int(self.request.GET.get('cid'))
 		gid = int(self.request.GET.get('gid'))
-		ret = self.requester.get('/garments/{}/{}/{}'.format(did, cid, gid))
+		ret = self.modeapi_requester.get('/garments/{}/{}/{}'.format(did, cid, gid))
 		return ret.json()
 
 	def get_experience_data(self):
 		did = int(self.request.GET.get('did'))
-		ret = self.requester.get('/experience/{}'.format(did))
+		ret = self.modeapi_requester.get('/experience/{}'.format(did))
 		return ret.json()
 
 	def get_experience_sig_pics(self):
 		did = int(self.request.GET.get('did'))
-		ret = self.requester.get('/experience/sig_pics/{}'.format(did))
+		ret = self.modeapi_requester.get('/experience/sig_pics/{}'.format(did))
 		return ret.json()
 
 	def get_experience_pics(self):
 		did = int(self.request.GET.get('did'))
-		ret = self.requester.get('/experience/pics/{}'.format(did))
+		ret = self.modeapi_requester.get('/experience/pics/{}'.format(did))
 		return ret.json()
 
 	def increment_likes(self):
 		did = int(self.request.matchdict.get('did'))
-		ret = self.requester.put('/designers/{}/like'.format(did))
+		ret = self.modeapi_requester.put('/designers/{}/like'.format(did))
 		return ret.json()
 
 	def increment_wishes(self):
 		did = int(self.request.matchdict.get('did'))
-		ret = self.requester.put('/designers/{}/wish'.format(did))
+		ret = self.modeapi_requester.put('/designers/{}/wish'.format(did))
 		return ret.json()
+
+	def get_item_tags(self):
+		ret = self.membershipapi_requester.get('/merchant/items/tags')
+		return ret.json()
+
+	def get_item(self):
+		tag = int(self.request.matchdict.get('tag'))
+		ret = self.membershipapi_requester.get('/merchant/items/{}'.format(tag))
+		return ret.json()
+
+	def generate_qr(self):
+		payload = self.request.json_body
+		qr_image_url = self.membershipapi_requester.post('/merchant/generate', json=payload)
+		# qr_image_url = 'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEz8ToAAAAAAAAAASxodHRwOi8vd2VpeGluLnFxLmNvbS9xL1NreEJ4djdtejU2Mi1mUmFkbVJRAAIEkIoNWAMEAAAAAA=='
+		return qr_image_url
 
 
 
@@ -97,3 +114,12 @@ def includeme(config):
 
 	config.add_route('do_wish', '/api/designers/{did:\d+}/wish')
 	add_view(config, 'do_wish', 'GET', 'increment_wishes')
+
+	config.add_route('item_tags', '/api/sales/tags')
+	add_view(config, 'item_tags', 'GET', 'get_item_tags')
+
+	config.add_route('item', '/api/sales/items/{tag}')
+	add_view(config, 'item', 'GET', 'get_item')
+
+	config.add_route('generate_qr', '/api/generate_qr')
+	add_view(config, 'generate_qr', 'POST', 'generate_qr')
