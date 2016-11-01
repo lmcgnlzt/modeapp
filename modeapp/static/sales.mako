@@ -26,11 +26,13 @@
 <link href="styles/store/style.css" rel="stylesheet" type="text/css">
 <link href="styles/store/framework.css" rel="stylesheet" type="text/css">
 <link href="styles/store/autocomplete/easy-autocomplete.css" rel="stylesheet" type="text/css">
+<link href="styles/store/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
 <link href="styles/font-awesome.css" rel="stylesheet" type="text/css">
 
 <script type="text/javascript" src="scripts/store/jquery.js"></script>
 <script type="text/javascript" src="scripts/store/plugins.js"></script>
 <script type="text/javascript" src="scripts/store/autocomplete/jquery.easy-autocomplete.js"></script>
+<script type="text/javascript" src="scripts/store/sweetalert/sweetalert.min.js"></script>
 <script type="text/javascript" src="scripts/store/sales.js"></script>
 </head>
 

@@ -268,14 +268,41 @@ $( document ).ready(function() {
         });
 
         if (empty.length) {
-            alert('信息输入不完整');
+            // alert('信息输入不完整');
+            swal({
+              title: "Oops",
+              text: "信息输入不完整",
+              type: "error",
+              confirmButtonText: "OK"
+            });
             return;
         }
 
-        if (confirm('输入完毕，确定继续吗?')) {
-            process(total_items);
-            // $('#page-content').replaceWith('<div id="preloader"><div id="status"><p class="center-text">Processing...<em>二维码即刻生成</em></p></div></div>');
-        }
+        swal({
+            title: "确定提交吗?",
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: "取消",
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "确定",
+            closeOnConfirm: false
+        },
+        function(){
+            swal({
+              title: "提交成功",
+              text: "正在跳转...",
+              type: "success",
+              timer: 1500,
+            });
+            setTimeout(function(){
+                process(total_items);
+            }, 2000);
+        });
+
+        // if (confirm('输入完毕，确定继续吗?')) {
+        //     process(total_items);
+        //     // $('#page-content').replaceWith('<div id="preloader"><div id="status"><p class="center-text">Processing...<em>二维码即刻生成</em></p></div></div>');
+        // }
 
     });
 
