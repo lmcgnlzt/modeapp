@@ -113,9 +113,9 @@ class WechatView(object):
 		    access_token = data.get('access_token')
 		    LOGGER.warning('[Wechat oauth] CODE: {}, openid: {}, access_token: {}'.format(CODE, open_id, access_token))
 		    if bool(open_id):
-			    authorized = self.requester.get('/merchant/{}/authorized'.format(open_id)).json()
-			    if authorized:
-			    	return render_to_response('modeapp:static/about.mako', {}, request=self.request)
+			    username = self.requester.get('/merchant/{}/authorized'.format(open_id)).json()
+			    if username is not None: # if authorized above endpoint returns username otherwise returns None
+			    	return render_to_response('modeapp:static/sales.mako', {'merchant_name': username}, request=self.request)
 
 	    elif self.request.method == 'POST':
 	    	username = self.request.params.get('username', '')
