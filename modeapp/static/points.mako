@@ -37,15 +37,15 @@
 <div class="gallery-fix"></div>         <!-- Fix Gallery next/prev error on Android -->
 <div class="sidebar-tap-close"></div>   <!-- Overlay for content to close Sidebar -->
 
-<div class="header-fixed">
+<!-- <div class="header-fixed">
     <a href="#" class="points-logo">Points</a>
-    <!-- <a href="#" class="header-icon-3 open-right-sidebar"><i class="fa fa-navicon"></i></a> -->
-</div>
+    <a href="#" class="header-icon-3 open-right-sidebar"><i class="fa fa-navicon"></i></a>
+</div> -->
 
-<div class="header-search">
+<!-- <div class="header-search">
     <input type="text" value="Looking for something?">
     <a class="close-search-bar" href="#"><i class="fa fa-times"></i></a>
-</div>
+</div> -->
 
 
 <!-- <div class="sidebar-right">
@@ -131,7 +131,7 @@
     <div id="page-content-scroll"><!--Enables this element to be scrolled -->
 
         <div class="coverpage-slider coverpage-news half-bottom">
-            <div class="cover-slide cover-screen" style="background-image:url(http://assets.modeflip.com/auth/background.jpg)">
+            <div class="cover-slide cover-screen" style="background-image:url(http://assets.modeflip.com/ui/points.jpg)">
                 <div class="cover-news">
                     <h4>您当前线下消费总积分为：<b>${total_points}</b></h4>
                     % if total_points != 0:
