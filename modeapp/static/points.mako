@@ -128,17 +128,16 @@
 </div> -->
 
 <div id="page-content">
-    <div id="page-content-scroll"><!--Enables this element to be scrolled -->
 
         <div class="coverpage-slider coverpage-news half-bottom">
             <div class="cover-slide cover-screen" style="background-image:url(http://assets.modeflip.com/ui/points.jpg)">
                 <div class="cover-news">
-                    <h4>您当前线下消费总积分为：<b>${total_points}</b></h4>
+                    <h4>目前您的线下消费总积分为：<b>${total_points}</b></h4>
                     % if total_points != 0:
                     <h5>最近一次获得积分：<a href="#">${last_updated_on}</a></h5>
                     % endif
                     <p class="half-bottom">
-                        在MODE FLIP实体店消费，免费获取线下积分。
+                        在MODE FLIP实体店消费，可以免费获取线下积分。
                         积分获取及使用请咨询我们的线下实体店，感谢您关注MODE FLIP。
                     </p>
                     <p class="half-bottom">
@@ -166,7 +165,6 @@
 
         </div>
 
-    </div>
     <a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>Back to top</a>
 </div>
 
