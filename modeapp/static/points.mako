@@ -134,18 +134,18 @@
         <div class="coverpage-slider coverpage-news half-bottom">
             <div class="cover-slide cover-screen" style="background-image:url(http://assets.modeflip.com/auth/background.jpg)">
                 <div class="cover-news">
-                    <h4>您当前线下消费积分为：<b>${total_points}</b></h4>
+                    <h4>您当前线下消费总积分为：<b>${total_points}</b></h4>
                     % if total_points != 0:
                     <h5>最近一次获得积分：<a href="#">${last_updated_on}</a></h5>
                     % endif
                     <p class="half-bottom">
-                        在MODE FLIP实体店消费，使用销售人员提供的二维码即可获得线下积分。
-                        积分相关活动敬请关注后续通知，感谢您关注MODE FLIP。
+                        在MODE FLIP实体店消费，免费获取线下积分。
+                        积分获取及使用请咨询我们的线下实体店，感谢您关注MODE FLIP。
                     </p>
                     <p class="half-bottom">
-                        Find The Perfect Design at MODE
+                        Find The Perfect Design
                     </p>
-                    <a href="www.modeflip.com" class="button-more-cover">MODE 主页</a>
+                    <a href="http://www.modeflip.com/homepage" class="button-more-cover">MODE 主页</a>
                     <!-- <a href="#" class="button-love-cover"><i class="color-red-dark fa fa-heart"></i></a>
                     <a href="#" class="button-share-cover show-share-bottom"><i class="color-white fa fa-retweet"></i></a> -->
                 </div>
