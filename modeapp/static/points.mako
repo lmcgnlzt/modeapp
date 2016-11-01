@@ -19,8 +19,7 @@
 <link rel="icon" type="image/png" href="images/store/splash/favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="images/store/splash/favicon-16x16.png" sizes="16x16">
 <link rel="shortcut icon" href="images/store/splash/favicon.ico" type="image/x-icon" />
-<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Raleway:900,800,700' rel='stylesheet' type='text/css'>
+<link rel='styles/store/roboto_raleway_fonts.css' rel='stylesheet' type='text/css'>
 
 <title>MODE FLIP</title>
 
