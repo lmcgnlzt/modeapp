@@ -73,7 +73,7 @@ class APIView(object):
 
 	def generate_qr(self):
 		payload = self.request.json_body
-		qr_image_url = self.membershipapi_requester.post('/merchant/generate', json=payload)
+		qr_image_url = self.membershipapi_requester.post('/merchant/generate', json=payload).json()
 		# qr_image_url = 'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEz8ToAAAAAAAAAASxodHRwOi8vd2VpeGluLnFxLmNvbS9xL1NreEJ4djdtejU2Mi1mUmFkbVJRAAIEkIoNWAMEAAAAAA=='
 		return qr_image_url
 
