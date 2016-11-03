@@ -33,7 +33,7 @@
 <script type="text/javascript" src="scripts/store/plugins.js"></script>
 <script type="text/javascript" src="scripts/store/autocomplete/jquery.easy-autocomplete.js"></script>
 <script type="text/javascript" src="scripts/store/sweetalert/sweetalert.min.js"></script>
-<script type="text/javascript" src="scripts/store/sales.js"></script>
+<script type="text/javascript" src="scripts/store/sales.js?1102"></script>
 </head>
 
 <body>
