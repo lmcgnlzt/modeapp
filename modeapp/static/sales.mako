@@ -55,7 +55,6 @@
 
 <div class="sidebar-left">
     <div class="sidebar-scroll">
-        <div class="sidebar-scroll">
         <div class="sidebar-header left-sidebar-header">
             <h3>Store</h3>
             <a class="close-sidebar" href="#"><i class="fa fa-times"></i></a>
