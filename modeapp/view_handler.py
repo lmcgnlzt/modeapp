@@ -50,6 +50,12 @@ class RendersView(object):
 	def about_view(self):
 		return {'success' : True}
 
+	def report_view(self):
+		return {'success' : True}
+
+	def history_view(self):
+		return {'success' : True}
+
 
 def includeme(config):
 	config.add_route('homepage', '/homepage')
@@ -114,4 +120,20 @@ def includeme(config):
 		attr = 'about_view',
 		route_name = 'about',
 		renderer = 'modeapp:static/about.mako'
+	)
+
+	config.add_route('report', '/report_view')
+	config.add_view(
+		'modeapp.view_handler.RendersView',
+		attr = 'report_view',
+		route_name = 'report',
+		renderer = 'modeapp:static/report.mako'
+	)
+
+	config.add_route('history', '/history_view')
+	config.add_view(
+		'modeapp.view_handler.RendersView',
+		attr = 'history_view',
+		route_name = 'history',
+		renderer = 'modeapp:static/history.mako'
 	)

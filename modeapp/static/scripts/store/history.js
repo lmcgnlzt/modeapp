@@ -12,38 +12,6 @@ $( document ).ready(function() {
     });
 
 
-    /*/////////*/
-	/*Pie Chart*/
-	/*/////////*/
-
-	var pieData = [
-		{	value: 44,	color: "#e74c3c", highlight: "#c0392b", label: "Red"			},
-		{	value: 9,	color: "#2ecc71", highlight: "#27ae60",	label: "Green"			},
-		{	value: 21,	color: "#f1c40f", highlight: "#f39c12",	label: "Yellow"			},
-		{	value: 16,	color: "#2c3e50", highlight: "#34495e",	label: "Dark Blue"		},
-		{	value: 10,	color: "#0000FF", highlight: "#0000A0",	label: "Light Blue"		},
-	];
-
-	var barChartData = {
-		labels : ["One","Two","Three","Four","Five"],
-		datasets : [
-			{
-				fillColor : "rgba(0,0,0,0.1)",
-				strokeColor : "rgba(0,0,0,0.2)",
-				highlightFill: "rgba(0,0,0,0.25)",
-				highlightStroke: "rgba(0,0,0,0.25)",
-				data : [20,10,40,30,10]
-			}
-		]
-	}
-
-	window.onload = function(){
-		var pie_chart_1 = document.getElementById("generate-pie-chart").getContext("2d");
-		window.pie_chart_1 = new Chart(pie_chart_1).Pie(pieData);
-
-		var bar_chart_1 = document.getElementById("generate-bar-chart").getContext("2d");
-		window.pie_chart_1 = new Chart(bar_chart_1).Bar(barChartData);
-	};
 
 
 
