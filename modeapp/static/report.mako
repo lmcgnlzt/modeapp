@@ -31,9 +31,10 @@
 
 <script type="text/javascript" src="scripts/store/jquery.js"></script>
 <script type="text/javascript" src="scripts/store/plugins.js"></script>
+<script type="text/javascript" src="scripts/store/framework.plugins.js"></script>
 <script type="text/javascript" src="scripts/store/autocomplete/jquery.easy-autocomplete.js"></script>
 <script type="text/javascript" src="scripts/store/sweetalert/sweetalert.min.js"></script>
-<script type="text/javascript" src="scripts/store/sales.js"></script>
+<script type="text/javascript" src="scripts/store/report.js"></script>
 </head>
 
 <body>
@@ -55,7 +56,6 @@
 
 <div class="sidebar-left">
     <div class="sidebar-scroll">
-        <div class="sidebar-scroll">
         <div class="sidebar-header left-sidebar-header">
             <h3>Store</h3>
             <a class="close-sidebar" href="#"><i class="fa fa-times"></i></a>
@@ -139,74 +139,53 @@
 
         <div class="content">
 
-            <div class="one-half-responsive last-column">
-                <!-- <h3>销售 & 积分</h3>
-                <p class="half-bottom">
-                    输入吊牌号码、价格、尺寸，按“发送”生成顾客消费积分二维码
-                </p> -->
-                <div style="display: none;" id="merchant_name">${merchant_name}</div>
+            <h3>已售商品类别</h3>
+            <p>Pie charts are amazing, and very easy to use in our template, the variables
+            are already inside the custom.js file, you simply copy and paste these
+            variables, duplicate the pie ID, and you succesfully created another
+            responsive chart!</p>
 
-                <div id="items">
-
-                    <div id="item_0" class="store-check-out-1 full-bottom">
-                        <div class="store-input">
-                            <h6>吊牌号码 (*)</h6>
-                            <input id="tags_0" type="text">
-                        </div>
-                        <div class="store-input">
-                            <h6>单品名称</h6>
-                            <input id="name_0" type="text" readonly>
-                        </div>
-                        <div class="one-half">
-                            <div class="store-input">
-                                <h6>原始价格</h6>
-                                <input id="original_price_0" type="text" readonly>
-                            </div>
-                        </div>
-                        <div class="one-half last-column">
-                            <div class="store-input">
-                                <h6>成交价格 (*)</h6>
-                                <input id="sales_price_0" class="sales_price" type="text">
-                            </div>
-                        </div>
-                        <div class="clear"></div>
-                        <div class="store-input">
-                            <h6>尺寸 (*)</h6>
-                            <a index="0" size="XS" href="#" class="sizebutton button button-disabled button-xs btn_0">XS</a>
-                            <a index="0" size="S" href="#" class="sizebutton button button-disabled button-s btn_0">S</a>
-                            <a index="0" size="M" href="#" class="sizebutton button button-disabled btn_0">M</a>
-                            <a index="0" size="L" href="#" class="sizebutton button button-disabled button-l btn_0">L</a>
-                            <a index="0" size="XL" href="#" class="sizebutton button button-disabled button-xl btn_0">XL</a>
-                            <a index="0" size="F" href="#" class="sizebutton button button-disabled button-f btn_0">F</a>
-                            <a index="0" size="F+" href="#" class="sizebutton button button-disabled button-fp btn_0">F+</a>
-                            <input id="size_0" style="display: none;" type="text">
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-
-                </div>
-
-                <p class="category-title">
-                    <a id="add_item" href="#">+ 增加单品</a>
-                    <a id="del_item" href="#">- 删除单品</a>
-                </p>
-
-                <div class="store-check-out-1 full-bottom">
-                    <div class="store-input">
-                        <h6>附加赠品</h6>
-                        <select id="gift">
-                            <option value="">(默认无)</option>
-                            <option value="SHOPPING BAG Small">SHOPPING BAG(小号)</option>
-                            <option value="SHOPPING BAG Big">SHOPPING BAG(大号)</option>
-                        </select>
+            <div class="container">
+                <div class="one-half-responsive">
+                    <div class="full-bottom" id="pie-chart">
+                        <canvas id="generate-pie-chart"></canvas>
                     </div>
                 </div>
-                <div class="decoration"></div>
-
-
-                <a id="generate" href="#" class="button button-green button-fullscreen">生成积分二维码</a>
+                <div class="one-half-responsive last-column">
+                    <h3>统计分析</h3>
+                    <p class="no-bottom"><em class="chart-box" style="background-color:#c0392b"></em>44% 上衣</p>
+                    <p class="no-bottom"><em class="chart-box" style="background-color:#2ecc71"></em>9% 外套</p>
+                    <p class="no-bottom"><em class="chart-box" style="background-color:#f1c40f"></em>21% 连衣裙</p>
+                    <p class="no-bottom"><em class="chart-box" style="background-color:#2c3e50"></em>16% 下装</p>
+                    <p class="no-bottom"><em class="chart-box" style="background-color:#2c3e50"></em>10% 配饰</p>
+                </div>
             </div>
-            <div class="clear"></div>
+
+            <div class="decoration"></div>
+
+            <h3>销售趋势</h3>
+            <p>Pie charts are amazing, and very easy to use in our template, the variables
+            are already inside the custom.js file, you simply copy and paste these
+            variables, duplicate the pie ID, and you succesfully created another
+            responsive chart!</p>
+
+            <div class="container">
+                <div class="one-half-responsive">
+                    <div class="full-bottom" id="bar-chart">
+                        <canvas id="generate-bar-chart"></canvas>
+                    </div>
+                </div>
+                <div class="one-half-responsive last-column">
+                    <h3>统计分析</h3>
+                    <p class="no-bottom"><strong class="chart-text">One: </strong>50% More Red!</p>
+                    <p class="no-bottom"><strong class="chart-text">Two: </strong>10% More Green!</p>
+                    <p class="no-bottom"><strong class="chart-text">Three: </strong>10% More Yellow!</p>
+                    <p class="no-bottom"><strong class="chart-text">Four:</strong>10% More Blue!</p>
+                </div>
+            </div>
+
+
+
         </div>
 
     </div>

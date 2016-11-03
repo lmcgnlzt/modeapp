@@ -17,22 +17,22 @@ $( document ).ready(function() {
 	/*/////////*/
 
 	var pieData = [
-		{	value: 44,	color: "#e74c3c", highlight: "#c0392b", label: "Red"			},
-		{	value: 9,	color: "#2ecc71", highlight: "#27ae60",	label: "Green"			},
-		{	value: 21,	color: "#f1c40f", highlight: "#f39c12",	label: "Yellow"			},
-		{	value: 16,	color: "#2c3e50", highlight: "#34495e",	label: "Dark Blue"		},
-		{	value: 10,	color: "#0000FF", highlight: "#0000A0",	label: "Light Blue"		},
+		{	value: 44,	color: "#e74c3c", highlight: "#c0392b", label: "上衣"			},
+		{	value: 9,	color: "#2ecc71", highlight: "#27ae60",	label: "外套"			},
+		{	value: 21,	color: "#f1c40f", highlight: "#f39c12",	label: "连衣裙"			},
+		{	value: 16,	color: "#2c3e50", highlight: "#34495e",	label: "下装"		},
+		{	value: 10,	color: "#0000FF", highlight: "#0000A0",	label: "配饰"		},
 	];
 
 	var barChartData = {
-		labels : ["One","Two","Three","Four","Five"],
+		labels : ["1月","2️月","3月","4月","5月","6月"],
 		datasets : [
 			{
 				fillColor : "rgba(0,0,0,0.1)",
 				strokeColor : "rgba(0,0,0,0.2)",
 				highlightFill: "rgba(0,0,0,0.25)",
 				highlightStroke: "rgba(0,0,0,0.25)",
-				data : [20,10,40,30,10]
+				data : [20,10,40,30,10,17]
 			}
 		]
 	}
