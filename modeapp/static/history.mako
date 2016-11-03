@@ -201,7 +201,7 @@
                     <div class="toggle-content">
                         <div class="store-history-item">
                             <a href="#">
-                                <img data-original="http://assets.modeflip.com/eileen/collections/edie/garments/bella_dress/details/0.jpg" alt="img" class="preload-image">
+                                <img data-original="http://assets.modeflip.com/ui/test/history_demo/1.jpg" alt="img" class="preload-image">
                             </a>
                             <h1>ProMobile</h1>
                             <h2>Mobile andTablet Template</h2>
@@ -246,7 +246,7 @@
                     <div class="toggle-content">
                         <div class="store-history-item">
                             <a href="#">
-                                <img data-original="http://assets.modeflip.com/eileen/collections/edie/garments/bella_dress/details/0.jpg" alt="img" class="preload-image">
+                                <img data-original="http://assets.modeflip.com/ui/test/history_demo/1.jpg" alt="img" class="preload-image">
                             </a>
                             <h1>ProMobile</h1>
                             <h2>Mobile andTablet Template</h2>
@@ -291,7 +291,7 @@
                     <div class="toggle-content">
                         <div class="store-history-item">
                             <a href="#">
-                                <img data-original="http://assets.modeflip.com/eileen/collections/edie/garments/bella_dress/details/0.jpg" alt="img" class="preload-image">
+                                <img data-original="http://assets.modeflip.com/ui/test/history_demo/1.jpg" alt="img" class="preload-image">
                             </a>
                             <h1>ProMobile</h1>
                             <h2>Mobile andTablet Template</h2>
@@ -343,7 +343,7 @@
                     <div class="toggle-content">
                         <div class="store-history-item">
                             <a href="#">
-                                <img data-original="http://assets.modeflip.com/eileen/collections/edie/garments/bella_dress/details/0.jpg" alt="img" class="preload-image">
+                                <img data-original="http://assets.modeflip.com/ui/test/history_demo/1.jpg" alt="img" class="preload-image">
                             </a>
                             <h1>ProMobile</h1>
                             <h2>Mobile andTablet Template</h2>
@@ -388,7 +388,7 @@
                     <div class="toggle-content">
                         <div class="store-history-item">
                             <a href="#">
-                                <img data-original="http://assets.modeflip.com/eileen/collections/edie/garments/bella_dress/details/0.jpg" alt="img" class="preload-image">
+                                <img data-original="http://assets.modeflip.com/ui/test/history_demo/1.jpg" alt="img" class="preload-image">
                             </a>
                             <h1>ProMobile</h1>
                             <h2>Mobile andTablet Template</h2>
@@ -433,7 +433,7 @@
                     <div class="toggle-content">
                         <div class="store-history-item">
                             <a href="#">
-                                <img data-original="http://assets.modeflip.com/eileen/collections/edie/garments/bella_dress/details/0.jpg" alt="img" class="preload-image">
+                                <img data-original="http://assets.modeflip.com/ui/test/history_demo/1.jpg" alt="img" class="preload-image">
                             </a>
                             <h1>ProMobile</h1>
                             <h2>Mobile andTablet Template</h2>
@@ -478,7 +478,7 @@
                     <div class="toggle-content">
                         <div class="store-history-item">
                             <a href="#">
-                                <img data-original="http://assets.modeflip.com/eileen/collections/edie/garments/bella_dress/details/0.jpg" alt="img" class="preload-image">
+                                <img data-original="http://assets.modeflip.com/ui/test/history_demo/1.jpg" alt="img" class="preload-image">
                             </a>
                             <h1>ProMobile</h1>
                             <h2>Mobile andTablet Template</h2>

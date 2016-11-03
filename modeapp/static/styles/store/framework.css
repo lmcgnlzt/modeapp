@@ -2152,6 +2152,14 @@ ul.tabs li.active-tab {
     display: block;
     text-align: center
 }
+.button-fullscreen-bottom {
+    width: 100%!important;
+    text-align: center;
+    position:fixed;
+    z-index:99999999;
+    position:absolute;
+    top:120%;
+}
 .button-round {
     border-radius: 5px
 }

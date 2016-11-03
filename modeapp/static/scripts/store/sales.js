@@ -91,11 +91,32 @@ function present_qr(qr_image_url) {
                     消费积分二维码\
                 </p>\
                 <img id="qr_code" src="{0}">\
+                <a id="complete_scan" href="#" class="button button-green button-fullscreen-bottom">完成并返回</a>\
+                <div class="clear"></div>\
             </div>\
         </div>\
     ';
     $('#page-content').replaceWith(String.format(qr_code_content, qr_image_url));
-    // $('#preloader').replaceWith(String.format(qr_code_content, qr_image_url));
+
+    $('#complete_scan').click(function(e){
+        e.preventDefault(); //preventing the link from being followed.
+
+        swal({
+            title: "确定返回吗?",
+            text: "二维码本页面内有效，长按保存备份至手机",
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: "取消",
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "确定",
+            closeOnConfirm: true
+        },
+        function(){
+            window.location.replace("/sales_view");
+        });
+
+    });
+
 }
 
 
@@ -268,7 +289,6 @@ $( document ).ready(function() {
         });
 
         if (empty.length) {
-            // alert('信息输入不完整');
             swal({
               title: "Oops",
               text: "信息输入不完整",
@@ -298,11 +318,6 @@ $( document ).ready(function() {
                 process(total_items);
             }, 2000);
         });
-
-        // if (confirm('输入完毕，确定继续吗?')) {
-        //     process(total_items);
-        //     // $('#page-content').replaceWith('<div id="preloader"><div id="status"><p class="center-text">Processing...<em>二维码即刻生成</em></p></div></div>');
-        // }
 
     });
 
