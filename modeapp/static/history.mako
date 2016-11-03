@@ -67,7 +67,7 @@
             Navigation
         </div>
         <div class="sidebar-menu">
-            <a class="menu-item" href="/merchantlogin">
+            <a class="menu-item" href="/sales_view">
                 <i class="fa fa-qrcode"></i>
                 积分二维码
                 <i class="fa fa-circle"></i>
