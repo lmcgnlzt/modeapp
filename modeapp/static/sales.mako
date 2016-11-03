@@ -24,7 +24,7 @@
 <title>MODE FLIP</title>
 
 <link href="styles/store/style.css" rel="stylesheet" type="text/css">
-<link href="styles/store/framework.css" rel="stylesheet" type="text/css">
+<link href="styles/store/framework.css?1102" rel="stylesheet" type="text/css">
 <link href="styles/store/autocomplete/easy-autocomplete.css" rel="stylesheet" type="text/css">
 <link href="styles/store/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
 <link href="styles/font-awesome.css" rel="stylesheet" type="text/css">
