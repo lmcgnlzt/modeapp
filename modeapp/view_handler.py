@@ -50,6 +50,9 @@ class RendersView(object):
 	def about_view(self):
 		return {'success' : True}
 
+	def sales_view(self):
+		return {'merchant_name' : 'tianjin'}
+
 	def report_view(self):
 		return {'success' : True}
 
@@ -120,6 +123,14 @@ def includeme(config):
 		attr = 'about_view',
 		route_name = 'about',
 		renderer = 'modeapp:static/about.mako'
+	)
+
+	config.add_route('sales', '/sales_view')
+	config.add_view(
+		'modeapp.view_handler.RendersView',
+		attr = 'sales_view',
+		route_name = 'sales',
+		renderer = 'modeapp:static/sales.mako'
 	)
 
 	config.add_route('report', '/report_view')
