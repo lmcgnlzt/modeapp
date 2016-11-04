@@ -33,7 +33,7 @@
 <script type="text/javascript" src="scripts/store/plugins.js"></script>
 <script type="text/javascript" src="scripts/store/autocomplete/jquery.easy-autocomplete.js"></script>
 <script type="text/javascript" src="scripts/store/sweetalert/sweetalert.min.js"></script>
-<script type="text/javascript" src="scripts/store/sales.js?1102"></script>
+<script type="text/javascript" src="scripts/store/sales.js?1103"></script>
 </head>
 
 <body>
@@ -192,14 +192,11 @@
 
                 <div class="store-check-out-1 full-bottom">
                     <div class="store-input">
-                        <h6>附加赠品</h6>
-                        <select id="gift">
-                            <option value="">(默认无)</option>
-                            <option value="SHOPPING BAG Small">SHOPPING BAG(小号)</option>
-                            <option value="SHOPPING BAG Big">SHOPPING BAG(大号)</option>
-                        </select>
+                        <h6>附加赠品 (optional)</h6>
+                        <input id="gift" type="text" placeholder="(默认无)">
                     </div>
                 </div>
+
                 <div class="decoration"></div>
 
 
