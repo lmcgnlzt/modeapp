@@ -126,7 +126,7 @@ function activate_autocomplete(index) {
             return CONFIG.api_base_url().concat('/sales/tags');
         },
         getValue: "tag",
-        placeholder: "tips: 方便快速查询，输入最后三位，点选",
+        placeholder: "tips: 输入最后三位，快速查询",
         adjustWidth: false,
         template: {
             type: "description",
@@ -166,45 +166,6 @@ function activate_autocomplete(index) {
         }
     };
     $("#tags_"+index).easyAutocomplete(options);
-}
-
-
-function activate_autocomplete_for_gift() {
-    var options = {
-        url: function() {
-            return CONFIG.api_base_url().concat('/sales/tags');
-        },
-        getValue: "tag",
-        placeholder: "tips: 方便快速查询，输入最后三位，点选",
-        adjustWidth: false,
-        template: {
-            type: "description",
-            fields: {
-                description: "name"
-            }
-        },
-        list: {
-            maxNumberOfElements: 5,
-            match: {
-                enabled: true
-            },
-            showAnimation: {
-                    type: "fade", //normal|slide|fade
-                    time: 400,
-                    callback: function() {}
-                },
-            onChooseEvent: function() {
-                var tag = $("#gift").getSelectedItemData().tag;
-                var name = $("#gift").getSelectedItemData().name;
-
-                $.getJSON(CONFIG.api_base_url().concat('/sales/items/', tag), function(data) {
-                    $('#gift').val(data['tag']+' - '+data['name']);
-
-                });
-            },
-        }
-    };
-    $("#gift").easyAutocomplete(options);
 }
 
 
@@ -318,8 +279,6 @@ $( document ).ready(function() {
     activate_autocomplete(total_items);
 
     activate_price_validator();
-
-    activate_autocomplete_for_gift();
 
 
     $('#generate').click(function(e){
