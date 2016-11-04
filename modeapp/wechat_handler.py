@@ -93,6 +93,14 @@ class WechatView(object):
 					payload = {'scene_key': key, 'scanner_open_id': source}
 					self.requester.post('/member/scan', json=payload) # this can be refactored later to accept all kinds of scan
 
+			elif mtype == 'subscribe':
+				key = msg.key
+				LOGGER.warning('[Subscribe event captured] from [%s], key: %s', source, key)
+				if key and key.starswith('qrscene_'):
+					scene_key = key.split('qrscene_')[1]
+					payload = {'scene_key': scene_key, 'scanner_open_id': source}
+					self.requester.post('/member/scan', json=payload)
+
 		except ParseError as e:
 			LOGGER.exception(e)
 		return ''
