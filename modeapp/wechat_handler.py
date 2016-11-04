@@ -96,7 +96,7 @@ class WechatView(object):
 			elif mtype == 'subscribe':
 				key = msg.key
 				LOGGER.warning('[Subscribe event captured] from [%s], key: %s', source, key)
-				if key and key.starswith('qrscene_'):
+				if key and key.startswith('qrscene_'):
 					scene_key = key.split('qrscene_')[1]
 					payload = {'scene_key': scene_key, 'scanner_open_id': source}
 					self.requester.post('/member/scan', json=payload)
